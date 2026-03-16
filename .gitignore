@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+.gemini/
+.antigravity/
+.system_generated/
+/brain/
+temp/
+*.log

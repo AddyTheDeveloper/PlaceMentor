@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Hub - PlaceMentor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .career-card { border-top: 5px solid var(--purple); }
+        .star-method { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+        .star-box { background: var(--glass); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--purple); text-align: center; }
+        .star-box h4 { color: var(--purple); margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <aside class="sidebar">
+            <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i><span>PlaceMentor</span></div>
+            <nav class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item"><a href="unit1.html" class="nav-link"><i class="fas fa-microchip"></i><span>Unit 1: OS</span></a></li>
+                <li class="nav-item"><a href="unit2.html" class="nav-link"><i class="fas fa-network-wired"></i><span>Unit 2: CN</span></a></li>
+                <li class="nav-item"><a href="unit3.html" class="nav-link"><i class="fas fa-database"></i><span>Unit 3: DBMS</span></a></li>
+                <li class="nav-item"><a href="unit4.html" class="nav-link"><i class="fas fa-code"></i><span>Unit 4: Programming</span></a></li>
+                <li class="nav-item"><a href="unit5.html" class="nav-link"><i class="fas fa-project-diagram"></i><span>Unit 5: DS</span></a></li>
+                <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
+                <li class="nav-item"><a href="career.html" class="nav-link active"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
+            </nav>
+            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+        </aside>
+
+        <main class="main-content">
+            <header class="glass-card career-card">
+                <h1>Placement & Career Hub</h1>
+                <p>Beyond Technical: Resume Building, Communication Mastery, and Mock Interview Simulations.</p>
+
+                <h4>Visual Learning: The Placement Roadmap</h4>
+                <div class="diagram-container">
+                    <div class="visual-node">1. Mastery of Fundamentals (This Site)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--success);">2. Resume & Portfolio Building</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--warning);">3. DSA & Coding Rounds</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--danger);">4. Technical & HR Interviews</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--info);">5. The Offer Letter 🚀</div>
+                </div>
+            </header>
+
+            <!-- Resume Building -->
+            <section class="glass-card">
+                <h2><i class="fas fa-file-alt"></i> Resume Building (CO4)</h2>
+                <div class="info-box important">
+                    <p><strong>Rule of One:</strong> One page, one clear objective, one font family (preferably Inter or Helvetica).</p>
+                </div>
+                <h4>The STAR Method for Project Descriptions</h4>
+                <div class="star-method">
+                    <div class="star-box"><h4>S</h4><p>Situation</p></div>
+                    <div class="star-box"><h4>T</h4><p>Task</p></div>
+                    <div class="star-box"><h4>A</h4><p>Action</p></div>
+                    <div class="star-box"><h4>R</h4><p>Result</p></div>
+                </div>
+                <div class="info-box definition">
+                    <p><strong>Pro-Tip:</strong> Use metrics! "Optimized sorting by 40%" is better than "Wrote a sorting algorithm."</p>
+                </div>
+            </section>
+
+            <!-- Behavioral Mastery -->
+            <section class="glass-card">
+                <h2><i class="fas fa-comments"></i> Behavioral Interview Scenarios (CO6)</h2>
+                <div class="info-box interview">
+                    <p><strong>"Tell me about a time you failed."</strong><br>
+                    Focus on the <em>learning</em> and <em>recovery</em>, not the failure itself.</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>Scenario</th><th>Best Approach</th></tr></thead>
+                    <tbody>
+                        <tr><td>Conflict in Team</td><td>Explain how you mediated using data and neutral communication.</td></tr>
+                        <tr><td>Tight Deadline</td><td>Showcase prioritization and time management (Agile mindset).</td></tr>
+                        <tr><td>Strength / Weakness</td><td>Weakness should be real but actionable (e.g., "I sometimes over-focus on details").</td></tr>
+                        <tr><td>Why should we hire you?</td><td>Align your unique skills with the company's current challenges/needs.</td></tr>
+                        <tr><td>Where do you see yourself in 5 years?</td><td>Focus on growth, skill mastery, and contributing to the organization's goals.</td></tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Mock Simulation Mockup -->
+            <section class="glass-card" style="border: 2px solid var(--purple); text-align: center; padding: 3rem;">
+                <i class="fas fa-video fa-4x" style="color: var(--purple); margin-bottom: 1rem;"></i>
+                <h2>AI Interview Simulation</h2>
+                <p>Ready to test your behavioral skills? Let PlaceMentor AI generate a unique interview scenario for you.</p>
+                <div id="quiz-career" style="text-align: left; margin-top: 1.5rem;"></div>
+                <button class="btn btn-primary" onclick="generateAIQuiz('career', 'Behavioral Interview Questions, HR Scenarios, and Soft Skills')">
+                    <i class="fas fa-robot"></i> Start AI Simulation
+                </button>
+                <div id="quiz-result-career"></div>
+            </section>
+
+            <!-- Communication CO5 -->
+            <section class="glass-card">
+                <h2><i class="fas fa-bullhorn"></i> Effective Communication (CO5)</h2>
+                <ul>
+                    <li><strong>Clarity:</strong> Don't use jargon unless necessary.</li>
+                    <li><strong>Confidence:</strong> Maintain eye contact and posture (even in virtual rounds).</li>
+                    <li><strong>Curiosity:</strong> Always ask 2-3 questions to the interviewer at the end.</li>
+                </ul>
+            </section>
+
+            <section class="glass-card" style="border-top: 5px solid var(--success);">
+                <h2><i class="fas fa-history"></i> The "Interview Eve" Checklist</h2>
+                <div class="info-box definition">
+                    <p><strong>Last 24 Hours:</strong> Don't try to learn new topics. Focus on revision and mental preparation.</p>
+                </div>
+                <ul>
+                    <li><strong>Review the Basics:</strong> Skim through the "Placement FAQs" in each unit of this platform.</li>
+                    <li><strong>Research the Company:</strong> Know their products, recent news, and core values.</li>
+                    <li><strong>Logistics:</strong> Check your internet (if virtual) or plan your route (if physical). Keep your outfit ready.</li>
+                    <li><strong>Questions for Interviewer:</strong> Prepare at least 3 thoughtful questions (e.g., "What does a typical day look like for an associate engineer here?").</li>
+                    <li><strong>Sleep:</strong> 7-8 hours of rest is mandatory for cognitive performance.</li>
+                </ul>
+            </section>
+
+            <footer>
+                <p>© 2026 <strong>PlaceMentor</strong> | Designed & Developed by <strong>Aditya Hans</strong></p>
+                <div class="footer-links">
+                    <a href="https://github.com/AddyTheDeveloper" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adityahans17" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:adityahans.17@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- PlaceMentor AI Widget -->
+    <div id="ai-widget">
+        <div id="ai-panel">
+            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
+            <div class="ai-input-group">
+                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
+                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
+            </div>
+            <div id="ai-response">I am your technical interview coach. How can I help?</div>
+        </div>
+        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <script src="script.js?v=2.1.1"></script>
+    <script>
+        function toggleAIPanel() {
+            const panel = document.getElementById('ai-panel');
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleAIConsult() {
+            const prompt = document.getElementById('ai-prompt').value;
+            if (prompt) askPlaceMentorAI(prompt);
+        }
+    </script>
+</body>
+</html>

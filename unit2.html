@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2: Computer Networking - PlaceMentor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
+        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .tech-table th { background: var(--success); color: white; padding: 1rem; text-align: left; }
+        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+        
+        .osi-stack { display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; margin: 2rem auto; }
+        .osi-layer { padding: 1rem; text-align: center; color: white; font-weight: bold; border-radius: 0.5rem; cursor: pointer; transition: 0.3s; }
+        .osi-layer:hover { transform: scale(1.03); filter: brightness(1.1); }
+        .layer-info { margin-top: 1rem; padding: 1.5rem; border-radius: 1rem; background: var(--glass); border: 2px solid var(--success); }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i>                <span>PlaceMentor</span>
+</div>
+            <nav class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item"><a href="unit1.html" class="nav-link"><i class="fas fa-microchip"></i><span>Unit 1: OS</span></a></li>
+                <li class="nav-item"><a href="unit2.html" class="nav-link active"><i class="fas fa-network-wired"></i><span>Unit 2: CN</span></a></li>
+                <li class="nav-item"><a href="unit3.html" class="nav-link"><i class="fas fa-database"></i><span>Unit 3: DBMS</span></a></li>
+                <li class="nav-item"><a href="unit4.html" class="nav-link"><i class="fas fa-code"></i><span>Unit 4: Programming</span></a></li>
+                <li class="nav-item"><a href="unit5.html" class="nav-link"><i class="fas fa-project-diagram"></i><span>Unit 5: DS</span></a></li>
+                <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
+                <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
+            </nav>
+            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+        </aside>
+
+        <main class="main-content">
+            <header class="glass-card" style="border-left: 6px solid var(--success);">
+                <h1>Unit 2: Computer Networks</h1>
+                <p>Foundations of Connectivity: Topologies, OSI Stack, and Global Protocols.</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </header>
+
+            <!-- 1. Topologies & Media -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-sitemap"></i> 1. Network Foundations & Topologies</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Topology</th><th>Pros</th><th>Cons</th></tr></thead>
+                    <tbody>
+                        <tr><td>Bus</td><td>Cheap, simple setup.</td><td>Difficult to troubleshoot; failure of main cable breaks network.</td></tr>
+                        <tr><td>Star</td><td>Central control, easy to add nodes.</td><td>If central hub fails, everything goes down.</td></tr>
+                        <tr><td>Ring</td><td>Ordered data flow.</td><td>Failure of one node affects all.</td></tr>
+                        <tr><td>Mesh</td><td>High redundancy/fault tolerance.</td><td>Expensive (Full mesh needs n(n-1)/2 cables).</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box definition">
+                    <p><strong>OSI Model:</strong> A conceptual framework used to understand network interactions in 7 abstraction layers.</p>
+                </div>
+
+                <h4>Visual Learning: OSI Layer Data Flow</h4>
+                <div class="diagram-container">
+                    <div class="visual-node">Application Layer (Data)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node">Transport Layer (Segments)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node">Network Layer (Packets)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node">Data Link Layer (Frames)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node">Physical Layer (Bits)</div>
+                </div>
+
+                <div class="network-layer">
+                    <h5>Layer 1: Physical (The Bit Stream)</h5>
+                    <p><strong>Multiplexing:</strong> Combining multiple signals into one medium. <br>
+                    - <strong>FDM (Frequency):</strong> Radio/TV. <br>
+                    - <strong>TDM (Time):</strong> Digital telephony. <br>
+                    - <strong>WDM (Wavelength):</strong> Fiber optics.</p>
+                </div>
+                <div class="network-layer">
+                    <h5>Layer 2: Data Link (Hop-to-Hop)</h5>
+                    <p><strong>Flow Control:</strong> Preventing sender from overwhelming receiver. <br>
+                    - <strong>Stop-and-Wait:</strong> Sends 1 frame, waits for ACK. <br>
+                    - <strong>Sliding Window:</strong> Sends multiple frames before needing ACK (Go-Back-N, Selective Repeat).</p>
+                    <p><strong>Error Detection:</strong> CRC (Cyclic Redundancy Check) and Checksum.</p>
+                </div>
+                <div class="info-box definition">
+                    <p><strong>Subnetting:</strong> The process of dividing a large network into smaller, manageable sub-networks (subnets). This helps in reducing network traffic and enhancing security.</p>
+                </div>
+                <h5>ARP and ICMP (Helper Protocols)</h5>
+                <ul>
+                    <li><strong>ARP (Address Resolution Protocol):</strong> Maps IP address to MAC address.</li>
+                    <li><strong>ICMP (Internet Control Message Protocol):</strong> Used for error reporting (e.g., Ping, Traceroute).</li>
+                </ul>
+                <div id="subnet-calc-info" class="glass-card" style="margin-top: 1.5rem;">
+                    <p><em>Use the calculator in Chapter 3 for interactive practice!</em></p>
+                </div>
+            </div>
+
+            <!-- 2. Models -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-layer-group"></i> 2. OSI & TCP/IP Models</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="osi-stack">
+                    <div class="osi-layer" style="background: #ef4444;" onclick="showLayer(7)">7. Application (Data)</div>
+                    <div class="osi-layer" style="background: #f59e0b;" onclick="showLayer(6)">6. Presentation (Data)</div>
+                    <div class="osi-layer" style="background: #22c55e;" onclick="showLayer(5)">5. Session (Data)</div>
+                    <div class="osi-layer" style="background: #3b82f6;" onclick="showLayer(4)">4. Transport (Segments)</div>
+                    <div class="osi-layer" style="background: #6366f1;" onclick="showLayer(3)">3. Network (Packets)</div>
+                    <div class="osi-layer" style="background: #a855f7;" onclick="showLayer(2)">2. Data Link (Frames)</div>
+                    <div class="osi-layer" style="background: #ec4899;" onclick="showLayer(1)">1. Physical (Bits)</div>
+                </div>
+                <div id="osi-info" class="layer-info">
+                    <p style="text-align: center; color: var(--text-muted);">Click a layer to view Placement Notes</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>IPv4 vs IPv6:</strong><br>
+                    <strong>IPv4:</strong> 32-bit, decimal notation, 4.3 billion addresses.<br>
+                    <strong>IPv6:</strong> 128-bit, hexadecimal notation, virtually unlimited addresses (340 undecillion).</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>Aspect</th><th>IPv4</th><th>IPv6</th></tr></thead>
+                    <tbody>
+                        <tr><td>Address Space</td><td>32-bit (4 Billion)</td><td>128-bit (Infinity...)</td></tr>
+                        <tr><td>Notation</td><td>Dotted Decimal</td><td>Hexadecimal</td></tr>
+                        <tr><td>Header</td><td>Variable (20-60 bytes)</td><td>Fixed (40 bytes)</td></tr>
+                    </tbody>
+                </table>
+                <div class="glass-card" style="border-top: 4px solid var(--primary);">
+                    <h5>Routing Protocols: DV vs Link State</h5>
+                    <p><strong>Distance Vector (RIP):</strong> Each router tells its neighbors about the whole world. Based on <em>Bellman-Ford</em>. <br><strong>Link State (OSPF):</strong> Each router tells the whole world about its neighbors. Based on <em>Dijkstra</em>.</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Application Layer Protocols:</strong> <br>
+                    - <strong>HTTP/HTTPS:</strong> Port 80/443. <br>
+                    - <strong>DNS:</strong> Port 53 (UDP). <br>
+                    - <strong>DHCP:</strong> Dynamic IP allocation.</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>TCP/IP vs OSI:</strong> OSI is a theoretical model; TCP/IP is the practical implementation used on the Internet. TCP/IP has 4 layers: Application, Transport, Internet, Network Access.</p>
+                </div>
+                
+                <h4>4. Error Detection: CRC & Checksum</h4>
+                <div class="info-box formula">
+                    <p><strong>CRC (Cyclic Redundancy Check):</strong> Uses polynomial division to detect errors. A generator polynomial is used to create a checksum at the sender, and the receiver verifies it.</p>
+                </div>
+                
+                <h4>5. Congestion Control</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="info-box important" style="border-color: var(--primary);">
+                        <h5>Leaky Bucket</h5>
+                        <p>Output rate is fixed. Regardless of bursty input, packets flow out at a constant pace.</p>
+                    </div>
+                    <div class="info-box important" style="border-color: var(--secondary);">
+                        <h5>Token Bucket</h5>
+                        <p>Allows bursty output if tokens are available. More flexible than Leaky Bucket.</p>
+                    </div>
+                </div>
+
+                <h4>6. Socket Programming Basics</h4>
+                <pre>
+Server: socket() -> bind() -> listen() -> accept() -> recv()/send()
+Client: socket() -> connect() -> send()/recv()
+                </pre>
+            </div>
+
+            <!-- 3. Subnetting Deep Dive -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-calculator"></i> 3. Subnetting & Routing Deep Dive</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box formula">
+                    <p><strong>Number of Subnets</strong> = 2<sup>n</sup> (where n = number of borrowed bits)</p>
+                    <p><strong>Number of Hosts per Subnet</strong> = 2<sup>h</sup> - 2 (where h = remaining host bits)</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>Class</th><th>Range</th><th>Default Mask</th><th>Usage</th></tr></thead>
+                    <tbody>
+                        <tr><td>Class A</td><td>1 - 126</td><td>255.0.0.0</td><td>Very large networks</td></tr>
+                        <tr><td>Class B</td><td>128 - 191</td><td>255.255.0.0</td><td>Midsized networks</td></tr>
+                        <tr><td>Class C</td><td>192 - 223</td><td>255.255.255.0</td><td>Small networks</td></tr>
+                        <tr><td>Class D</td><td>224 - 239</td><td>N/A</td><td>Multicasting</td></tr>
+                    </tbody>
+                </table>
+                <div id="subnet-calc" class="glass-card" style="margin-top: 1.5rem;">
+                    <h5>IP Subnetting: "How to Solve" Guide</h5>
+                    <p><strong>Problem:</strong> Divide 192.168.1.0/24 into 4 subnets.</p>
+                    <ol style="font-size: 0.9rem;">
+                        <li><strong>Find Bits Needed:</strong> 2^n ≥ 4 subnets → n = 2 bits.</li>
+                        <li><strong>New Mask:</strong> /24 + 2 = /26 (255.255.255.192).</li>
+                        <li><strong>Block Size:</strong> 256 - 192 = 64.</li>
+                        <li><strong>Subnet Ranges:</strong>
+                            <br>1: 192.168.1.0 to .63
+                            <br>2: 192.168.1.64 to .127
+                            <br>3: 192.168.1.128 to .191
+                            <br>4: 192.168.1.192 to .255
+                        </li>
+                    </ol>
+                </div>
+                <section class="glass-card" style="border: 1px solid var(--success);">
+                    <h4>Interactive CIDR Calculator</h4>
+                    <div style="display: flex; gap: 1rem; align-items: center;">
+                        <input type="text" id="ip-in" class="btn" value="192.168.1.0" style="flex: 1;">
+                        <input type="number" id="cidr-in" class="btn" value="24" style="width: 80px;">
+                        <button class="btn btn-primary" onclick="calcSubnet()">Calculate</button>
+                    </div>
+                    <div id="subnet-out" style="margin-top: 1rem;"></div>
+                    <div class="glass-card" style="border-left: 5px solid var(--secondary); background: rgba(var(--secondary-rgb), 0.05);">
+                    <h5>Placement Case Study: 3-Way Handshake</h5>
+                    <p><strong>Question:</strong> "Why is a 2-way handshake insufficient for TCP?"</p>
+                    <p><strong>Answer:</strong> To prevent "half-open" connections. A 3-way handshake ensures that both sides have received a sequence number and are ready to communicate. <br><strong>Sequence:</strong> SYN(S) → SYN(R)+ACK(S) → ACK(R).</p>
+                </div>
+            </section>
+            </div>
+
+            <!-- 4. Key Protocols -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-globe"></i> 4. Key Protocols: Port & Mastery</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Protocol</th><th>Port</th><th>Purpose</th></tr></thead>
+                    <tbody>
+                        <tr><td>HTTP / HTTPS</td><td>80 / 443</td><td>Transferring web pages.</td></tr>
+                        <tr><td>DNS</td><td>53</td><td>Domain name to IP resolution.</td></tr>
+                        <tr><td>SMTP</td><td>25</td><td>Sending Emails.</td></tr>
+                        <tr><td>POP3 / IMAP</td><td>110 / 143</td><td>Receiving Emails.</td></tr>
+                        <tr><td>FTP</td><td>20, 21</td><td>Transferring files.</td></tr>
+                        <tr><td>DHCP</td><td>67, 68</td><td>Assigning dynamic IPs automatically.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Interview Qs -->
+            <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
+                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Computer Networks</h2>
+                <ol style="padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>What is the difference between TCP and UDP?</strong> (TCP is connection-oriented, reliable. UDP is connectionless, fast).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>What happens when you type google.com in a browser?</strong> (DNS lookup → TCP Handshake → HTTP Request → Server Response).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>What is ARP?</strong> (Address Resolution Protocol: Maps IP to MAC address).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Difference between Switch and Router?</strong> (Switch works at L2, Router works at L3).</li>
+                    <li>... more in Career Hub.</li>
+                </ol>
+            </div>
+
+            <div class="collapsible-header" style="margin-top: 2rem;">
+                <h3><i class="fas fa-vial"></i> 14. Unit 2 AI Practice Quiz</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="glass-card" style="text-align: center; padding: 2rem;">
+                    <p style="margin-bottom: 1.5rem;">Generate unique Networking MCQs for placement prep.</p>
+                    <button class="btn btn-primary" onclick="generateAIQuiz('unit2', 'Computer Networks, OSI Layers, TCP/IP, and Protocols')">
+                        <i class="fas fa-magic"></i> Generate AI Quiz
+                    </button>
+                </div>
+                <div id="quiz-unit2"></div>
+                <div id="quiz-result-unit2"></div>
+            </div>
+
+            <footer>
+                <p>© 2026 <strong>PlaceMentor</strong> | Designed & Developed by <strong>Aditya Hans</strong></p>
+                <div class="footer-links">
+                    <a href="https://github.com/AddyTheDeveloper" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adityahans17" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:adityahans.17@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- PlaceMentor AI Widget -->
+    <div id="ai-widget">
+        <div id="ai-panel">
+            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
+            <div class="ai-input-group">
+                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
+                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
+            </div>
+            <div id="ai-response">I am your technical interview coach. How can I help?</div>
+        </div>
+        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <script src="script.js?v=2.1.1"></script>
+    <script>
+        function toggleAIPanel() {
+            const panel = document.getElementById('ai-panel');
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleAIConsult() {
+            const prompt = document.getElementById('ai-prompt').value;
+            if (prompt) askPlaceMentorAI(prompt);
+        }
+    </script>
+    <script>
+        const layers = {
+            7: { name: "Application", func: "Services for user apps", note: "Port numbers like 80 (HTTP), 443 (HTTPS), 25 (SMTP) live here." },
+            6: { name: "Presentation", func: "Translation, Encryption", note: "SSL/TLS often applied here for data security." },
+            5: { name: "Session", func: "Session management", note: "Establishes and terminates dialogues between apps." },
+            4: { name: "Transport", func: "Host-to-host delivery", note: "Critical for Error control & Flow control (TCP/UDP segments)." },
+            3: { name: "Network", func: "Routing packets", note: "Logical addressing (IP) and best path selection happens here." },
+            2: { name: "Data Link", func: "Physical addressing (MAC)", note: "Frames, Error detection (CRC), and Switching (Bridge)." },
+            1: { name: "Physical", func: "Unstructured bitstream", note: "Cables, Hubs, Signal levels, and Pin layouts." }
+        };
+        function showLayer(n) {
+            const l = layers[n];
+            document.getElementById('osi-info').innerHTML = `<h4>${l.name}</h4><p><strong>Func:</strong> ${l.func}</p><p><strong>Placement Note:</strong> ${l.note}</p>`;
+        }
+        function calcSubnet() {
+            const cidr = parseInt(document.getElementById('cidr-in').value);
+            const hosts = Math.pow(2, 32-cidr) - 2;
+            document.getElementById('subnet-out').innerHTML = `<div class="info-box definition">Usable Hosts: <strong>${hosts.toLocaleString()}</strong><br>CIDR Mask: <strong>/${cidr}</strong></div>`;
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+             const quizData = [
+                { question: "Which layer handles MAC addresses?", options: ["Network", "Data Link", "Physical", "Transport"], answer: 1 },
+                { question: "Port number for DNS?", options: ["80", "53", "443", "21"], answer: 1 },
+                { question: "TCP is known as?", options: ["Best effort", "Connectionless", "Connection-oriented", "Fastest"], answer: 2 },
+                { question: "Address for localhost?", options: ["127.0.0.1", "192.168.1.1", "0.0.0.0", "1.1.1.1"], answer: 0 },
+                { question: "DHCP protocol usage?", options: ["File transfer", "Dynamic IP assignment", "Email sending", "Web browsing"], answer: 1 },
+                { question: "IPv6 size in bits?", options: ["32", "64", "128", "256"], answer: 2 },
+                { question: "Device used to connect different networks?", options: ["Switch", "Hub", "Router", "Modem"], answer: 2 },
+                { question: "Default mask for Class B?", options: ["255.0.0.0", "255.255.0.0", "255.255.255.0", "255.255.255.255"], answer: 1 },
+                { question: "Protocol mapping IP to MAC?", options: ["RARP", "ARP", "DHCP", "DNS"], answer: 1 },
+                { question: "HTTPS port?", options: ["80", "443", "8080", "143"], answer: 1 }
+            ];
+            handleQuiz('unit2', quizData);
+        });
+    </script>
+</body>
+</html>

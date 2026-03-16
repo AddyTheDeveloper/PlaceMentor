@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 3: DBMS - PlaceMentor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
+        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .tech-table th { background: var(--warning); color: #000; padding: 1rem; text-align: left; }
+        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+        
+        pre { background: #1e1e1e; color: #dcdcdc; padding: 1.25rem; border-radius: 0.75rem; overflow-x: auto; font-size: 0.9rem; border: 1px solid #444; }
+        .normalization-step { border-left: 4px solid var(--warning); padding: 1rem; background: var(--glass); margin-bottom: 1rem; border-radius: 0 0.75rem 0.75rem 0; }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i><span>PlaceMentor</span></div>
+            <nav class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item"><a href="unit1.html" class="nav-link"><i class="fas fa-microchip"></i><span>Unit 1: OS</span></a></li>
+                <li class="nav-item"><a href="unit2.html" class="nav-link"><i class="fas fa-network-wired"></i><span>Unit 2: CN</span></a></li>
+                <li class="nav-item"><a href="unit3.html" class="nav-link active"><i class="fas fa-database"></i><span>Unit 3: DBMS</span></a></li>
+                <li class="nav-item"><a href="unit4.html" class="nav-link"><i class="fas fa-code"></i><span>Unit 4: Programming</span></a></li>
+                <li class="nav-item"><a href="unit5.html" class="nav-link"><i class="fas fa-project-diagram"></i><span>Unit 5: DS</span></a></li>
+                <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
+                <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
+            </nav>
+            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+        </aside>
+
+        <main class="main-content">
+            <header class="glass-card" style="border-left: 6px solid var(--warning);">
+                <h1>Unit 3: DBMS</h1>
+                <p>Data Sovereignty: SQL Mastery, Normalization, and Scalable Architecture.</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </header>
+
+            <!-- 1. SQL Categories -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-code"></i> 1. SQL Mastery: Categories & Commands</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Category</th><th>Full Form</th><th>Key Commands</th></tr></thead>
+                    <tbody>
+                        <tr><td>DDL</td><td>Data Definition Language</td><td>CREATE, ALTER, DROP, TRUNCATE</td></tr>
+                        <tr><td>DML</td><td>Data Manipulation Language</td><td>SELECT, INSERT, UPDATE, DELETE</td></tr>
+                        <tr><td>DCL</td><td>Data Control Language</td><td>GRANT, REVOKE</td></tr>
+                        <tr><td>TCL</td><td>Transaction Control Language</td><td>COMMIT, ROLLBACK, SAVEPOINT</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box important">
+                    <p><strong>Delete vs Truncate vs Drop:</strong><br>
+                    <strong>Delete:</strong> DML, removes rows, can be rollbacked.<br>
+                    <strong>Truncate:</strong> DDL, removes all rows, cannot be rollbacked, faster.<br>
+                    <strong>Drop:</strong> DDL, removes whole table structure.</p>
+                </div>
+            </div>
+
+            <!-- 2. Normalization -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-filter"></i> 2. Database Normalization (Step-by-Step)</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="normalization-step">
+                    <strong>1NF (First Normal Form):</strong> Eliminate duplicate columns. No multi-valued attributes (atomicity).
+                </div>
+                <div class="normalization-step">
+                    <strong>2NF (Second Normal Form):</strong> Should be in 1NF + No partial functional dependency (every non-key attr must depend on WHOLE primary key).
+                </div>
+                <div class="normalization-step">
+                    <strong>3NF (Third Normal Form):</strong> Should be in 2NF + No transitive dependency (non-key attr shouldn't depend on another non-key attr).
+                </div>
+                <div class="normalization-step" style="border-color: var(--danger);">
+                    <strong>BCNF (Boyce-Codd NF):</strong> Stronger than 3NF. For every FD X → Y, X must be a super key.
+                </div>
+                <div class="info-box definition">
+                    <p><strong>RDBMS:</strong> Relational Database Management System. Data is stored in tables (Relations) with pre-defined schemas.</p>
+                </div>
+
+                <h4>Visual Learning: Database Normalization Flow</h4>
+                <div class="diagram-container">
+                    <div class="visual-node" style="background: var(--primary);">Raw Data (Unnormalized)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--info);">1NF (Atomic Values)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--success);">2NF (No Partial Dep)</div>
+                    <div class="visual-arrow"></div>
+                    <div class="visual-node" style="background: var(--warning);">3NF (No Transitive Dep)</div>
+                </div>
+
+                <div class="glass-card" style="border-left: 5px solid var(--info);">
+                    <h5>ACID Properties (The Gold Standard)</h5>
+                    <ul>
+                        <li><strong>Atomicity:</strong> All or nothing execution.</li>
+                        <li><strong>Consistency:</strong> DB stays in valid state before and after transaction.</li>
+                        <li><strong>Isolation:</strong> Transactions don't interfere. <br><em>Levels: Read Uncommitted, Read Committed, Repeatable Read, Serializable.</em></li>
+                        <li><strong>Durability:</strong> Changes are permanent even after system failure (WAL).</li>
+                    </ul>
+                </div>
+                <h4>3. Normalization (Data Hygiene)</h4>
+                <div class="info-box formula">
+                    <p><strong>Normal Form Check:</strong> Always identify the Primary Key (PK) first, then identify Functional Dependencies (FDs).</p>
+                </div>
+            </div>
+
+            <!-- 3. ACID & Transactions -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-shield-alt"></i> 3. ACID Properties & Transactions</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box important">
+                    <p><strong>Transaction Isolation Levels (SQL Standard):</strong><br>
+                    1. <strong>Read Uncommitted:</strong> Lowest; allows dirty reads.<br>
+                    2. <strong>Read Committed:</strong> No dirty reads; allows non-repeatable reads.<br>
+                    3. <strong>Repeatable Read:</strong> No non-repeatable reads; allows phantom reads.<br>
+                    4. <strong>Serializable:</strong> Highest; strict isolation.</p>
+                </div>
+                <ul style="list-style: none; padding: 0;">
+                    <li class="normalization-step"><strong>Atomicity:</strong> Transaction is all-or-nothing.</li>
+                    <li class="normalization-step"><strong>Consistency:</strong> Database must go from one valid state to another.</li>
+                    <li class="normalization-step"><strong>Isolation:</strong> Transactions don't interfere.</li>
+                    <li class="normalization-step"><strong>Durability:</strong> Changes are permanent.</li>
+                </ul>
+
+                <h4>3. Concurrency Control & 2PL</h4>
+                <div class="info-box definition">
+                    <p><strong>Two-Phase Locking (2PL):</strong> Ensures serializability. <br>1. <strong>Growing Phase:</strong> Transaction only obtains locks. <br>2. <strong>Shrinking Phase:</strong> Transaction only releases locks.</p>
+                </div>
+                
+                <h4>4. Query Optimization</h4>
+                <div class="info-box important">
+                    <p>The Optimizer chooses the "Execution Plan" with the minimum cost. <br><strong>Heuristic-based:</strong> Follows rules like "Perform selections before joins."</p>
+                </div>
+            </div>
+
+            <!-- 4. PL/SQL Concepts -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-cogs"></i> 4. Advanced: PL/SQL Triggers & Procedures</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Feature</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td>Procedures</td><td>Compiled code that performs an action. No return value mandatory.</td></tr>
+                        <tr><td>Functions</td><td>Must return a value. Used in SQL expressions.</td></tr>
+                        <tr><td>Triggers</td><td>Stored programs that automatically fire on events like INSERT/UPDATE.</td></tr>
+                    </tbody>
+                </table>
+                <pre>
+-- Trigger Example
+CREATE TRIGGER audit_log
+AFTER UPDATE ON Students
+FOR EACH ROW
+BEGIN
+   INSERT INTO Logs VALUES(:OLD.ID, sysdate);
+END;
+                </pre>
+            </div>
+
+            <!-- SQL Playground -->
+            <section class="glass-card" style="border: 2px solid var(--warning);">
+                <h2>Enhanced SQL Playground</h2>
+                <div class="info-box definition">Try: <code>UPDATE Students SET Grade = 100 WHERE ID = 1</code></div>
+                <textarea id="sql-input" style="width: 100%; height: 100px; background: #1e1e1e; color: #fff; padding: 1rem; border-radius: 0.5rem;"></textarea>
+                <button class="btn btn-primary" onclick="runSQL()">Execute</button>
+                <div id="sql-out"></div>
+            </section>
+
+             <!-- Interview Qs -->
+             <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
+                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: DBMS</h2>
+                <ol style="padding-left: 1.5rem;">
+                    <li style="margin-bottom: 0.75rem;"><strong>What is a Joins? Explain Types.</strong> (Inner, Left, Right, Full - Joining data from 2+ tables).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Primary Key vs Unique Key?</strong> (Unique allows one NULL, Primary doesn't allow any).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>What is a View?</strong> (A virtual table based on a SELECT query).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Explain Group By vs Order By.</strong> (Group By aggregates data, Order By sorts it).</li>
+                    <li>... more in Career Hub.</li>
+                </ol>
+                    <h5>Normalization: "How to Solve" Example</h5>
+                <div class="glass-card" style="font-size: 0.9rem;">
+                    <p><strong>Table R(A, B, C, D)</strong> with FDs: {A → B, B → C}.</p>
+                    <ol>
+                        <li><strong>Candidate Key:</strong> A (since A+= {A,B,C,D} if we assume D is trivial or part of a key). If A → ABCD, A is CK.</li>
+                        <li><strong>1NF:</strong> All attributes atomic.</li>
+                        <li><strong>2NF:</strong> No partial dependency. (Since CK is single attr A, it's already 2NF).</li>
+                        <li><strong>3NF:</strong> No transitive dependency. Here A → B → C (Transitive). <br><strong>Fix:</strong> Decompose into R1(A, B) and R2(B, C).</li>
+                    </ol>
+                </div>
+                
+                <h4>3. Indexing & B+ Trees</h4>
+                <div class="info-box definition">
+                    <p><strong>Indexing:</strong> Data structure technique to quickly retrieve records. B+ Trees are preferred over B-Trees in DBMS because data is only stored in leaf nodes, allowing faster range queries.</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>Feature</th><th>B-Tree</th><th>B+ Tree</th></tr></thead>
+                    <tbody>
+                        <tr><td>Data Storage</td><td>Internal and Leaf nodes</td><td>Only in Leaf nodes</td></tr>
+                        <tr><td>Range Search</td><td>Slower</td><td>Faster (Linked leaf nodes)</td></tr>
+                        <tr><td>Height</td><td>Can be more</td><td>Generally shorter</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="collapsible-header" style="margin-top: 2rem;">
+                <h3><i class="fas fa-vial"></i> 14. Unit 3 AI Practice Quiz</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="glass-card" style="text-align: center; padding: 2rem;">
+                    <p style="margin-bottom: 1.5rem;">Generate Database Management system MCQs for placement prep.</p>
+                    <button class="btn btn-primary" onclick="generateAIQuiz('unit3', 'DBMS, SQL, Transactions, and Normalization')">
+                        <i class="fas fa-magic"></i> Generate AI Quiz
+                    </button>
+                </div>
+                <div id="quiz-unit3"></div>
+                <div id="quiz-result-unit3"></div>
+            </div>
+
+            <footer>
+                <p>© 2026 <strong>PlaceMentor</strong> | Designed & Developed by <strong>Aditya Hans</strong></p>
+                <div class="footer-links">
+                    <a href="https://github.com/AddyTheDeveloper" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adityahans17" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:adityahans.17@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- PlaceMentor AI Widget -->
+    <div id="ai-widget">
+        <div id="ai-panel">
+            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
+            <div class="ai-input-group">
+                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
+                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
+            </div>
+            <div id="ai-response">I am your technical interview coach. How can I help?</div>
+        </div>
+        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <script src="script.js?v=2.1.1"></script>
+    <script>
+        function toggleAIPanel() {
+            const panel = document.getElementById('ai-panel');
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleAIConsult() {
+            const prompt = document.getElementById('ai-prompt').value;
+            if (prompt) askPlaceMentorAI(prompt);
+        }
+    </script>
+    <script>
+        const students = [
+            {id: 1, name: "Alice", grade: 90}, {id: 2, name: "Bob", grade: 80}
+        ];
+        function runSQL() {
+            const input = document.getElementById('sql-input').value.toLowerCase();
+            if(input.includes("update")) {
+                alert("Table Updated! (Mock Action)");
+            } else {
+                document.getElementById('sql-out').innerHTML = `<table class="tech-table"><tr><th>ID</th><th>Name</th><th>Grade</th></tr>${students.map(s=>`<tr><td>${s.id}</td><td>${s.name}</td><td>${s.grade}</td></tr>`).join('')}</table>`;
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+             const quizData = [
+                { question: "Normal form addressing partial functional dependency?", options: ["1NF", "2NF", "3NF", "BCNF"], answer: 1 },
+                { question: "ACID: 'I' stands for?", options: ["Internal", "Isolation", "Integration", "Iteration"], answer: 1 },
+                { question: "Which is a DDL command?", options: ["SELECT", "UPDATE", "CREATE", "INSERT"], answer: 2 },
+                { question: "Command to permanent save transaction?", options: ["SAVE", "COMMIT", "ROLLBACK", "FINISH"], answer: 1 },
+                { question: "How many Primary Keys can a table have?", options: ["0", "1", "Many", "2"], answer: 1 },
+                { question: "Join that returns everything from both tables?", options: ["Inner", "Full outer", "Left", "Right"], answer: 1 },
+                { question: "Attribute that uniquely identifies a row?", options: ["Foreign Key", "Candidate Key", "Secondary Key", "Local Key"], answer: 1 },
+                { question: "Truncate command is part of?", options: ["DML", "DDL", "DCL", "TCL"], answer: 1 },
+                { question: "Function that always returns a value?", options: ["Trigger", "Procedure", "Function", "View"], answer: 2 },
+                { question: "Transitive dependency is removed in?", options: ["1NF", "2NF", "3NF", "4NF"], answer: 2 }
+            ];
+            handleQuiz('unit3', quizData);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 5: Data Structures - PlaceMentor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
+        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
+        .tech-table th { background: var(--primary); color: white; padding: 1rem; text-align: left; }
+        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
+        
+        .ds-visualizer { background: var(--bg-sidebar); border: 2px dashed var(--border); border-radius: 1rem; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 1.5rem 0; }
+        .node { width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; position: relative; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .node::after { content: '→'; position: absolute; right: -20px; color: var(--text-muted); font-size: 1.2rem; }
+        .node:last-child::after { content: 'NULL'; right: -45px; font-size: 0.7rem; color: var(--text-muted); }
+        @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body>
+    <div id="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo"><i class="fas fa-graduation-cap"></i><span>PlaceMentor</span></div>
+            <nav class="nav-links">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-home"></i><span>Home</span></a></li>
+                <li class="nav-item"><a href="unit1.html" class="nav-link"><i class="fas fa-microchip"></i><span>Unit 1: OS</span></a></li>
+                <li class="nav-item"><a href="unit2.html" class="nav-link"><i class="fas fa-network-wired"></i><span>Unit 2: CN</span></a></li>
+                <li class="nav-item"><a href="unit3.html" class="nav-link"><i class="fas fa-database"></i><span>Unit 3: DBMS</span></a></li>
+                <li class="nav-item"><a href="unit4.html" class="nav-link"><i class="fas fa-code"></i><span>Unit 4: Programming</span></a></li>
+                <li class="nav-item"><a href="unit5.html" class="nav-link active"><i class="fas fa-project-diagram"></i><span>Unit 5: DS</span></a></li>
+                <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
+                <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
+            </nav>
+            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+        </aside>
+
+        <main class="main-content">
+            <header class="glass-card" style="border-left: 6px solid var(--primary);">
+                <h1>Unit 5: Data Structures</h1>
+                <p>Architecture of Efficiency: From Linked Lists to Balanced Evolutionary Trees.</p>
+                <div class="progress-container"><div class="progress-bar"></div></div>
+            </header>
+
+            <!-- 0. Arrays -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-border-all"></i> 0. Arrays (Static Logic)</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box definition">
+                    <p><strong>Binary Tree:</strong> A non-linear data structure where each node has at most two children (left and right).</p>
+                </div>
+
+                <h4>Visual Learning: Binary Tree Anatomy</h4>
+                <div class="diagram-container">
+                    <div class="visual-node">Root Node (10)</div>
+                    <div style="display: flex; gap: 4rem; align-items: start;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="visual-arrow" style="transform: rotate(45deg); height: 20px;"></div>
+                            <div class="visual-node" style="background: var(--info);">Left (5)</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="visual-arrow" style="transform: rotate(-45deg); height: 20px;"></div>
+                            <div class="visual-node" style="background: var(--info);">Right (15)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-box definition">
+                    <p><strong>Array:</strong> A collection of similar data items stored in contiguous memory locations.</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>OperationOrFeature</th><th>Array</th><th>Linked List</th></tr></thead>
+                    <tbody>
+                        <tr><td>Memory</td><td>Contiguous</td><td>Non-contiguous</td></tr>
+                        <tr><td>Size</td><td>Fixed (Static)</td><td>Dynamic</td></tr>
+                        <tr><td>Access Time</td><td>O(1)</td><td>O(n)</td></tr>
+                        <tr><td>Insertion</td><td>O(n)</td><td>O(1) (at head)</td></tr>
+                    </tbody>
+                </table>
+                <table class="tech-table">
+                    <thead><tr><th>Operation</th><th>Complexity</th></tr></thead>
+                    <tbody>
+                        <tr><td>Access by Index</td><td>O(1)</td></tr>
+                        <tr><td>Insertion / Deletion</td><td>O(n) - needs shifting</td></tr>
+                        <tr><td>Search (Unsorted)</td><td>O(n)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 1. Linked Lists -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-link"></i> 1. Linked Lists (Linear Dynamics)</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Type</th><th>Structure</th><th>Key Characteristic</th></tr></thead>
+                    <tbody>
+                        <tr><td>Singly</td><td>Data → Next</td><td>Simple. Uni-directional.</td></tr>
+                        <tr><td>Doubly</td><td>Prev ↔ Data ↔ Next</td><td>Bi-directional traversal; Uses more memory.</td></tr>
+                        <tr><td>Circular</td><td>Last → First</td><td>Infinite traversal; Used in Round-Robin scheduling.</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box formula">
+                    <p><strong>Floyd's Cycle Finding (Fast & Slow):</strong></p>
+                    <ol>
+                        <li>Start <code>slow</code> and <code>fast</code> at HEAD.</li>
+                        <li>Move <code>slow</code> by 1 step, <code>fast</code> by 2 steps.</li>
+                        <li>If <code>slow == fast</code>, a cycle exists!</li>
+                        <li><strong>Why?</strong> The distance between them increases by 1 each step. In a loop, they will eventually occupy the same position.</li>
+                    </ol>
+                </div>
+                <section class="glass-card">
+                    <h4>Interactive Linked List</h4>
+                    <div id="ll-cont" class="ds-visualizer"></div>
+                    <button class="btn btn-primary" onclick="addNode()">Add Node</button>
+                    <button class="btn" onclick="clearLL()">Clear</button>
+                </section>
+            </div>
+
+            <!-- 2. Stacks & Queues -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-layer-group"></i> 2. Stacks & Queues (Order Patterns)</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="info-box important">
+                        <h4>Stack (LIFO)</h4>
+                        <p><strong>Apps:</strong> Recursion, Undo/Redo, Balanced Parentheses.</p>
+                    </div>
+                    <div class="info-box definition" style="border-color: var(--success);">
+                        <h4>Queue (FIFO)</h4>
+                        <p><strong>Apps:</strong> BFS, Print Spooler, CPU Job Scheduling.</p>
+                    </div>
+                </div>
+                <div class="info-box interview">
+                    <p><strong>Circular Queue:</strong> Solves the limitation of linear queue where space is wasted even if FRONT is not zero.</p>
+                </div>
+                <div class="info-box interview">
+                    <p><strong>BST Search:</strong> O(h) where h is height. <br><strong>AVL Search:</strong> O(log n) guaranteed because it balances.</p>
+                </div>
+                
+                <h4>4. Trie (Prefix Tree)</h4>
+                <div class="info-box definition">
+                    <p><strong>Trie:</strong> Used for fast retrieval of strings/prefixes. Used in Auto-complete, Spell checkers. <br><strong>Search/Insert:</strong> O(L) where L is length of string.</p>
+                </div>
+                
+                <h4>5. Disjoint Set Union (DSU)</h4>
+                <div class="info-box important">
+                    <p><strong>Purpose:</strong> Maintain sets of elements and merge them. <br><strong>Union by Rank:</strong> Keeps tree height small. <br><strong>Path Compression:</strong> Flattens tree during find operation. Combined complexity is nearly constant O(α(n)).</p>
+                </div>
+            </div>
+
+            <!-- 3. Trees (Advanced Nonlinear) -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-tree"></i> 3. Trees: The Hierarchical Power</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box definition">
+                    <p><strong>BST (Binary Search Tree):</strong> Left child < Parent < Right child.</p>
+                </div>
+                <h4>Balanced Trees (Interview Gold)</h4>
+                <ul>
+                    <li><strong>AVL Trees:</strong> Height-balanced BST where diff in heights of left/right subtrees is ≤ 1.</li>
+                    <li><strong>Red-Black Trees:</strong> Uses color coding for self-balancing. Used in <code>std::map</code> in C++.</li>
+                </ul>
+                <table class="tech-table">
+                    <thead><tr><th>Rotation</th><th>When to use?</th></tr></thead>
+                    <tbody>
+                        <tr><td>LL / RR</td><td>Single rotation for simple imbalance.</td></tr>
+                        <tr><td>LR / RL</td><td>Double rotation for zig-zag imbalance.</td></tr>
+                    </tbody>
+                </table>
+                <div class="glass-card" style="border-left: 5px solid var(--purple); background: rgba(var(--purple-rgb), 0.05); margin-top: 1rem;">
+                    <h5><i class="fas fa-search-plus"></i> Placement Case Study: Map vs BST</h5>
+                    <p><strong>Question:</strong> "When would you prefer a Treemap (BST) over a Hashmap?"</p>
+                    <p><strong>Answer:</strong> When order matters or you need to perform range queries (e.g., "Find all keys between 10 and 50"). Hashmaps have O(1) average lookup but no inherent order.</p>
+                </div>
+            </div>
+
+            <!-- 4. Graphs & Hashing -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-project-diagram"></i> 4. Graphs & Hashing Collision</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box formula">
+                    <p><strong>Graph:</strong> G = (V, E) where V=Vertices, E=Edges.</p>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="normalization-step"><strong>BFS:</strong> Queue based. Finds shortest path in unweighted graph.</div>
+                    <div class="normalization-step"><strong>DFS:</strong> Stack/Recursion based. Used for cycle detection.</div>
+                </div>
+                <h4>Hashed Conflict Resolution</h4>
+                <table class="tech-table">
+                    <thead><tr><th>Technique</th><th>Description</th></tr></thead>
+                    <tbody>
+                        <tr><td>Chaining</td><td>Uses Linked List at each index. No overflow issue.</td></tr>
+                        <tr><td>Open Addressing</td><td>Finds next available slot (Linear Probing, Quadratic Probing).</td></tr>
+                    </tbody>
+                </table>
+                <div class="glass-card" style="border-top: 4px solid var(--secondary);">
+                    <h5>Graph Algorithms: Shortest Paths</h5>
+                    <p><strong>Dijkstra:</strong> O(E log V). Greedy. Doesn't work for negative edges. <br>
+                    <strong>Bellman-Ford:</strong> O(V*E). DP. Works with negative edges and detects negative cycles.</p>
+                </div>
+                <div class="info-box interview">
+                    <p><strong>Consistent Hashing:</strong> Used in distributed systems (like Load Balancers) so that when a node is added/removed, only <code>K/n</code> keys need to be remapped.</p>
+                </div>
+            </div>
+
+             <!-- Interview Qs -->
+             <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
+                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Data Structures</h2>
+                <ul class="info-box interview" style="padding-left: 1.5rem; list-style-type: decimal;">
+                    <li style="margin-bottom: 0.75rem;"><strong>Compare Array vs Linked List.</strong> (Array: Fast access, fixed size. LL: Slow access, dynamic size).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>How to detect cycle in Linked List?</strong> (Floyd's Cycle-Finding Algorithm: Fast and Slow pointers).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Worst case complexity of BST?</strong> (O(n) - when it becomes a skewed tree).</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Explain Heap and its usage.</strong> (Complete binary tree used for Priority Queues. <strong>Max-Heap:</strong> Parent ≥ Children. <strong>Min-Heap:</strong> Parent ≤ Children.).</li>
+                    <li>... more in Career Hub.</li>
+                </ul>
+            </div>
+
+            <div class="collapsible-header" style="margin-top: 2rem;">
+                <h3><i class="fas fa-vial"></i> 14. Unit 5 AI Practice Quiz</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="glass-card" style="text-align: center; padding: 2rem;">
+                    <p style="margin-bottom: 1.5rem;">Generate unique Data Structure MCQs for placement prep.</p>
+                    <button class="btn btn-primary" onclick="generateAIQuiz('unit5', 'Data Structures, Trees, Graphs, Hashing, and Complexity')">
+                        <i class="fas fa-magic"></i> Generate AI Quiz
+                    </button>
+                </div>
+                <div id="quiz-unit5"></div>
+                <div id="quiz-result-unit5"></div>
+            </div>
+
+            <footer>
+                <p>© 2026 <strong>PlaceMentor</strong> | Designed & Developed by <strong>Aditya Hans</strong></p>
+                <div class="footer-links">
+                    <a href="https://github.com/AddyTheDeveloper" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/adityahans17" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:adityahans.17@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- PlaceMentor AI Widget -->
+    <div id="ai-widget">
+        <div id="ai-panel">
+            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
+            <div class="ai-input-group">
+                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
+                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
+            </div>
+            <div id="ai-response">I am your technical interview coach. How can I help?</div>
+        </div>
+        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
+    </div>
+
+    <script src="script.js?v=2.1.1"></script>
+    <script>
+        function toggleAIPanel() {
+            const panel = document.getElementById('ai-panel');
+            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+        function toggleAIConsult() {
+            const prompt = document.getElementById('ai-prompt').value;
+            if (prompt) askPlaceMentorAI(prompt);
+        }
+    </script>
+    <script>
+        let nodes = [];
+        function addNode() {
+            nodes.push(Math.floor(Math.random()*99));
+            renderNodes();
+        }
+        function clearLL() { nodes = []; renderNodes(); }
+        function renderNodes() {
+            const cont = document.getElementById('ll-cont');
+            cont.innerHTML = nodes.map(v => `<div class="node">${v}</div>`).join('');
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+             const quizData = [
+                { question: "Complexity to insert at tail in Singly LL (without tail pointer)?", options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"], answer: 2 },
+                { question: "Data structure used for DFS?", options: ["Queue", "Stack", "Tree", "Heap"], answer: 1 },
+                { question: "Which tree is self-balancing?", options: ["Binary Tree", "AVL Tree", "Skewed Tree", "Full Binary Tree"], answer: 1 },
+                { question: "Hashing collision resolved by Linked List is?", options: ["Linear Probing", "Chaining", "Double Hashing", "Re-hashing"], answer: 1 },
+                { question: "Queue follows?", options: ["LIFO", "FIFO", "LILO", "Random"], answer: 1 },
+                { question: "Binary Search Tree: In-order traversal gives?", options: ["Random order", "Sorted order", "Reverse sorted", "Level order"], answer: 1 },
+                { question: "Maximum children a node in Binary Tree can have?", options: ["1", "2", "Unlimited", "0"], answer: 1 },
+                { question: "Complexity of searching in AVL tree?", options: ["O(1)", "O(n)", "O(log n)", "O(n log n)"], answer: 2 },
+                { question: "Heap is generally implemented using?", options: ["Linked List", "Stack", "Array", "Graph"], answer: 2 },
+                { question: "Cycle detection algorithm name?", options: ["Dijkstra", "Floyd's", "Prims", "Kruskal's"], answer: 1 }
+            ];
+            handleQuiz('unit5', quizData);
+        });
+    </script>
+</body>
+</html>
