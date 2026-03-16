@@ -222,29 +222,6 @@
         </main>
     </div>
 
-    <!-- PlaceMentor AI Widget -->
-    <div id="ai-widget">
-        <div id="ai-panel">
-            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
-            <div class="ai-input-group">
-                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
-                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
-            </div>
-            <div id="ai-response">I am your technical interview coach. How can I help?</div>
-        </div>
-        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
-    </div>
-
     <script src="script.js?v=2.1.1"></script>
-    <script>
-        function toggleAIPanel() {
-            const panel = document.getElementById('ai-panel');
-            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-        }
-        function toggleAIConsult() {
-            const prompt = document.getElementById('ai-prompt').value;
-            if (prompt) askPlaceMentorAI(prompt);
-        }
-    </script>
 </body>
 </html>

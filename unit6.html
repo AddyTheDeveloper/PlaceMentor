@@ -198,56 +198,7 @@
                 </ol>
             </div>
 
-            <div class="collapsible-header" style="margin-top: 2rem;">
-                <h3><i class="fas fa-vial"></i> 14. Unit 6 AI Practice Quiz</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <div class="glass-card" style="text-align: center; padding: 2rem;">
-                    <p style="margin-bottom: 1.5rem;">Generate unique Algorithm MCQs for placement prep.</p>
-                    <button class="btn btn-primary" onclick="generateAIQuiz('unit6', 'Algorithms, Divide & Conquer, Dynamic Programming, and Greedy')">
-                        <i class="fas fa-magic"></i> Generate AI Quiz
-                    </button>
-                </div>
-                <div id="quiz-unit6"></div>
-                <div id="quiz-result-unit6"></div>
-            </div>
-
-            <footer>
-                <p>© 2026 <strong>PlaceMentor</strong> | Designed & Developed by <strong>Aditya Hans</strong></p>
-                <div class="footer-links">
-                    <a href="https://github.com/AddyTheDeveloper" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/adityahans17" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:adityahans.17@gmail.com"><i class="fas fa-envelope"></i></a>
-                </div>
-            </footer>
-        </main>
-    </div>
-
-    <!-- PlaceMentor AI Widget -->
-    <div id="ai-widget">
-        <div id="ai-panel">
-            <h4 style="margin-bottom: 0.5rem;"><i class="fas fa-robot"></i> PlaceMentor AI</h4>
-            <div class="ai-input-group">
-                <input type="text" id="ai-prompt" placeholder="Ask a tech question...">
-                <button class="btn btn-primary" onclick="toggleAIConsult()">Ask</button>
-            </div>
-            <div id="ai-response">I am your technical interview coach. How can I help?</div>
-        </div>
-        <button id="ai-chat-btn" onclick="toggleAIPanel()"><i class="fas fa-comment-dots"></i></button>
-    </div>
-
     <script src="script.js?v=2.1.1"></script>
-    <script>
-        function toggleAIPanel() {
-            const panel = document.getElementById('ai-panel');
-            panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
-        }
-        function toggleAIConsult() {
-            const prompt = document.getElementById('ai-prompt').value;
-            if (prompt) askPlaceMentorAI(prompt);
-        }
-    </script>
     <script>
         let arr = [];
         function resetSort() {
