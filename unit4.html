@@ -6,16 +6,6 @@
     <title>Unit 4: Programming - PlaceMentor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
-        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
-        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .tech-table th { background: var(--info); color: white; padding: 1rem; text-align: left; }
-        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
-        
-        pre { background: #1e1e1e; color: #dcdcdc; padding: 1.25rem; border-radius: 0.75rem; border: 1px solid #444; overflow-x: auto; font-size: 0.85rem; }
-        .memory-node { border: 2px solid var(--info); border-radius: 0.5rem; padding: 0.5rem; display: inline-block; margin: 0.5rem; text-align: center; font-size: 0.8rem; background: var(--glass); }
-    </style>
 </head>
 <body>
     <div id="app-container">
@@ -32,14 +22,19 @@
                 <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
                 <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
             </nav>
-            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
-            <header class="glass-card" style="border-left: 6px solid var(--info);">
-                <h1>Unit 4: Programming Fundamentals</h1>
-                <p>Logic Core: Pointers, Memory Control, and Object-Oriented Orchestration City.</p>
-                <div class="progress-container"><div class="progress-bar"></div></div>
+            <header class="glass-card header-unit" style="border-left-color: var(--info);">
+                <h1 class="mb-0">Unit 4: Programming Fundamentals</h1>
+                <p class="hero-subtitle mb-0 mt-2">Logic Core: Pointers, Memory Control, and Object-Oriented Orchestration City.</p>
+                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
             </header>
 
             <!-- 1. Storage Classes -->
@@ -157,18 +152,18 @@ T myMax(T x, T y) { return (x > y) ? x : y; }
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div>
+                <div class="benefit-grid mt-2 text-left">
+                    <div class="p-4 border-primary glass-card">
                         <h4>Call by Value</h4>
                         <p>Copy made. Original unaffected.</p>
                         <pre>void swap(int x, int y)</pre>
                     </div>
-                    <div>
+                    <div class="p-4 border-secondary glass-card">
                         <h4>Call by Reference (C++)</h4>
                         <p>Alias created. Original changes.</p>
                         <pre>void swap(int &x, int &y)</pre>
                     </div>
-                    <div>
+                    <div class="p-4 border-success glass-card">
                         <h4>Call by Address</h4>
                         <p>Address passed. Dereference to change.</p>
                         <pre>void swap(int *x, int *y)</pre>

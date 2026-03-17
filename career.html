@@ -6,12 +6,6 @@
     <title>Career Hub - PlaceMentor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .career-card { border-top: 5px solid var(--purple); }
-        .star-method { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
-        .star-box { background: var(--glass); padding: 1rem; border-radius: 0.75rem; border: 1px solid var(--purple); text-align: center; }
-        .star-box h4 { color: var(--purple); margin-bottom: 0.5rem; }
-    </style>
 </head>
 <body>
     <div id="app-container">
@@ -27,13 +21,19 @@
                 <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
                 <li class="nav-item"><a href="career.html" class="nav-link active"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
             </nav>
-            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
-            <header class="glass-card career-card">
-                <h1>Placement & Career Hub</h1>
-                <p>Beyond Technical: Resume Building, Communication Mastery, and Mock Interview Simulations.</p>
+            <header class="glass-card header-unit" style="border-left-color: var(--purple);">
+                <h1 class="mb-0">Placement & Career Hub</h1>
+                <p class="hero-subtitle mb-0 mt-2">Beyond Technical: Resume Building, Communication Mastery, and Mock Interview Simulations.</p>
+            </header>
 
                 <h4>Visual Learning: The Placement Roadmap</h4>
                 <div class="diagram-container">
@@ -55,12 +55,23 @@
                 <div class="info-box important">
                     <p><strong>Rule of One:</strong> One page, one clear objective, one font family (preferably Inter or Helvetica).</p>
                 </div>
-                <h4>The STAR Method for Project Descriptions</h4>
-                <div class="star-method">
-                    <div class="star-box"><h4>S</h4><p>Situation</p></div>
-                    <div class="star-box"><h4>T</h4><p>Task</p></div>
-                    <div class="star-box"><h4>A</h4><p>Action</p></div>
-                    <div class="star-box"><h4>R</h4><p>Result</p></div>
+                <div class="benefit-grid mt-2 text-center">
+                    <div class="p-4 border-purple glass-card">
+                        <h4 class="color-purple">S</h4>
+                        <p>Situation</p>
+                    </div>
+                    <div class="p-4 border-purple glass-card">
+                        <h4 class="color-purple">T</h4>
+                        <p>Task</p>
+                    </div>
+                    <div class="p-4 border-purple glass-card">
+                        <h4 class="color-purple">A</h4>
+                        <p>Action</p>
+                    </div>
+                    <div class="p-4 border-purple glass-card">
+                        <h4 class="color-purple">R</h4>
+                        <p>Result</p>
+                    </div>
                 </div>
                 <div class="info-box definition">
                     <p><strong>Pro-Tip:</strong> Use metrics! "Optimized sorting by 40%" is better than "Wrote a sorting algorithm."</p>

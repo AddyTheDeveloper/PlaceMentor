@@ -6,16 +6,6 @@
     <title>Unit 6: Algorithms - PlaceMentor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
-        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
-        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .tech-table th { background: var(--secondary); color: white; padding: 1rem; text-align: left; }
-        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
-        
-        .sort-visualizer { background: var(--bg-sidebar); border: 2px dashed var(--border); border-radius: 1rem; padding: 2rem; height: 150px; display: flex; align-items: flex-end; justify-content: center; gap: 4px; margin: 1.5rem 0; }
-        .bar { background: var(--secondary); width: 25px; transition: height 0.2s, background 0.1s; border-radius: 4px 4px 0 0; }
-    </style>
 </head>
 <body>
     <div id="app-container">
@@ -32,14 +22,19 @@
                 <li class="nav-item"><a href="unit6.html" class="nav-link active"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
                 <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
             </nav>
-            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
-            <header class="glass-card" style="border-left: 6px solid var(--secondary);">
-                <h1>Unit 6: Algorithms</h1>
-                <p>Strategic Logic: Efficiency Analysis and Advanced Problem-Solving Paradigms.</p>
-                <div class="progress-container"><div class="progress-bar"></div></div>
+            <header class="glass-card header-unit" style="border-left-color: var(--secondary);">
+                <h1 class="mb-0">Unit 6: Algorithms</h1>
+                <p class="hero-subtitle mb-0 mt-2">Strategic Logic: Efficiency Analysis and Advanced Problem-Solving Paradigms.</p>
+                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
             </header>
 
             <!-- 1. Asymptotic Notation -->
@@ -97,8 +92,8 @@
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="normalization-step" style="border-color: var(--secondary);">
+                <div class="benefit-grid mt-2 text-left">
+                    <div class="normalization-step mb-0" style="border-color: var(--secondary);">
                         <h4>Dynamic Programming</h4>
                         <ul>
                             <li>Solves sub-problems once.</li>
@@ -107,7 +102,7 @@
                             <li>Example: Knapsack, LCS.</li>
                         </ul>
                     </div>
-                    <div class="normalization-step" style="border-color: var(--success);">
+                    <div class="normalization-step mb-0" style="border-color: var(--success);">
                         <h4>Greedy Strategy</h4>
                         <ul>
                             <li>Makes the local optimal choice.</li>
@@ -187,15 +182,17 @@
             </div>
 
              <!-- Interview Qs -->
-             <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
-                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Algorithms</h2>
-                <ol style="padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>When to use DP vs Recursion?</strong> (Use DP when sub-problems overlap).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Compare QuickSort and MergeSort.</strong> (Merge is stable and consistent; Quick is faster in-place but has O(n²) worst case).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>What is the Master Theorem?</strong> (A formulaic way to find time complexity of divide-and-conquer recurrences).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Explain Dijkstra's Algorithm.</strong> (Greedy algorithm to find shortest path from a single source in weighted graph).</li>
-                    <li>... more in Career Hub.</li>
-                </ol>
+             <div class="glass-card benefit-card border-purple mt-4">
+                <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Algorithms</h2>
+                <div class="text-left mt-4">
+                    <ol class="pl-4">
+                        <li class="mb-2"><strong>When to use DP vs Recursion?</strong> (Use DP when sub-problems overlap).</li>
+                        <li class="mb-2"><strong>Compare QuickSort and MergeSort.</strong> (Merge is stable and consistent; Quick is faster in-place but has O(n²) worst case).</li>
+                        <li class="mb-2"><strong>What is the Master Theorem?</strong> (A formulaic way to find time complexity of divide-and-conquer recurrences).</li>
+                        <li class="mb-2"><strong>Explain Dijkstra's Algorithm.</strong> (Greedy algorithm to find shortest path from a single source in weighted graph).</li>
+                        <li>... more in Career Hub.</li>
+                    </ol>
+                </div>
             </div>
 
     <script src="script.js?v=2.1.1"></script>

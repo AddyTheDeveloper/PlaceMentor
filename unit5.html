@@ -6,19 +6,6 @@
     <title>Unit 5: Data Structures - PlaceMentor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
-        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
-        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .tech-table th { background: var(--primary); color: white; padding: 1rem; text-align: left; }
-        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
-        
-        .ds-visualizer { background: var(--bg-sidebar); border: 2px dashed var(--border); border-radius: 1rem; padding: 2rem; min-height: 200px; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 1.5rem 0; }
-        .node { width: 60px; height: 60px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; position: relative; animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .node::after { content: '→'; position: absolute; right: -20px; color: var(--text-muted); font-size: 1.2rem; }
-        .node:last-child::after { content: 'NULL'; right: -45px; font-size: 0.7rem; color: var(--text-muted); }
-        @keyframes popIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-    </style>
 </head>
 <body>
     <div id="app-container">
@@ -35,14 +22,19 @@
                 <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
                 <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
             </nav>
-            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
-            <header class="glass-card" style="border-left: 6px solid var(--primary);">
-                <h1>Unit 5: Data Structures</h1>
-                <p>Architecture of Efficiency: From Linked Lists to Balanced Evolutionary Trees.</p>
-                <div class="progress-container"><div class="progress-bar"></div></div>
+            <header class="glass-card header-unit" style="border-left-color: var(--primary);">
+                <h1 class="mb-0">Unit 5: Data Structures</h1>
+                <p class="hero-subtitle mb-0 mt-2">Architecture of Efficiency: From Linked Lists to Balanced Evolutionary Trees.</p>
+                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
             </header>
 
             <!-- 0. Arrays -->
@@ -129,12 +121,12 @@
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <div class="info-box important">
+                <div class="benefit-grid mt-2 text-left">
+                    <div class="p-4 border-primary glass-card">
                         <h4>Stack (LIFO)</h4>
                         <p><strong>Apps:</strong> Recursion, Undo/Redo, Balanced Parentheses.</p>
                     </div>
-                    <div class="info-box definition" style="border-color: var(--success);">
+                    <div class="p-4 border-success glass-card">
                         <h4>Queue (FIFO)</h4>
                         <p><strong>Apps:</strong> BFS, Print Spooler, CPU Job Scheduling.</p>
                     </div>
@@ -217,15 +209,17 @@
             </div>
 
              <!-- Interview Qs -->
-             <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
-                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Data Structures</h2>
-                <ul class="info-box interview" style="padding-left: 1.5rem; list-style-type: decimal;">
-                    <li style="margin-bottom: 0.75rem;"><strong>Compare Array vs Linked List.</strong> (Array: Fast access, fixed size. LL: Slow access, dynamic size).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>How to detect cycle in Linked List?</strong> (Floyd's Cycle-Finding Algorithm: Fast and Slow pointers).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Worst case complexity of BST?</strong> (O(n) - when it becomes a skewed tree).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Explain Heap and its usage.</strong> (Complete binary tree used for Priority Queues. <strong>Max-Heap:</strong> Parent ≥ Children. <strong>Min-Heap:</strong> Parent ≤ Children.).</li>
-                    <li>... more in Career Hub.</li>
-                </ul>
+             <div class="glass-card benefit-card border-purple mt-4">
+                <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Data Structures</h2>
+                <div class="text-left mt-4">
+                    <ol class="pl-4">
+                        <li class="mb-2"><strong>Compare Array vs Linked List.</strong> (Array: Fast access, fixed size. LL: Slow access, dynamic size).</li>
+                        <li class="mb-2"><strong>How to detect cycle in Linked List?</strong> (Floyd's Cycle-Finding Algorithm: Fast and Slow pointers).</li>
+                        <li class="mb-2"><strong>Worst case complexity of BST?</strong> (O(n) - when it becomes a skewed tree).</li>
+                        <li class="mb-2"><strong>Explain Heap and its usage.</strong> (Complete binary tree used for Priority Queues. <strong>Max-Heap:</strong> Parent ≥ Children. <strong>Min-Heap:</strong> Parent ≤ Children.).</li>
+                        <li>... more in Career Hub.</li>
+                    </ol>
+                </div>
             </div>
 
     <script src="script.js?v=2.1.1"></script>

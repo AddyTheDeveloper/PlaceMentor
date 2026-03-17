@@ -65,8 +65,8 @@
                     </a>
                 </li>
             </nav>
-            <div class="sidebar-footer" style="padding-top: 2rem; border-top: 1px solid var(--border);">
-                <button id="theme-toggle" class="btn" style="width: 100%; justify-content: flex-start; background: transparent; color: var(--text-muted);">
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
                     <i class="fas fa-moon"></i>
                     <span>Toggle Theme</span>
                 </button>
@@ -75,46 +75,46 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card" style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 2rem; gap: 1rem; flex-wrap: wrap;">
-                <div style="flex: 1; min-width: 250px;">
-                    <h1 style="margin: 0; font-size: 1.75rem;">Dashboard</h1>
-                    <div style="position: relative; margin-top: 1rem;">
-                        <i class="fas fa-search" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
-                        <input type="text" id="search-input" placeholder="Search topics..." class="btn" style="width: 100%; padding-left: 2.5rem; background: var(--bg-main); border: 1px solid var(--border);">
+            <header class="glass-card flex-between">
+                <div class="header-left">
+                    <h1 class="mb-0">Dashboard</h1>
+                    <div class="search-wrapper mt-4">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search topics..." class="btn w-full">
                     </div>
                 </div>
-                <div style="text-align: right; min-width: 200px;">
-                    <button class="btn btn-primary" onclick="downloadNotes()" style="margin-bottom: 1rem; width: 100%;">
+                <div class="header-right text-right">
+                    <button class="btn btn-primary w-full" onclick="downloadNotes()">
                         <i class="fas fa-file-download"></i> Download All Notes
                     </button>
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
-                        <span style="font-size: 0.875rem; font-weight: 600;">Overall Progress</span>
-                        <span class="progress-text" style="font-size: 0.875rem; color: var(--primary);">0% Complete</span>
+                    <div class="flex-between mt-2">
+                        <span class="progress-label">Overall Progress</span>
+                        <span class="progress-text">0% Complete</span>
                     </div>
-                    <div class="progress-container" style="margin: 0;">
-                        <div class="progress-bar" style="width: 0%;"></div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
                     </div>
                 </div>
             </header>
 
-            <section class="hero glass-card" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1)); padding: 3rem; text-align: center;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Master Technical Interviews with PlaceMentor</h2>
-                <p style="font-size: 1.125rem; color: var(--text-muted); margin-bottom: 2rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <section class="hero glass-card hero-gradient text-center">
+                <h2>Master Technical Interviews with PlaceMentor</h2>
+                <p class="hero-subtitle">
                     Combinatorial Studies: A comprehensive deep dive into Operating Systems, Networks, DBMS, and core CS fundamentals. 
                 </p>
                 
-                <div class="diagram-container" style="flex-direction: row; flex-wrap: wrap; justify-content: center; background: transparent; border: none; gap: 1rem; margin-bottom: 2rem;">
-                    <div class="visual-node" style="background: var(--info);"><i class="fas fa-check-circle"></i> OS & Paging</div>
-                    <div class="visual-node" style="background: var(--success);"><i class="fas fa-network-wired"></i> OSI & TCP</div>
-                    <div class="visual-node" style="background: var(--warning);"><i class="fas fa-database"></i> ACID & SQL</div>
-                    <div class="visual-node" style="background: var(--danger);"><i class="fas fa-code"></i> DSA Mastery</div>
+                <div class="diagram-container flex-center">
+                    <div class="visual-node bg-info"><i class="fas fa-check-circle"></i> OS & Paging</div>
+                    <div class="visual-node bg-success"><i class="fas fa-network-wired"></i> OSI & TCP</div>
+                    <div class="visual-node bg-warning"><i class="fas fa-database"></i> ACID & SQL</div>
+                    <div class="visual-node bg-danger"><i class="fas fa-code"></i> DSA Mastery</div>
                 </div>
 
-                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="unit1.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.125rem;">
+                <div class="hero-actions flex-center">
+                    <a href="unit1.html" class="btn btn-primary btn-lg">
                         <i class="fas fa-play"></i> Start Learning
                     </a>
-                    <a href="career.html" class="btn" style="padding: 1rem 2rem; font-size: 1.125rem; background: rgba(var(--primary-rgb), 0.1); color: var(--primary);">
+                    <a href="career.html" class="btn btn-secondary-outline btn-lg">
                         <i class="fas fa-user-tie"></i> Career Hub
                     </a>
                 </div>
@@ -124,87 +124,87 @@
             <div class="info-box important" style="margin-bottom: 2rem;">
                 <p><strong>Did you know?</strong> 70% of technical interview questions come from these 6 core units. Mastering them is the key to cracking MAANG/Service-based companies.</p>
             </div>
-            <div class="course-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+            <div class="course-grid">
                 <!-- Unit Card 1 -->
-                <div class="glass-card">
-                    <div style="color: var(--primary); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-microchip"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-primary"><i class="fas fa-microchip"></i></div>
                     <h3>Unit 1: Operating Systems</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Process management, Scheduling, Memory, and Deadlocks.</p>
-                    <a href="unit1.html" class="nav-link" style="padding-left: 0; color: var(--primary); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">Process management, Scheduling, Memory, and Deadlocks.</p>
+                    <a href="unit1.html" class="unit-link">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <!-- Unit Card 2 -->
-                <div class="glass-card">
-                    <div style="color: var(--success); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-network-wired"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-success"><i class="fas fa-network-wired"></i></div>
                     <h3>Unit 2: Computer Networks</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">OSI Layers, TCP/IP, Subnetting, and Protocols.</p>
-                    <a href="unit2.html" class="nav-link" style="padding-left: 0; color: var(--success); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">OSI Layers, TCP/IP, Subnetting, and Protocols.</p>
+                    <a href="unit2.html" class="unit-link color-success">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <!-- Unit Card 3 -->
-                <div class="glass-card">
-                    <div style="color: var(--warning); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-database"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-warning"><i class="fas fa-database"></i></div>
                     <h3>Unit 3: DBMS</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Normalization, SQL, Joins, and Transactions.</p>
-                    <a href="unit3.html" class="nav-link" style="padding-left: 0; color: var(--warning); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">Normalization, SQL, Joins, and Transactions.</p>
+                    <a href="unit3.html" class="unit-link color-warning">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <!-- Unit Card 4 -->
-                <div class="glass-card">
-                    <div style="color: var(--info); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-code"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-info"><i class="fas fa-code"></i></div>
                     <h3>Unit 4: Programming Fundamentals</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Pointers, Memory, OOP, and Classes.</p>
-                    <a href="unit4.html" class="nav-link" style="padding-left: 0; color: var(--info); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">Pointers, Memory, OOP, and Classes.</p>
+                    <a href="unit4.html" class="unit-link color-info">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <!-- Unit Card 5 -->
-                <div class="glass-card">
-                    <div style="color: var(--danger); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-project-diagram"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-danger"><i class="fas fa-project-diagram"></i></div>
                     <h3>Unit 5: Data Structures</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">Trees, Graphs, Hashing, and Heaps.</p>
-                    <a href="unit5.html" class="nav-link" style="padding-left: 0; color: var(--danger); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">Trees, Graphs, Hashing, and Heaps.</p>
+                    <a href="unit5.html" class="unit-link color-danger">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
                 <!-- Unit Card 6 -->
-                <div class="glass-card">
-                    <div style="color: var(--purple); font-size: 2rem; margin-bottom: 1rem;"><i class="fas fa-brain"></i></div>
+                <div class="glass-card unit-card">
+                    <div class="unit-icon color-purple"><i class="fas fa-brain"></i></div>
                     <h3>Unit 6: Algorithms</h3>
-                    <p style="color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.5rem;">DP, Greedy, Complexity, and Recursion.</p>
-                    <a href="unit6.html" class="nav-link" style="padding-left: 0; color: var(--purple); font-weight: 600;">
-                        Open Unit <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+                    <p class="unit-desc">DP, Greedy, Complexity, and Recursion.</p>
+                    <a href="unit6.html" class="unit-link color-purple">
+                        Open Unit <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
             </div>
-            <h2 style="margin-top: 3rem;">Glossary of Terms</h2>
-            <div class="glass-card" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-                <div><strong>Kernel:</strong> Core of the OS that manages hardware.</div>
-                <div><strong>IP Address:</strong> Unique identifier for a device on a network.</div>
-                <div><strong>Primary Key:</strong> Unique identifier for a record in a database table.</div>
-                <div><strong>Pointer:</strong> Variable that stores the memory address of another variable.</div>
-                <div><strong>Time Complexity:</strong> Measure of the amount of time an algorithm takes to run.</div>
-                <div><strong>Normalization:</strong> Process of organizing data in a database to reduce redundancy.</div>
+            <h2 class="mt-4">Glossary of Terms</h2>
+            <div class="glass-card glossary-grid">
+                <div class="glossary-item"><strong>Kernel:</strong> Core of the OS that manages hardware.</div>
+                <div class="glossary-item"><strong>IP Address:</strong> Unique identifier for a device on a network.</div>
+                <div class="glossary-item"><strong>Primary Key:</strong> Unique identifier for a record in a database table.</div>
+                <div class="glossary-item"><strong>Pointer:</strong> Variable that stores the memory address of another variable.</div>
+                <div class="glossary-item"><strong>Time Complexity:</strong> Measure of the amount of time an algorithm takes to run.</div>
+                <div class="glossary-item"><strong>Normalization:</strong> Process of organizing data in a database to reduce redundancy.</div>
             </div>
 
-            <section style="margin-top: 4rem;">
+            <section class="mt-4">
                 <h2>Why PlaceMentor?</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-                    <div class="glass-card" style="text-align: center; border-bottom: 4px solid var(--primary);">
-                        <i class="fas fa-bolt fa-2x" style="color: var(--primary); margin-bottom: 1rem;"></i>
+                <div class="benefit-grid">
+                    <div class="glass-card benefit-card border-primary">
+                        <i class="fas fa-bolt fa-2x color-primary"></i>
                         <h4>Active Simulators</h4>
                         <p>Real-time visualizers for OS, DS, and Algorithms.</p>
                     </div>
-                    <div class="glass-card" style="text-align: center; border-bottom: 4px solid var(--secondary);">
-                        <i class="fas fa-check-circle fa-2x" style="color: var(--secondary); margin-bottom: 1rem;"></i>
+                    <div class="glass-card benefit-card border-secondary">
+                        <i class="fas fa-check-circle fa-2x color-secondary"></i>
                         <h4>Placement Ready</h4>
                         <p>Content derived from actual interview experiences.</p>
                     </div>
-                    <div class="glass-card" style="text-align: center; border-bottom: 4px solid var(--success);">
-                        <i class="fas fa-mobile-alt fa-2x" style="color: var(--success); margin-bottom: 1rem;"></i>
+                    <div class="glass-card benefit-card border-success">
+                        <i class="fas fa-mobile-alt fa-2x color-success"></i>
                         <h4>Anywhere Access</h4>
                         <p>Fully responsive platform for learning on any device.</p>
                     </div>

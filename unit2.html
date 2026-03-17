@@ -6,18 +6,6 @@
     <title>Unit 2: Computer Networking - PlaceMentor</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1rem; }
-        .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
-        .tech-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 0.75rem; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .tech-table th { background: var(--success); color: white; padding: 1rem; text-align: left; }
-        .tech-table td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--bg-card); }
-        
-        .osi-stack { display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; margin: 2rem auto; }
-        .osi-layer { padding: 1rem; text-align: center; color: white; font-weight: bold; border-radius: 0.5rem; cursor: pointer; transition: 0.3s; }
-        .osi-layer:hover { transform: scale(1.03); filter: brightness(1.1); }
-        .layer-info { margin-top: 1rem; padding: 1.5rem; border-radius: 1rem; background: var(--glass); border: 2px solid var(--success); }
-    </style>
 </head>
 <body>
     <div id="app-container">
@@ -35,14 +23,19 @@
                 <li class="nav-item"><a href="unit6.html" class="nav-link"><i class="fas fa-brain"></i><span>Unit 6: Algorithms</span></a></li>
                 <li class="nav-item"><a href="career.html" class="nav-link"><i class="fas fa-user-tie"></i><span>Career Hub</span></a></li>
             </nav>
-            <div class="sidebar-footer"><button id="theme-toggle" class="btn"><i class="fas fa-moon"></i><span>Toggle Theme</span></button></div>
+            <div class="sidebar-footer">
+                <button id="theme-toggle" class="btn w-full">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
+            </div>
         </aside>
 
         <main class="main-content">
-            <header class="glass-card" style="border-left: 6px solid var(--success);">
-                <h1>Unit 2: Computer Networks</h1>
-                <p>Foundations of Connectivity: Topologies, OSI Stack, and Global Protocols.</p>
-                <div class="progress-container"><div class="progress-bar"></div></div>
+            <header class="glass-card header-unit" style="border-left-color: var(--success);">
+                <h1 class="mb-0">Unit 2: Computer Networks</h1>
+                <p class="hero-subtitle mb-0 mt-2">Foundations of Connectivity: Topologies, OSI Stack, and Global Protocols.</p>
+                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
             </header>
 
             <!-- 1. Topologies & Media -->
@@ -155,12 +148,12 @@
                 </div>
                 
                 <h4>5. Congestion Control</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="info-box important" style="border-color: var(--primary);">
+                <div class="benefit-grid mt-2">
+                    <div class="info-box important mb-0" style="border-color: var(--primary);">
                         <h5>Leaky Bucket</h5>
                         <p>Output rate is fixed. Regardless of bursty input, packets flow out at a constant pace.</p>
                     </div>
-                    <div class="info-box important" style="border-color: var(--secondary);">
+                    <div class="info-box important mb-0" style="border-color: var(--secondary);">
                         <h5>Token Bucket</h5>
                         <p>Allows bursty output if tokens are available. More flexible than Leaky Bucket.</p>
                     </div>
@@ -243,15 +236,17 @@ Client: socket() -> connect() -> send()/recv()
             </div>
 
             <!-- Interview Qs -->
-            <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
-                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Computer Networks</h2>
-                <ol style="padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>What is the difference between TCP and UDP?</strong> (TCP is connection-oriented, reliable. UDP is connectionless, fast).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>What happens when you type google.com in a browser?</strong> (DNS lookup → TCP Handshake → HTTP Request → Server Response).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>What is ARP?</strong> (Address Resolution Protocol: Maps IP to MAC address).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Difference between Switch and Router?</strong> (Switch works at L2, Router works at L3).</li>
-                    <li>... more in Career Hub.</li>
-                </ol>
+            <div class="glass-card benefit-card border-purple mt-4">
+                <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Computer Networks</h2>
+                <div class="text-left mt-4">
+                    <ol class="pl-4">
+                        <li class="mb-2"><strong>What is the difference between TCP and UDP?</strong> (TCP is connection-oriented, reliable. UDP is connectionless, fast).</li>
+                        <li class="mb-2"><strong>What happens when you type google.com in a browser?</strong> (DNS lookup → TCP Handshake → HTTP Request → Server Response).</li>
+                        <li class="mb-2"><strong>What is ARP?</strong> (Address Resolution Protocol: Maps IP to MAC address).</li>
+                        <li class="mb-2"><strong>Difference between Switch and Router?</strong> (Switch works at L2, Router works at L3).</li>
+                        <li>... more in Career Hub.</li>
+                    </ol>
+                </div>
             </div>
 
     <script src="script.js?v=2.1.1"></script>
