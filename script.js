@@ -78,10 +78,23 @@ function initTheme() {
 // Collapsible Sections
 function initCollapsibles() {
     const headers = document.querySelectorAll('.collapsible-header');
+    
+    // Initial State Setup
+    headers.forEach(header => {
+        const content = header.nextElementSibling;
+        if (header.classList.contains('active') || content.classList.contains('active')) {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+
     headers.forEach(header => {
         header.addEventListener('click', () => {
             const content = header.nextElementSibling;
             const icon = header.querySelector('.chevron-icon');
+            
+            // Toggle active class for both header and content
+            header.classList.toggle('active');
+            content.classList.toggle('active');
             
             if (content.style.maxHeight) {
                 content.style.maxHeight = null;

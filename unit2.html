@@ -32,77 +32,122 @@
         </aside>
 
         <main class="main-content">
-            <header class="glass-card header-unit" style="border-left-color: var(--success);">
-                <h1 class="mb-0">Unit 2: Computer Networks</h1>
-                <p class="hero-subtitle mb-0 mt-2">Foundations of Connectivity: Topologies, OSI Stack, and Global Protocols.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card header-unit text-center" style="border-top: 4px solid var(--primary); border-left: none;">
+                <h1 class="mb-2">Unit 2: Computer Networks</h1>
+                <p class="hero-subtitle mb-0">Placement Preparation: From Physical Bits to Application Logic.</p>
+                <div class="progress-container mt-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                    <div class="progress-bar" style="width: 100%;"></div>
+                </div>
             </header>
 
-            <!-- 1. Topologies & Media -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-sitemap"></i> 1. Network Foundations & Topologies</h3>
+            <!-- 1. FUNDAMENTALS -->
+            <div class="collapsible-header active">
+                <h3><i class="fas fa-network-wired"></i> 1. Fundamentals of Computer Networks</h3>
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
-            <div class="collapsible-content">
+            <div class="collapsible-content active">
+                <div class="benefit-grid mb-4">
+                    <div class="info-box definition mb-0">
+                        <p><strong>Computer Network:</strong> A collection of autonomous computers interconnected by a single technology to share resources and exchange data.</p>
+                    </div>
+                </div>
+
+                <h4>Types of Networks</h4>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <h5><i class="fas fa-home"></i> LAN (Local)</h5>
+                        <p>Private networks within a single building or campus (up to few kms). High speed, low error rate.</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5><i class="fas fa-city"></i> MAN (Metropolitan)</h5>
+                        <p>Slightly larger area, e.g., an entire city. Often connects multiple LANs.</p>
+                    </div>
+                    <div class="compare-card" style="grid-column: span 2;">
+                        <h5><i class="fas fa-globe"></i> WAN (Wide Area)</h5>
+                        <p>Spans large geographical distances (countries/continents). The Internet is the largest WAN.</p>
+                    </div>
+                </div>
+
+                <h4>Transmission Media</h4>
+                <div class="compare-grid mb-4">
+                    <div class="compare-card">
+                        <h5><i class="fas fa-project-diagram"></i> Guided (Wired)</h5>
+                        <ul>
+                            <li><strong>Twisted Pair:</strong> Ethernet (10/100/1000 Mbps). Cheap, easy to install.</li>
+                            <li><strong>Coaxial:</strong> TV Cables. High bandwidth, good immunity to noise.</li>
+                            <li><strong>Fiber Optic:</strong> Light signals. Extremely high speed, no EMI. Best for WAN/LAN backbones.</li>
+                        </ul>
+                    </div>
+                    <div class="compare-card">
+                        <h5><i class="fas fa-wifi"></i> Unguided (Wireless)</h5>
+                        <ul>
+                            <li><strong>Radio Waves:</strong> Omnidirectional (WiFi, FM). Long distance.</li>
+                            <li><strong>Microwaves:</strong> Unidirectional (Satellite, Cell towers). Line-of-sight.</li>
+                            <li><strong>Infrared:</strong> Short range (TV Remote). Cannot pass through walls.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Network Topologies</h4>
                 <table class="tech-table">
-                    <thead><tr><th>Topology</th><th>Pros</th><th>Cons</th></tr></thead>
+                    <thead><tr><th>Topology</th><th>Working Principle</th><th>Best For</th></tr></thead>
                     <tbody>
-                        <tr><td>Bus</td><td>Cheap, simple setup.</td><td>Difficult to troubleshoot; failure of main cable breaks network.</td></tr>
-                        <tr><td>Star</td><td>Central control, easy to add nodes.</td><td>If central hub fails, everything goes down.</td></tr>
-                        <tr><td>Ring</td><td>Ordered data flow.</td><td>Failure of one node affects all.</td></tr>
-                        <tr><td>Mesh</td><td>High redundancy/fault tolerance.</td><td>Expensive (Full mesh needs n(n-1)/2 cables).</td></tr>
+                        <tr><td><strong>Mesh</strong></td><td>Every node connected to every other node. (n(n-1)/2 cables).</td><td>High reliability (Military).</td></tr>
+                        <tr><td><strong>Star</strong></td><td>All nodes connected to a central Hub/Switch.</td><td>Home/Office networks.</td></tr>
+                        <tr><td><strong>Bus</strong></td><td>Single backbone cable (bus). Terminators at ends.</td><td>Simple, old setups.</td></tr>
+                        <tr><td><strong>Ring</strong></td><td>Each node has two neighbors. Data flows in one direction.</td><td>Token passing networks.</td></tr>
                     </tbody>
                 </table>
-                <div class="info-box definition">
-                    <p><strong>OSI Model:</strong> A conceptual framework used to understand network interactions in 7 abstraction layers.</p>
+
+                <div class="placement-tip">
+                    <h5><i class="fas fa-stopwatch"></i> Bandwidth, Throughput & Latency</h5>
+                    <ul>
+                        <li><strong>Bandwidth:</strong> Max data transfer rate of a link (theoretical).</li>
+                        <li><strong>Throughput:</strong> Actual data transferred over time (practical).</li>
+                        <li><strong>Latency:</strong> Time taken for a packet to travel from source to destination.</li>
+                    </ul>
                 </div>
 
-                <h4>Visual Learning: OSI Layer Data Flow</h4>
-                <div class="diagram-container">
-                    <div class="visual-node">Application Layer (Data)</div>
-                    <div class="visual-arrow"></div>
-                    <div class="visual-node">Transport Layer (Segments)</div>
-                    <div class="visual-arrow"></div>
-                    <div class="visual-node">Network Layer (Packets)</div>
-                    <div class="visual-arrow"></div>
-                    <div class="visual-node">Data Link Layer (Frames)</div>
-                    <div class="visual-arrow"></div>
-                    <div class="visual-node">Physical Layer (Bits)</div>
+                <h4>Transmission Modes</h4>
+                <div class="benefit-grid">
+                    <div class="glass-card p-4 text-center">
+                        <i class="fas fa-arrow-right color-primary"></i>
+                        <h6>Simplex</h6>
+                        <p class="small text-muted">One-way only (TV/Radio).</p>
+                    </div>
+                    <div class="glass-card p-4 text-center">
+                        <i class="fas fa-exchange-alt color-secondary"></i>
+                        <h6>Half-Duplex</h6>
+                        <p class="small text-muted">Both ways, but not at once (Walkie-Talkie).</p>
+                    </div>
+                    <div class="glass-card p-4 text-center">
+                        <i class="fas fa-arrows-alt-h color-success"></i>
+                        <h6>Full-Duplex</h6>
+                        <p class="small text-muted">Simultaneous two-way (Mobile Call).</p>
+                    </div>
                 </div>
 
-                <div class="network-layer">
-                    <h5>Layer 1: Physical (The Bit Stream)</h5>
-                    <p><strong>Multiplexing:</strong> Combining multiple signals into one medium. <br>
-                    - <strong>FDM (Frequency):</strong> Radio/TV. <br>
-                    - <strong>TDM (Time):</strong> Digital telephony. <br>
-                    - <strong>WDM (Wavelength):</strong> Fiber optics.</p>
-                </div>
-                <div class="network-layer">
-                    <h5>Layer 2: Data Link (Hop-to-Hop)</h5>
-                    <p><strong>Flow Control:</strong> Preventing sender from overwhelming receiver. <br>
-                    - <strong>Stop-and-Wait:</strong> Sends 1 frame, waits for ACK. <br>
-                    - <strong>Sliding Window:</strong> Sends multiple frames before needing ACK (Go-Back-N, Selective Repeat).</p>
-                    <p><strong>Error Detection:</strong> CRC (Cyclic Redundancy Check) and Checksum.</p>
-                </div>
-                <div class="info-box definition">
-                    <p><strong>Subnetting:</strong> The process of dividing a large network into smaller, manageable sub-networks (subnets). This helps in reducing network traffic and enhancing security.</p>
-                </div>
-                <h5>ARP and ICMP (Helper Protocols)</h5>
-                <ul>
-                    <li><strong>ARP (Address Resolution Protocol):</strong> Maps IP address to MAC address.</li>
-                    <li><strong>ICMP (Internet Control Message Protocol):</strong> Used for error reporting (e.g., Ping, Traceroute).</li>
-                </ul>
-                <div id="subnet-calc-info" class="glass-card" style="margin-top: 1.5rem;">
-                    <p><em>Use the calculator in Chapter 3 for interactive practice!</em></p>
+                <h4>Switching Techniques</h4>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <h5>Circuit Switching</h5>
+                        <p>Dedicated path is established before data transfer (e.g., Landline). <strong>Pros:</strong> Guaranteed bandwidth. <strong>Cons:</strong> Resource wastage during silence.</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5>Packet Switching</h5>
+                        <p>Data broken into packets; each packet can take a different route. <strong>Pros:</strong> Efficient, robust. <strong>Cons:</strong> Jitter/Delay variations.</p>
+                    </div>
                 </div>
             </div>
 
-            <!-- 2. Models -->
+            <!-- 2. OSI MODEL -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-layer-group"></i> 2. OSI & TCP/IP Models</h3>
+                <h3><i class="fas fa-layer-group"></i> 2. OSI Model (Very Important)</h3>
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
+                <p>The Open Systems Interconnection (OSI) model is a conceptual framework with 7 layers.</p>
+                
                 <div class="osi-stack">
                     <div class="osi-layer" style="background: #ef4444;" onclick="showLayer(7)">7. Application (Data)</div>
                     <div class="osi-layer" style="background: #f59e0b;" onclick="showLayer(6)">6. Presentation (Data)</div>
@@ -115,159 +160,427 @@
                 <div id="osi-info" class="layer-info">
                     <p style="text-align: center; color: var(--text-muted);">Click a layer to view Placement Notes</p>
                 </div>
-                <div class="info-box important">
-                    <p><strong>IPv4 vs IPv6:</strong><br>
-                    <strong>IPv4:</strong> 32-bit, decimal notation, 4.3 billion addresses.<br>
-                    <strong>IPv6:</strong> 128-bit, hexadecimal notation, virtually unlimited addresses (340 undecillion).</p>
+
+                <h4 class="mt-4">Visual: Encapsulation Process</h4>
+                <div class="encap-container glass-card">
+                    <div class="encap-layer" style="background: #ef4444; width: 120px;">Data</div>
+                    <div class="encap-layer" style="background: #3b82f6; width: 160px;">Segment</div>
+                    <div class="encap-layer" style="background: #6366f1; width: 200px;">Packet</div>
+                    <div class="encap-layer" style="background: #a855f7; width: 240px;">Frame</div>
+                    <div class="encap-layer" style="background: #ec4899; width: 260px;">Bits</div>
+                    <p class="small text-muted mt-2">Hover to see headers being added (Encapsulation)</p>
                 </div>
+
+                <h4>Devices at Each Layer</h4>
                 <table class="tech-table">
-                    <thead><tr><th>Aspect</th><th>IPv4</th><th>IPv6</th></tr></thead>
+                    <thead><tr><th>Layer</th><th>Device</th><th>Function</th></tr></thead>
                     <tbody>
-                        <tr><td>Address Space</td><td>32-bit (4 Billion)</td><td>128-bit (Infinity...)</td></tr>
-                        <tr><td>Notation</td><td>Dotted Decimal</td><td>Hexadecimal</td></tr>
-                        <tr><td>Header</td><td>Variable (20-60 bytes)</td><td>Fixed (40 bytes)</td></tr>
+                        <tr><td>Physical</td><td>Hub, Repeater</td><td>Bits broadcasting, signal regeneration.</td></tr>
+                        <tr><td>Data Link</td><td>Switch, Bridge</td><td>MAC based forwarding, collision domain separation.</td></tr>
+                        <tr><td>Network</td><td>Router, L3 Switch</td><td>IP based routing, broadcast domain separation.</td></tr>
                     </tbody>
                 </table>
-                <div class="glass-card" style="border-top: 4px solid var(--primary);">
-                    <h5>Routing Protocols: DV vs Link State</h5>
-                    <p><strong>Distance Vector (RIP):</strong> Each router tells its neighbors about the whole world. Based on <em>Bellman-Ford</em>. <br><strong>Link State (OSPF):</strong> Each router tells the whole world about its neighbors. Based on <em>Dijkstra</em>.</p>
-                </div>
-                <div class="info-box important">
-                    <p><strong>Application Layer Protocols:</strong> <br>
-                    - <strong>HTTP/HTTPS:</strong> Port 80/443. <br>
-                    - <strong>DNS:</strong> Port 53 (UDP). <br>
-                    - <strong>DHCP:</strong> Dynamic IP allocation.</p>
-                </div>
-                <div class="info-box important">
-                    <p><strong>TCP/IP vs OSI:</strong> OSI is a theoretical model; TCP/IP is the practical implementation used on the Internet. TCP/IP has 4 layers: Application, Transport, Internet, Network Access.</p>
-                </div>
-                
-                <h4>4. Error Detection: CRC & Checksum</h4>
-                <div class="info-box formula">
-                    <p><strong>CRC (Cyclic Redundancy Check):</strong> Uses polynomial division to detect errors. A generator polynomial is used to create a checksum at the sender, and the receiver verifies it.</p>
-                </div>
-                
-                <h4>5. Congestion Control</h4>
-                <div class="benefit-grid mt-2">
-                    <div class="info-box important mb-0" style="border-color: var(--primary);">
-                        <h5>Leaky Bucket</h5>
-                        <p>Output rate is fixed. Regardless of bursty input, packets flow out at a constant pace.</p>
-                    </div>
-                    <div class="info-box important mb-0" style="border-color: var(--secondary);">
-                        <h5>Token Bucket</h5>
-                        <p>Allows bursty output if tokens are available. More flexible than Leaky Bucket.</p>
-                    </div>
-                </div>
 
-                <h4>6. Socket Programming Basics</h4>
-                <pre>
-Server: socket() -> bind() -> listen() -> accept() -> recv()/send()
-Client: socket() -> connect() -> send()/recv()
-                </pre>
+                <h4>OSI vs TCP/IP Model</h4>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Feature</th><th>OSI Model</th><th>TCP/IP Model</th></tr></thead>
+                        <tbody>
+                            <tr><td>Number of Layers</td><td>7 Layers</td><td>4 Layers (RFC 1122)</td></tr>
+                            <tr><td>Implementation</td><td>Theoretical / Reference</td><td>Practical / Implementation</td></tr>
+                            <tr><td>Approach</td><td>Vertical (Strict layering)</td><td>Horizontal (Loose integration)</td></tr>
+                            <tr><td>Session/Presentation</td><td>Separate Layers</td><td>Integrated in Application Layer</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- 3. Subnetting Deep Dive -->
+            <!-- 3. TCP/IP MODEL -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-calculator"></i> 3. Subnetting & Routing Deep Dive</h3>
+                <h3><i class="fas fa-project-diagram"></i> 3. TCP/IP Model</h3>
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
-                <div class="info-box formula">
-                    <p><strong>Number of Subnets</strong> = 2<sup>n</sup> (where n = number of borrowed bits)</p>
-                    <p><strong>Number of Hosts per Subnet</strong> = 2<sup>h</sup> - 2 (where h = remaining host bits)</p>
-                </div>
-                <table class="tech-table">
-                    <thead><tr><th>Class</th><th>Range</th><th>Default Mask</th><th>Usage</th></tr></thead>
-                    <tbody>
-                        <tr><td>Class A</td><td>1 - 126</td><td>255.0.0.0</td><td>Very large networks</td></tr>
-                        <tr><td>Class B</td><td>128 - 191</td><td>255.255.0.0</td><td>Midsized networks</td></tr>
-                        <tr><td>Class C</td><td>192 - 223</td><td>255.255.255.0</td><td>Small networks</td></tr>
-                        <tr><td>Class D</td><td>224 - 239</td><td>N/A</td><td>Multicasting</td></tr>
-                    </tbody>
-                </table>
-                <div id="subnet-calc" class="glass-card" style="margin-top: 1.5rem;">
-                    <h5>IP Subnetting: "How to Solve" Guide</h5>
-                    <p><strong>Problem:</strong> Divide 192.168.1.0/24 into 4 subnets.</p>
-                    <ol style="font-size: 0.9rem;">
-                        <li><strong>Find Bits Needed:</strong> 2^n ≥ 4 subnets → n = 2 bits.</li>
-                        <li><strong>New Mask:</strong> /24 + 2 = /26 (255.255.255.192).</li>
-                        <li><strong>Block Size:</strong> 256 - 192 = 64.</li>
-                        <li><strong>Subnet Ranges:</strong>
-                            <br>1: 192.168.1.0 to .63
-                            <br>2: 192.168.1.64 to .127
-                            <br>3: 192.168.1.128 to .191
-                            <br>4: 192.168.1.192 to .255
-                        </li>
-                    </ol>
-                </div>
-                <section class="glass-card" style="border: 1px solid var(--success);">
-                    <h4>Interactive CIDR Calculator</h4>
-                    <div style="display: flex; gap: 1rem; align-items: center;">
-                        <input type="text" id="ip-in" class="btn" value="192.168.1.0" style="flex: 1;">
-                        <input type="number" id="cidr-in" class="btn" value="24" style="width: 80px;">
-                        <button class="btn btn-primary" onclick="calcSubnet()">Calculate</button>
+                <div class="compare-grid">
+                    <div class="compare-card tcp">
+                        <h5>TCP (Transmission Control Protocol)</h5>
+                        <ul>
+                            <li>Connection-oriented.</li>
+                            <li>Reliable (Retransmission).</li>
+                            <li>Byte-stream oriented.</li>
+                            <li>Flow & Congestion control.</li>
+                        </ul>
                     </div>
-                    <div id="subnet-out" style="margin-top: 1rem;"></div>
-                    <div class="glass-card" style="border-left: 5px solid var(--secondary); background: rgba(var(--secondary-rgb), 0.05);">
-                    <h5>Placement Case Study: 3-Way Handshake</h5>
-                    <p><strong>Question:</strong> "Why is a 2-way handshake insufficient for TCP?"</p>
-                    <p><strong>Answer:</strong> To prevent "half-open" connections. A 3-way handshake ensures that both sides have received a sequence number and are ready to communicate. <br><strong>Sequence:</strong> SYN(S) → SYN(R)+ACK(S) → ACK(R).</p>
+                    <div class="compare-card udp">
+                        <h5>UDP (User Datagram Protocol)</h5>
+                        <ul>
+                            <li>Connectionless.</li>
+                            <li>Unreliable (Best effort).</li>
+                            <li>Message-oriented.</li>
+                            <li>Fast (Low overhead).</li>
+                        </ul>
+                    </div>
                 </div>
-            </section>
+
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Feature</th><th>TCP</th><th>UDP</th></tr></thead>
+                        <tbody>
+                            <tr><td>Header Size</td><td>20 - 60 Bytes</td><td>8 Bytes</td></tr>
+                            <tr><td>Retransmission</td><td>Yes (if lost)</td><td>No</td></tr>
+                            <tr><td>Flow Control</td><td>Yes (Windowing)</td><td>No</td></tr>
+                            <tr><td>Port Addressing</td><td>Process-to-process</td><td>Process-to-process</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h4>TCP 3-Way Handshake (Connection Establishment)</h4>
+                <div class="handshake-container">
+                    <div class="handshake-actor">
+                        <i class="fas fa-laptop"></i>
+                        <p>Client</p>
+                    </div>
+                    <div class="handshake-lines">
+                        <div class="handshake-packet packet-syn">SYN (Seq=X)</div>
+                        <div class="handshake-packet packet-syn-ack">SYN+ACK (Seq=Y, Ack=X+1)</div>
+                        <div class="handshake-packet packet-ack">ACK (Ack=Y+1)</div>
+                    </div>
+                    <div class="handshake-actor">
+                        <i class="fas fa-server"></i>
+                        <p>Server</p>
+                    </div>
+                </div>
+
+                <div class="placement-tip">
+                    <p><strong>Why 3-way?</strong> To ensure both sides can send and receive. It prevents "Delayed Duplicate" packets from creating ghost connections.</p>
+                </div>
             </div>
 
-            <!-- 4. Key Protocols -->
+            <!-- 4. DATA LINK LAYER -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-globe"></i> 4. Key Protocols: Port & Mastery</h3>
+                <h3><i class="fas fa-link"></i> 4. Data Link Layer</h3>
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
-                <table class="tech-table">
-                    <thead><tr><th>Protocol</th><th>Port</th><th>Purpose</th></tr></thead>
-                    <tbody>
-                        <tr><td>HTTP / HTTPS</td><td>80 / 443</td><td>Transferring web pages.</td></tr>
-                        <tr><td>DNS</td><td>53</td><td>Domain name to IP resolution.</td></tr>
-                        <tr><td>SMTP</td><td>25</td><td>Sending Emails.</td></tr>
-                        <tr><td>POP3 / IMAP</td><td>110 / 143</td><td>Receiving Emails.</td></tr>
-                        <tr><td>FTP</td><td>20, 21</td><td>Transferring files.</td></tr>
-                        <tr><td>DHCP</td><td>67, 68</td><td>Assigning dynamic IPs automatically.</td></tr>
-                    </tbody>
-                </table>
-            </div>
+                <h4>Framing & MAC Addressing</h4>
+                <p><strong>Framing:</strong> Breaking bitstream into manageable units called Frames. Uses methods like Character Count or Bit Stuffing.</p>
+                <div class="info-box definition">
+                    <p><strong>MAC Address:</strong> 48-bit (6 bytes) physical address. Example: <code>00:1A:2B:3C:4D:5E</code>. First 3 bytes are OUI (Manufacturer ID).</p>
+                </div>
 
-            <!-- Interview Qs -->
-            <div class="glass-card benefit-card border-purple mt-4">
-                <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Computer Networks</h2>
-                <div class="text-left mt-4">
-                    <ol class="pl-4">
-                        <li class="mb-2"><strong>What is the difference between TCP and UDP?</strong> (TCP is connection-oriented, reliable. UDP is connectionless, fast).</li>
-                        <li class="mb-2"><strong>What happens when you type google.com in a browser?</strong> (DNS lookup → TCP Handshake → HTTP Request → Server Response).</li>
-                        <li class="mb-2"><strong>What is ARP?</strong> (Address Resolution Protocol: Maps IP to MAC address).</li>
-                        <li class="mb-2"><strong>Difference between Switch and Router?</strong> (Switch works at L2, Router works at L3).</li>
-                        <li>... more in Career Hub.</li>
+                <h4>Multiple Access Protocols</h4>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <h5>ALOHA (The Pioneer)</h5>
+                        <ul>
+                            <li><strong>Pure ALOHA:</strong> Send whenever data is ready. Max Efficiency = 18.4%.</li>
+                            <li><strong>Slotted ALOHA:</strong> Time is divided into slots. Send only at start of slot. Max Efficiency = 36.8%.</li>
+                        </ul>
+                    </div>
+                    <div class="compare-card">
+                        <h5>CSMA (Carrier Sense)</h5>
+                        <ul>
+                            <li><strong>CSMA/CD:</strong> Collision Detection. Used in Ethernet (Wired). Stops sending as soon as collision is detected.</li>
+                            <li><strong>CSMA/CA:</strong> Collision Avoidance. Used in WiFi (Wireless). Uses RTS/CTS to avoid collisions.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>Framing: Bit Stuffing Example</h4>
+                <div class="numerical-box">
+                    <p><strong>Pattern:</strong> <code>01111110</code> (Flag). If data has five 1s, add a 0.</p>
+                    <p><strong>Input:</strong> <code>111111</code> → <strong>Output:</strong> <code>1111101</code> (Stuffing 0 after five 1s).</p>
+                    <p class="small text-muted">Helps receiver identify where frame ends.</p>
+                </div>
+
+                <h4>Error Detection vs Correction</h4>
+                <div class="compare-grid mb-4">
+                    <div class="compare-card">
+                        <h5>Error Detection</h5>
+                        <p>Finding if data was corrupted (Parity, Checksum, CRC). Only 1 bit needed usually.</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5>Error Correction</h5>
+                        <p>Repairing corrupted data without retransmission (Hamming Code). Requires more redundant bits.</p>
+                    </div>
+                </div>
+
+                <h4>Error Detection: CRC (Cyclic Redundancy Check)</h4>
+                <div class="numerical-box">
+                    <h6><span class="step-badge">Numerical</span> CRC Calculation Example</h6>
+                    <p><strong>Data:</strong> 1010, <strong>Generator (G):</strong> 101</p>
+                    <ol>
+                        <li>Append (G-1) zeros to data: 1010 + 00 = 101000</li>
+                        <li>Divide 101000 by 101 using XOR.</li>
+                        <li>Remainder + Data = Transmitted Frame.</li>
                     </ol>
                 </div>
+
+                <h4>Flow Control</h4>
+                <ul>
+                    <li><strong>Stop-and-Wait:</strong> Efficiency = 1 / (1 + 2a). Safe but slow.</li>
+                    <li><strong>Sliding Window:</strong> Allows multiple frames in flight. (Go-Back-N, Selective Repeat).</li>
+                </ul>
             </div>
+
+            <!-- 5. NETWORK LAYER -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-route"></i> 5. Network Layer (High Priority)</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <h4>IP Addressing (IPv4)</h4>
+                <table class="tech-table">
+                    <thead><tr><th>Class</th><th>Range</th><th>Net/Host Bits</th><th>Format</th></tr></thead>
+                    <tbody>
+                        <tr><td>A</td><td>1 - 126</td><td>8 / 24</td><td>N.H.H.H</td></tr>
+                        <tr><td>B</td><td>128 - 191</td><td>16 / 16</td><td>N.N.H.H</td></tr>
+                        <tr><td>C</td><td>192 - 223</td><td>24 / 8</td><td>N.N.N.H</td></tr>
+                    </tbody>
+                </table>
+                
+                <div class="placement-tip">
+                    <h5><i class="fas fa-file-invoice"></i> IPv4 Header Fields</h5>
+                    <ul>
+                        <li><strong>Version:</strong> Ver 4 or 6. (4 bits).</li>
+                        <li><strong>IHL:</strong> Internet Header Length (5 words = 20 bytes min).</li>
+                        <li><strong>TTL:</strong> Time To Live (Decremented by each router). Prevents infinite looping.</li>
+                        <li><strong>Protocol:</strong> Defines next layer (TCP=6, UDP=17).</li>
+                    </ul>
+                </div>
+
+                <div class="info-box definition">
+                    <h5>NAT (Network Address Translation)</h5>
+                    <p>Allows multiple devices in a private network to share a single public IP. Useful for saving IPv4 address space.</p>
+                </div>
+
+                <div class="placement-tip">
+                    <p><strong>Subnetting Tip:</strong> Number of subnets = 2<sup>borrowed_bits</sup>. Number of hosts = 2<sup>host_bits</sup> - 2 (Minus Network ID and Broadcast ID).</p>
+                </div>
+
+                <h4>Routing Algorithms</h4>
+                <ul>
+                    <li><strong>Distance Vector (RIP):</strong> Bellman-Ford algorithm. Shares full table with neighbors. Problem: <em>Count to Infinity</em>.</li>
+                    <li><strong>Link State (OSPF):</strong> Dijkstra's algorithm. Shares local link state with everyone. Faster convergence.</li>
+                </ul>
+                <div class="info-box important">
+                    <p><strong>ARP (L2.5):</strong> IP → MAC. <br> <strong>ICMP:</strong> Reporting errors (Ping/Traceroute).</p>
+                </div>
+            </div>
+
+            <!-- 6. TRANSPORT LAYER -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-shipping-fast"></i> 6. Transport Layer</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <h4>Congestion Control</h4>
+                <p>TCP handles congestion using 4 phases:</p>
+                <ol>
+                    <li><strong>Slow Start:</strong> Exponentially increase window size (1, 2, 4, 8...).</li>
+                    <li><strong>Congestion Avoidance:</strong> Increase linearly after reaching threshold level.</li>
+                    <li><strong>Fast Retransmit:</strong> Upon 3 duplicate ACKs.</li>
+                    <li><strong>Fast Recovery:</strong> Skip slow start if some packets are getting through.</li>
+                </ol>
+                <div class="info-box interview">
+                    <p><strong>Port Numbers:</strong> Well-known ports are 0-1023. Example: 80 (HTTP), 443 (HTTPS), 53 (DNS).</p>
+                </div>
+            </div>
+
+            <!-- 7. APPLICATION LAYER -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-desktop"></i> 7. Application Layer</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <h4>What happens when you type a URL? (Master Question)</h4>
+                <div class="numerical-box" style="background: rgba(var(--primary-rgb), 0.05);">
+                    <ol>
+                        <li><strong>DNS Lookup:</strong> Browser checks cache → OS cache → Router cache → ISP (Recursive query to Root/TLD/Authoritative).</li>
+                        <li><strong>TCP Handshake:</strong> Establishment of 3-way handshake with the server's IP.</li>
+                        <li><strong>HTTP Request:</strong> Browser sends GET request.</li>
+                        <li><strong>Server Response:</strong> Server sends 200 OK and index.html.</li>
+                        <li><strong>Rendering:</strong> Browser parses HTML, CSS, and JS to show the page.</li>
+                    </ol>
+                </div>
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <h5>HTTP vs HTTPS</h5>
+                        <p>HTTPS = HTTP + SSL/TLS. Port 443. Encrypted and Authenticated.</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5>HTTP Versions (Interview Core)</h5>
+                        <ul>
+                            <li><strong>HTTP 1.1:</strong> Persistent connections, Pipelining (Sequential).</li>
+                            <li><strong>HTTP 2:</strong> Multiplexing, Header compression (HPACK). Parallel requests over 1 TCP.</li>
+                            <li><strong>HTTP 3:</strong> Uses QUIC instead of TCP. Solves Head-of-line blocking.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. NETWORK SECURITY BASICS -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-shield-alt"></i> 8. Network Security Basics</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <h4>Encryption Types</h4>
+                <ul>
+                    <li><strong>Symmetric:</strong> Same key for encryption and decryption (AES). Fast.</li>
+                    <li><strong>Asymmetric:</strong> Different keys (Public for encryption, Private for decryption). RSA.</li>
+                </ul>
+                <div class="info-box important">
+                    <p><strong>Common Attacks:</strong> <br>
+                    - <strong>MiTM:</strong> Attacker sits between sender and receiver. <br>
+                    - <strong>DDoS:</strong> Overwhelming a server with traffic from multiple sources.</p>
+                </div>
+            </div>
+
+            <!-- 9. IMPORTANT NUMERICALS -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-calculator"></i> 9. Important Numericals</h3>
+                <i class="fas fa-chevron-down chevron-icon"></i>
+            </div>
+            <div class="collapsible-content">
+                <div class="numerical-box">
+                    <h6>1. Delay Formula</h6>
+                    <p><strong>Total Delay</strong> = Propagation Delay + Transmission Delay + Queuing Delay + Processing Delay</p>
+                    <p>Transmission Delay = Packet Size / Bandwidth</p>
+                    <p>Propagation Delay = Distance / Speed</p>
+                </div>
+                <div class="numerical-box">
+                    <h6>2. Subnetting Problem</h6>
+                    <p><strong>Q:</strong> Given 192.168.1.0/26, find number of hosts and mask.</p>
+                    <p><strong>A:</strong> /26 means 26 net bits, 6 host bits. <br> Hosts = 2<sup>6</sup> - 2 = 62 usable hosts. <br> Mask = 255.255.255.192</p>
+                </div>
+                <div class="numerical-box">
+                    <h6>3. Hamming Code (7, 4)</h6>
+                    <p><strong>Data:</strong> 1011. Find Hamming bits (P1, P2, P4).</p>
+                    <p><strong>Logic:</strong> P1 covers 1, 3, 5, 7. P2 covers 2, 3, 6, 7. P4 covers 4, 5, 6, 7. Use Even Parity.</p>
+                    <p><strong>A:</strong> P1=0, P2=1, P4=0. Codeword = 0110011.</p>
+                </div>
+                <div class="numerical-box" style="border-color: var(--secondary);">
+                    <h6>4. Routing: Dijkstra's Basic</h6>
+                    <p><strong>Q:</strong> Shortest path from A to C if A-B=2, B-C=3, A-C=6.</p>
+                    <p><strong>A:</strong> Path A→B→C (2+3=5) is shorter than direct A→C (6).</p>
+                </div>
+                <!-- 10. MOST IMPORTANT INTERVIEW TOPICS -->
+                <div class="glass-card benefit-card border-purple mt-4">
+                    <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> 10. Placement FAQ: Master List</h2>
+                    <div class="text-left mt-4">
+                        <ol class="pl-4">
+                            <li class="mb-4">
+                                <strong>1. Difference between Hub, Switch, and Router?</strong><br>
+                                <span class="small text-muted">A Hub is at L1 (broadcasts everything). A Switch is at L2 (MAC-based, intelligent). A Router is at L3 (IP-based, connects different networks).</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>2. What is a Gateway?</strong><br>
+                                <span class="small text-muted">A node that serves as an entrance to another network, often used to connect a LAN to the Internet.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>3. Explain the 3-Way Handshake.</strong><br>
+                                <span class="small text-muted">Client → SYN; Server → SYN-ACK; Client → ACK. It ensures reliable connection establishment.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>4. How does DNS work?</strong><br>
+                                <span class="small text-muted">Converts human-readable names (google.com) to IP addresses using a hierarchical distributed database of Root, TLD, and Authoritative servers.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>5. What is the difference between IPv4 and IPv6?</strong><br>
+                                <span class="small text-muted">IPv4 is 32-bit (numeric), IPv6 is 128-bit (hexadecimal). IPv6 provides nearly unlimited addresses and better security.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>6. What is the difference between MAC and IP Address?</strong><br>
+                                <span class="small text-muted">MAC is physical (burned-in), unique for every device. IP is logical (assigned), unique for every device on a network.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>7. What happens in a 4-way TCP termination?</strong><br>
+                                <span class="small text-muted">FIN → ACK; FIN → ACK. Ensures both sides are done sending data.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>8. What is the use of TTL in IP Header?</strong><br>
+                                <span class="small text-muted">To prevent packets from looping infinitely. Each router decrements TTL; if it hits 0, packet is dropped.</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>9. How does HTTPS provide security?</strong><br>
+                                <span class="small text-muted">Uses SSL/TLS for Encryption (AES), Integrity (Hashing), and Authentication (Digital Certificates).</span>
+                            </li>
+                            <li class="mb-4">
+                                <strong>10. Difference between CSMA/CD and CSMA/CA?</strong><br>
+                                <span class="small text-muted">CD detects collisions (Ethernet). CA avoids collisions (WiFi) using RTS/CTS.</span>
+                            </li>
+                        </ol>
+                        <p class="text-center mt-4"><a href="career.html" class="btn btn-primary">Mock Interview Prep</a></p>
+                    </div>
+                </div>
+
+                <!-- Footer Copyright (Optional) -->
+                <footer class="text-center mt-4 p-4 text-muted border-top">
+                    <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+                </footer>
+            </main>
+        </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>
         const layers = {
-            7: { name: "Application", func: "Services for user apps", note: "Port numbers like 80 (HTTP), 443 (HTTPS), 25 (SMTP) live here." },
-            6: { name: "Presentation", func: "Translation, Encryption", note: "SSL/TLS often applied here for data security." },
-            5: { name: "Session", func: "Session management", note: "Establishes and terminates dialogues between apps." },
-            4: { name: "Transport", func: "Host-to-host delivery", note: "Critical for Error control & Flow control (TCP/UDP segments)." },
-            3: { name: "Network", func: "Routing packets", note: "Logical addressing (IP) and best path selection happens here." },
-            2: { name: "Data Link", func: "Physical addressing (MAC)", note: "Frames, Error detection (CRC), and Switching (Bridge)." },
-            1: { name: "Physical", func: "Unstructured bitstream", note: "Cables, Hubs, Signal levels, and Pin layouts." }
+            7: { 
+                name: "Application", 
+                func: "User-level services & interfaces.", 
+                note: "Protocols: HTTP, DNS, SMTP, FTP. This is where users interact with the network." 
+            },
+            6: { 
+                name: "Presentation", 
+                func: "Data formatting, translation, encryption.", 
+                note: "Deals with Syntax and Semantics. Example: Converting ASCII to EBCDIC, SSL/TLS encryption." 
+            },
+            5: { 
+                name: "Session", 
+                func: "Session management & synchronization.", 
+                note: "Maintains 'dialogues'. Checkpointing and recovery happen here." 
+            },
+            4: { 
+                name: "Transport", 
+                func: "End-to-end delivery & segmentation.", 
+                note: "TCP vs UDP. Handles Error control, Flow control, and Port Addressing (65535 ports)." 
+            },
+            3: { 
+                name: "Network", 
+                func: "Routing, logical addressing & path selection.", 
+                note: "IP Address lives here. Devices: Router. Protocols: ICMP, ARP, OSPF, RIP." 
+            },
+            2: { 
+                name: "Data Link", 
+                func: "Physical addressing & hop-to-hop delivery.", 
+                note: "Frames bits. Divided into LLC and MAC sublayers. Devices: Switch, Bridge." 
+            },
+            1: { 
+                name: "Physical", 
+                func: "Transmission of raw bits over medium.", 
+                note: "Deals with cables, voltage, and signal levels. Devices: Hub, Repeater." 
+            }
         };
         function showLayer(n) {
             const l = layers[n];
-            document.getElementById('osi-info').innerHTML = `<h4>${l.name}</h4><p><strong>Func:</strong> ${l.func}</p><p><strong>Placement Note:</strong> ${l.note}</p>`;
+            document.getElementById('osi-info').innerHTML = `
+                <div class="visual-node bg-info mb-2" style="display:inline-flex; border-radius: 5px;">${l.name} Layer</div>
+                <p><strong>Primary Function:</strong> ${l.func}</p>
+                <div class="placement-tip mt-2" style="margin: 0; padding: 1rem;">
+                    <p><strong>Placement Note:</strong> ${l.note}</p>
+                </div>
+            `;
         }
         function calcSubnet() {
             const cidr = parseInt(document.getElementById('cidr-in').value);
+            if(cidr < 0 || cidr > 32) return;
             const hosts = Math.pow(2, 32-cidr) - 2;
-            document.getElementById('subnet-out').innerHTML = `<div class="info-box definition">Usable Hosts: <strong>${hosts.toLocaleString()}</strong><br>CIDR Mask: <strong>/${cidr}</strong></div>`;
+            document.getElementById('subnet-out').innerHTML = `
+                <div class="numerical-box mb-0">
+                    <p>Usable Hosts: <strong>${hosts < 0 ? 0 : hosts.toLocaleString()}</strong></p>
+                    <p>Subnet Mask: <strong>/${cidr}</strong></p>
+                    <p class="small text-muted">Formula: 2^(32 - CIDR) - 2</p>
+                </div>`;
         }
         document.addEventListener('DOMContentLoaded', () => {
              const quizData = [
@@ -282,7 +595,7 @@ Client: socket() -> connect() -> send()/recv()
                 { question: "Protocol mapping IP to MAC?", options: ["RARP", "ARP", "DHCP", "DNS"], answer: 1 },
                 { question: "HTTPS port?", options: ["80", "443", "8080", "143"], answer: 1 }
             ];
-            handleQuiz('unit2', quizData);
+            if(window.handleQuiz) handleQuiz('unit2', quizData);
         });
     </script>
 </body>

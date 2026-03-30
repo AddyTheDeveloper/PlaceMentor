@@ -264,7 +264,12 @@ h1, h2, h3, h4, h5 {
 .collapsible-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.25rem; background: var(--bg-card); border-radius: 0.75rem; margin-bottom: 0.75rem; border: 1px solid var(--border); transition: var(--transition); }
 .collapsible-header:hover { border-color: var(--primary); background: var(--glass); }
 .collapsible-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; padding: 0 1.5rem; }
-.collapsible-content.active { max-height: fit-content; padding-bottom: 2rem; }
+.collapsible-content.active {
+    max-height: 2000px; /* Reduced from 5000px for better transition feel */
+    padding: 1.5rem;
+    padding-top: 0;
+    opacity: 1;
+}
 .chevron-icon { transition: transform 0.3s; }
 .collapsible-header.active .chevron-icon { transform: rotate(180deg); }
 
@@ -295,9 +300,30 @@ pre { background: #1e1e1e !important; color: #dcdcdc !important; padding: 1.5rem
 .mb-2 { margin-bottom: 0.5rem; }
 
 /* Unit Specific Helpers */
-.osi-stack { display: flex; flex-direction: column; gap: 0.5rem; max-width: 500px; margin: 2rem auto; }
-.osi-layer { padding: 1rem; text-align: center; color: white; font-weight: bold; border-radius: 0.5rem; cursor: pointer; transition: 0.3s; }
-.osi-layer:hover { transform: scale(1.03); filter: brightness(1.1); }
+.osi-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.osi-layer {
+    padding: 1.2rem;
+    border-radius: 0.75rem;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.osi-layer:hover {
+    transform: translateX(10px);
+    filter: brightness(1.1);
+    box-shadow: var(--shadow-lg);
+}
 .layer-info { margin-top: 1rem; padding: 1.5rem; border-radius: 1rem; background: var(--glass); border: 2px solid var(--primary); }
 
 /* Data Structure Visuals */
@@ -498,3 +524,171 @@ footer {
     border-right: 5px solid transparent;
     border-top: 5px solid var(--text-muted);
 }
+
+/* Placement & Numerical Styling */
+.placement-tip {
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(99, 102, 241, 0.1));
+    border-left: 5px solid var(--purple);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin: 1.5rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.placement-tip::before {
+    content: '\f0eb';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 5rem;
+    opacity: 0.05;
+    color: var(--purple);
+}
+
+.numerical-box {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid var(--success);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.step-badge {
+    background: var(--primary);
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-right: 0.5rem;
+}/* TCP 3-Way Handshake Animation */
+.handshake-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 2rem auto;
+    position: relative;
+    padding: 3rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.handshake-actor {
+    text-align: center;
+    z-index: 2;
+    width: 80px;
+}
+
+.handshake-actor i {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    filter: drop-shadow(0 0 10px rgba(var(--primary-rgb), 0.3));
+}
+
+.handshake-lines {
+    position: absolute;
+    top: 50%;
+    left: 80px;
+    right: 80px;
+    height: 150px;
+    transform: translateY(-50%);
+}
+
+.handshake-packet {
+    position: absolute;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: white;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    box-shadow: var(--shadow);
+    z-index: 1;
+}
+
+@keyframes pack1 { 
+    0% { left: 0; top: 0; opacity: 0; transform: scale(0.8); } 
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { left: 100%; top: 40px; opacity: 0; transform: translateX(-100%) scale(0.8); } 
+}
+@keyframes pack2 { 
+    0% { right: 0; top: 40px; opacity: 0; transform: scale(0.8); } 
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { right: 100%; top: 80px; opacity: 0; transform: translateX(100%) scale(0.8); } 
+}
+@keyframes pack3 { 
+    0% { left: 0; top: 80px; opacity: 0; transform: scale(0.8); } 
+    10% { opacity: 1; transform: scale(1); }
+    90% { opacity: 1; transform: scale(1); }
+    100% { left: 100%; top: 120px; opacity: 0; transform: translateX(-100%) scale(0.8); } 
+}
+
+.packet-syn { animation: pack1 3s infinite; }
+.packet-syn-ack { animation: pack2 3s infinite 1s; }
+.packet-ack { animation: pack3 3s infinite 2s; }
+
+/* Encapsulation Animation */
+.encap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 2.5rem;
+    background: rgba(var(--primary-rgb), 0.02);
+    border-radius: 1.5rem;
+    margin: 2rem 0;
+}
+
+.encap-layer {
+    width: 100%;
+    max-width: 300px;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 0.75rem;
+    color: white;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    cursor: help;
+}
+
+.encap-layer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.encap-layer::before {
+    content: 'Header added';
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-sidebar);
+    color: var(--primary);
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--primary);
+    font-size: 0.75rem;
+    border-radius: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.encap-layer:hover::before {
+    opacity: 1;
+    transform: translateY(-50%) translateX(10px);
+}/* End of Styles */
+
