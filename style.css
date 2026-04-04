@@ -463,8 +463,7 @@ footer {
     .nav-link.active { color: var(--primary); border-top: 2px solid var(--primary); }
     
     .main-content {
-        padding: 1.5rem 1rem;
-        margin-bottom: 80px; 
+        padding: 1.5rem 1rem 80px; 
     }
     
     .glass-card { padding: 1.5rem; }
