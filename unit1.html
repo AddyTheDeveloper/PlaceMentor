@@ -493,13 +493,22 @@
                         <p style="font-size: 0.85rem;">OS-level virtualization. Share the host kernel. Lightweight and fast. Portable across environments.</p>
                     </div>
                 </div>
+                <div class="info-box definition">
+                    <p><strong>Cloud OS:</strong> Specialized OS designed to manage large-scale data centers and provide cloud services (e.g., Azure Stack, AWS Nitro).</p>
+                </div>
+<<<<<<< HEAD
+=======
             </div>
+            </div>
+
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
             <!-- 9. Practical: Linux & Shell Programming -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-terminal"></i> 9. Practical: Linux & Shell Programming</h3>
                 <i class="fas fa-chevron-down chevron-icon"></i>
             </div>
             <div class="collapsible-content">
+<<<<<<< HEAD
                 <h4><i class="fas fa-list-ul"></i> Essential Linux Commands for Developers</h4>
                 <div class="tech-table-wrapper">
                     <table class="tech-table">
@@ -526,16 +535,46 @@
                     <div class="glass-card p-4 border-primary">
                         <h5 class="color-primary"><i class="fas fa-variable"></i> Variables & Conditionals</h5>
                         <pre class="mt-2 text-left">#!/bin/bash
+=======
+                <h4>Essential Linux Commands for Developers</h4>
+                <table class="tech-table">
+                    <thead><tr><th>Command</th><th>Purpose</th><th>Advanced Usage</th></tr></thead>
+                    <tbody>
+                        <tr><td><code>ls</code></td><td>List directory contents.</td><td><code>ls -lh</code> (human readable sizes).</td></tr>
+                        <tr><td><code>chmod</code></td><td>Change permissions.</td><td><code>chmod +x file.sh</code> (make executable).</td></tr>
+                        <tr><td><code>grep</code></td><td>Search text using patterns.</td><td><code>grep -r "pattern" .</code> (recursive search).</td></tr>
+                        <tr><td><code>find</code></td><td>Search for files.</td><td><code>find . -name "*.log"</code></td></tr>
+                        <tr><td><code>top</code>/<code>htop</code></td><td>Real-time process monitor.</td><td>View CPU/RAM per process.</td></tr>
+                        <tr><td><code>df</code>/<code>du</code></td><td>Disk usage.</td><td><code>du -sh *</code> (summarize sizes).</td></tr>
+                    </tbody>
+                </table>
+                <h4>Shell Scripting: Basics (Placement Focus)</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div>
+                        <h5>Variables & Conditionals</h5>
+                        <pre>
+#!/bin/bash
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
 NAME="User"
 if [ "$NAME" == "User" ]; then
     echo "Access granted"
 else
     echo "Wait..."
+<<<<<<< HEAD
 fi</pre>
                     </div>
                     <div class="glass-card p-4 border-secondary">
                         <h5 class="color-secondary"><i class="fas fa-sync"></i> Loops & Process Monitoring</h5>
                         <pre class="mt-2 text-left"># Check if a process is running
+=======
+fi
+                        </pre>
+                    </div>
+                    <div>
+                        <h5>Loops & Process Monitoring</h5>
+                        <pre>
+# Check if a process is running
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
 PROC="nginx"
 while true; do
   if pgrep -x "$PROC" >/dev/null; then
@@ -543,6 +582,7 @@ while true; do
     break
   fi
   sleep 5
+<<<<<<< HEAD
 done</pre>
                     </div>
                 </div>
@@ -571,22 +611,33 @@ int main() {
                             <p>Lightweight processes that <strong>share memory</strong>. Crucial for high-performance computing.</p>
                         </div>
                         <pre class="text-left">#include &lt;pthread.h&gt;
-#include &lt;stdio.h&gt;
-
-void* myTurn(void* arg) {
-    printf("Thread Active...\n");
-    return NULL;
-}
-
-int main() {
-    pthread_t thread;
-    pthread_create(&thread, NULL, myTurn, NULL);
-    pthread_join(thread, NULL); 
-    return 0;
-}</pre>
+=======
+done
+                        </pre>
                     </div>
                 </div>
+
+                <h4>Process & System Calls (C Snippets)</h4>
+                <div class="info-box important">
+                    <p><strong>fork() behavior:</strong> Returns a value of 0 to the child and the child's PID to the parent. Used to create concurrency.</p>
+                </div>
+                <pre>
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+
+int main() {
+    if (fork() == 0) {
+        printf("Hello from Child!\n");
+    } else {
+        printf("Hello from Parent!\n");
+    }
+    return 0;
+}
+                </pre>
             </div>
+                <pre>
+#include &lt;pthread.h&gt;
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
 #include &lt;stdio.h&gt;
 
 void* myTurn(void* arg) {
@@ -598,6 +649,8 @@ int main() {
     pthread_t thread;
     pthread_create(&thread, NULL, myTurn, NULL);
     pthread_join(thread, NULL); 
+<<<<<<< HEAD
+=======
 }
                 </pre>
 
@@ -614,6 +667,7 @@ int main() {
     if(p < 0) printf("Error");
     else if(p == 0) printf("I am Child");
     else printf("I am Parent, child is %d", p);
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
     return 0;
 }</pre>
                     </div>
@@ -621,6 +675,7 @@ int main() {
             </div>
 
             <!-- 10. Interview Preparation -->
+<<<<<<< HEAD
             <div class="glass-card benefit-card border-purple mt-4">
                 <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement Ready: Top 15 Interview Questions</h2>
                 <div class="benefit-grid text-left">
@@ -647,10 +702,32 @@ int main() {
                             <li><strong>What is aging?</strong> (Improving priority of long-waiting jobs to prevent starvation).</li>
                         </ol>
                     </div>
+=======
+            <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
+                <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement Ready: Top 15 Interview Questions</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 1rem;">
+                    <ol style="padding-left: 1.5rem;">
+                        <li><strong>What is a Microkernel?</strong> (Essential services only in kernel, others in user-space).</li>
+                        <li><strong>Process vs Thread?</strong> (Threads share memory, lighter weight).</li>
+                        <li><strong>What is Thrashing?</strong> (Constant swapping due to insufficient RAM).</li>
+                        <li><strong>Belady's Anomaly?</strong> (Increasing frames increases page faults in FIFO).</li>
+                        <li><strong>Atomic Operations?</strong> (Operations that complete in one step without interruption).</li>
+                        <li><strong>Context Switching Overhead?</strong> (Pure overhead, no work done while saving/loading states).</li>
+                        <li><strong>Kernel vs User Mode?</strong> (Hardware protection via mode bits).</li>
+                    </ol>
+                    <ol start="8" style="padding-left: 1.5rem;">
+                        <li><strong>Banker's Algorithm?</strong> (Used for Deadlock avoidance by simulating safe states).</li>
+                        <li><strong>Starvation vs Deadlock?</strong> (Starvation is indefinite wait, Deadlock is circular wait).</li>
+                        <li><strong>SPOOLing?</strong> (Simultaneous Peripheral Ops On-Line - bufferying slow device output).</li>
+                        <li><strong>Hard vs Soft RTOS?</strong> (Hard has strict deadlines, Soft has priority).</li>
+                        <li><strong>Internal vs External Fragmentation?</strong> (Space inside vs space between segments).</li>
+                        <li><strong>Zombie Process?</strong> (Terminated but still has entry in process table).</li>
+                        <li><strong>Orphan Process?</strong> (Child whose parent has crashed/terminated).</li>
+                        <li><strong>What is aging?</strong> (Improving priority of long-waiting jobs to prevent starvation).</li>
+                    </ol>
+>>>>>>> e8a258f6e1b1d0cbb8515fd2ea8f12dde2a012c5
                 </div>
             </div>
-        </main>
-    </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>
