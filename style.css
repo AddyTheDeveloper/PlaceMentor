@@ -689,5 +689,169 @@ footer {
 .encap-layer:hover::before {
     opacity: 1;
     transform: translateY(-50%) translateX(10px);
-}/* End of Styles */
+
+}
+
+/* DBMS Specific Styles */
+.dbms-intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+/* ER Diagram Components */
+.er-diagram-container {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+}
+
+.er-entity {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(255,255,255,0.2);
+    font-weight: 700;
+    text-transform: uppercase;
+    box-shadow: var(--shadow);
+}
+
+.er-attribute {
+    background: var(--bg-sidebar);
+    border: 1px solid var(--primary);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.er-relationship {
+    background: var(--bg-sidebar);
+    border: 2px solid var(--secondary);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.er-relationship span {
+    transform: rotate(-45deg);
+}
+
+/* SQL Join Visualizer */
+.join-visualizer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin: 2rem 0;
+}
+
+.join-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.circle-left { background: rgba(var(--primary-rgb), 0.1); margin-right: -80px; z-index: 1; }
+.circle-right { background: rgba(var(--secondary-rgb), 0.1); border-color: var(--secondary); z-index: 0; }
+
+.join-intersection {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: transparent;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.join-active .circle-left { background: rgba(var(--primary-rgb), 0.4); }
+.join-active .circle-right { background: rgba(var(--secondary-rgb), 0.4); }
+
+/* ACID Animation */
+.acid-animation-container {
+    height: 200px;
+    background: var(--bg-sidebar);
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.bank-account {
+    text-align: center;
+    padding: 2rem;
+}
+
+.bank-account i { font-size: 2.5rem; color: var(--primary); margin-bottom: 0.5rem; }
+
+.money-packet {
+    position: absolute;
+    background: var(--success);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+}
+
+@keyframes transferMoney {
+    0% { left: 20%; top: 50%; opacity: 0; transform: scale(0.5); }
+    20% { opacity: 1; transform: scale(1); }
+    80% { opacity: 1; transform: scale(1); }
+    100% { left: 70%; top: 50%; opacity: 0; transform: scale(0.5); }
+}
+
+.animate-transfer { animation: transferMoney 2s infinite; }
+
+/* Normalization Steps */
+.norm-step-card {
+    border-left: 4px solid var(--primary);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    background: var(--bg-card);
+    transition: var(--transition);
+}
+
+.norm-step-card:hover { transform: translateX(10px); background: var(--glass); }
+
+/* Keys UI */
+.key-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.4rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-right: 0.5rem;
+}
+
+.bg-primary-key { background: #ffd700; color: #000; }
+.bg-foreign-key { background: #c0c0c0; color: #000; }
+
+/* End of Styles */
+
 
