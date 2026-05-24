@@ -30,21 +30,152 @@
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card header-unit" style="border-left-color: var(--primary);">
-                <h1 class="mb-0">Unit 5: Data Structures</h1>
-                <p class="hero-subtitle mb-0 mt-2">Architecture of Efficiency: From Linked Lists to Balanced Evolutionary Trees.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card unit-page-header border-danger">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 5: DS</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Data Structures</h1>
+                        <p class="text-muted">Architecture of Efficiency: From Contiguous Arrays to Hierarchical and Networked Topologies.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </header>
 
-            <!-- 0. Arrays -->
+            <!-- 1. Arrays -->
+            <div class="collapsible-header active">
+                <h3><i class="fas fa-border-all"></i> 1. Arrays (Static Logic)</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit5_sec1" onclick="toggleBookmark('unit5_sec1')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content active">
+                <div class="info-box definition">
+                    <p><strong>Array:</strong> A collection of similar data items stored in contiguous memory locations, allowing direct access via indices.</p>
+                </div>
+                <table class="tech-table">
+                    <thead><tr><th>Feature</th><th>Array</th><th>Linked List</th></tr></thead>
+                    <tbody>
+                        <tr><td>Memory Allocation</td><td>Contiguous</td><td>Non-contiguous (dynamic pointers)</td></tr>
+                        <tr><td>Size Bounds</td><td>Fixed (Static)</td><td>Dynamic</td></tr>
+                        <tr><td>Access Time</td><td>O(1) direct lookup</td><td>O(n) sequential search</td></tr>
+                        <tr><td>Insertion / Deletion</td><td>O(n) due to element shifting</td><td>O(1) if node pointer is known</td></tr>
+                    </tbody>
+                </table>
+                <table class="tech-table">
+                    <thead><tr><th>Operation</th><th>Complexity</th></tr></thead>
+                    <tbody>
+                        <tr><td>Access by Index</td><td>O(1)</td></tr>
+                        <tr><td>Insertion / Deletion (Worst Case)</td><td>O(n)</td></tr>
+                        <tr><td>Search (Unsorted Array)</td><td>O(n)</td></tr>
+                    </tbody>
+                </table>
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit5', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 2. Linked Lists -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-border-all"></i> 0. Arrays (Static Logic)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <h3><i class="fas fa-link"></i> 2. Linked Lists (Linear Dynamics)</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit5_sec2" onclick="toggleBookmark('unit5_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <table class="tech-table">
+                    <thead><tr><th>Type</th><th>Structure</th><th>Key Characteristic</th></tr></thead>
+                    <tbody>
+                        <tr><td>Singly Linked List</td><td>Data &rarr; Next</td><td>Simple. Uni-directional traversal.</td></tr>
+                        <tr><td>Doubly Linked List</td><td>Prev &harr; Data &harr; Next</td><td>Bi-directional traversal; occupies more pointer space.</td></tr>
+                        <tr><td>Circular Linked List</td><td>Last Node &rarr; First Node</td><td>No NULL terminations; ideal for buffers and round-robin queues.</td></tr>
+                    </tbody>
+                </table>
+                <div class="info-box formula">
+                    <p><strong>Floyd's Cycle Finding (Fast & Slow Pointer Technique):</strong></p>
+                    <ol>
+                        <li>Initialize two pointers, <code>slow</code> and <code>fast</code>, at the HEAD node.</li>
+                        <li>Advance <code>slow</code> by 1 step and <code>fast</code> by 2 steps.</li>
+                        <li>If <code>slow == fast</code> at any point, a cycle exists. If <code>fast</code> reaches NULL, there is no cycle.</li>
+                    </ol>
+                </div>
+                <section class="glass-card">
+                    <h4>Interactive Linked List Visualizer</h4>
+                    <div id="ll-cont" class="ds-visualizer"></div>
+                    <button class="btn btn-primary" onclick="addNode()">Add Node</button>
+                    <button class="btn" onclick="clearLL()">Clear List</button>
+                </section>
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit5', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 3. Stacks & Queues -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-layer-group"></i> 3. Stacks & Queues (Order Patterns)</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit5_sec3" onclick="toggleBookmark('unit5_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="benefit-grid mt-2 text-left">
+                    <div class="p-4 border-primary glass-card">
+                        <h4>Stack (LIFO - Last In First Out)</h4>
+                        <p><strong>Applications:</strong> Recursive function calls, Undo/Redo operations, Expression parsing, Balanced parenthesis verification.</p>
+                    </div>
+                    <div class="p-4 border-success glass-card">
+                        <h4>Queue (FIFO - First In First Out)</h4>
+                        <p><strong>Applications:</strong> BFS traversal in graphs, print spoolers, CPU scheduling queues, messaging buffers.</p>
+                    </div>
+                </div>
+                <div class="info-box interview">
+                    <p><strong>Circular Queue:</strong> Overcomes space wastage in basic linear queues where array slots before the FRONT index cannot be reused even after dequeue operations.</p>
+                </div>
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit5', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 4. Trees -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-tree"></i> 4. Trees & Hierarchical Structures</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit5_sec4" onclick="toggleBookmark('unit5_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
-                    <p><strong>Binary Tree:</strong> A non-linear data structure where each node has at most two children (left and right).</p>
+                    <p><strong>Binary Tree:</strong> A hierarchical tree structure where every node has at most two children.</p>
+                    <p><strong>BST (Binary Search Tree):</strong> A binary tree with the property: <code>Left Child < Parent < Right Child</code>.</p>
                 </div>
 
                 <h4>Visual Learning: Binary Tree Anatomy</h4>
@@ -53,174 +184,111 @@
                     <div style="display: flex; gap: 4rem; align-items: start;">
                         <div style="display: flex; flex-direction: column; align-items: center;">
                             <div class="visual-arrow" style="transform: rotate(45deg); height: 20px;"></div>
-                            <div class="visual-node" style="background: var(--info);">Left (5)</div>
+                            <div class="visual-node" style="background: var(--info);">Left Child (5)</div>
                         </div>
                         <div style="display: flex; flex-direction: column; align-items: center;">
                             <div class="visual-arrow" style="transform: rotate(-45deg); height: 20px;"></div>
-                            <div class="visual-node" style="background: var(--info);">Right (15)</div>
+                            <div class="visual-node" style="background: var(--info);">Right Child (15)</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="info-box definition">
-                    <p><strong>Array:</strong> A collection of similar data items stored in contiguous memory locations.</p>
-                </div>
-                <table class="tech-table">
-                    <thead><tr><th>OperationOrFeature</th><th>Array</th><th>Linked List</th></tr></thead>
-                    <tbody>
-                        <tr><td>Memory</td><td>Contiguous</td><td>Non-contiguous</td></tr>
-                        <tr><td>Size</td><td>Fixed (Static)</td><td>Dynamic</td></tr>
-                        <tr><td>Access Time</td><td>O(1)</td><td>O(n)</td></tr>
-                        <tr><td>Insertion</td><td>O(n)</td><td>O(1) (at head)</td></tr>
-                    </tbody>
-                </table>
-                <table class="tech-table">
-                    <thead><tr><th>Operation</th><th>Complexity</th></tr></thead>
-                    <tbody>
-                        <tr><td>Access by Index</td><td>O(1)</td></tr>
-                        <tr><td>Insertion / Deletion</td><td>O(n) - needs shifting</td></tr>
-                        <tr><td>Search (Unsorted)</td><td>O(n)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- 1. Linked Lists -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-link"></i> 1. Linked Lists (Linear Dynamics)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <table class="tech-table">
-                    <thead><tr><th>Type</th><th>Structure</th><th>Key Characteristic</th></tr></thead>
-                    <tbody>
-                        <tr><td>Singly</td><td>Data → Next</td><td>Simple. Uni-directional.</td></tr>
-                        <tr><td>Doubly</td><td>Prev ↔ Data ↔ Next</td><td>Bi-directional traversal; Uses more memory.</td></tr>
-                        <tr><td>Circular</td><td>Last → First</td><td>Infinite traversal; Used in Round-Robin scheduling.</td></tr>
-                    </tbody>
-                </table>
-                <div class="info-box formula">
-                    <p><strong>Floyd's Cycle Finding (Fast & Slow):</strong></p>
-                    <ol>
-                        <li>Start <code>slow</code> and <code>fast</code> at HEAD.</li>
-                        <li>Move <code>slow</code> by 1 step, <code>fast</code> by 2 steps.</li>
-                        <li>If <code>slow == fast</code>, a cycle exists!</li>
-                        <li><strong>Why?</strong> The distance between them increases by 1 each step. In a loop, they will eventually occupy the same position.</li>
-                    </ol>
-                </div>
-                <section class="glass-card">
-                    <h4>Interactive Linked List</h4>
-                    <div id="ll-cont" class="ds-visualizer"></div>
-                    <button class="btn btn-primary" onclick="addNode()">Add Node</button>
-                    <button class="btn" onclick="clearLL()">Clear</button>
-                </section>
-            </div>
-
-            <!-- 2. Stacks & Queues -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-layer-group"></i> 2. Stacks & Queues (Order Patterns)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <div class="benefit-grid mt-2 text-left">
-                    <div class="p-4 border-primary glass-card">
-                        <h4>Stack (LIFO)</h4>
-                        <p><strong>Apps:</strong> Recursion, Undo/Redo, Balanced Parentheses.</p>
-                    </div>
-                    <div class="p-4 border-success glass-card">
-                        <h4>Queue (FIFO)</h4>
-                        <p><strong>Apps:</strong> BFS, Print Spooler, CPU Job Scheduling.</p>
-                    </div>
-                </div>
-                <div class="info-box interview">
-                    <p><strong>Circular Queue:</strong> Solves the limitation of linear queue where space is wasted even if FRONT is not zero.</p>
-                </div>
-                <div class="info-box interview">
-                    <p><strong>BST Search:</strong> O(h) where h is height. <br><strong>AVL Search:</strong> O(log n) guaranteed because it balances.</p>
-                </div>
-                
-                <h4>4. Trie (Prefix Tree)</h4>
-                <div class="info-box definition">
-                    <p><strong>Trie:</strong> Used for fast retrieval of strings/prefixes. Used in Auto-complete, Spell checkers. <br><strong>Search/Insert:</strong> O(L) where L is length of string.</p>
-                </div>
-                
-                <h4>5. Disjoint Set Union (DSU)</h4>
-                <div class="info-box important">
-                    <p><strong>Purpose:</strong> Maintain sets of elements and merge them. <br><strong>Union by Rank:</strong> Keeps tree height small. <br><strong>Path Compression:</strong> Flattens tree during find operation. Combined complexity is nearly constant O(α(n)).</p>
-                </div>
-            </div>
-
-            <!-- 3. Trees (Advanced Nonlinear) -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-tree"></i> 3. Trees: The Hierarchical Power</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <div class="info-box definition">
-                    <p><strong>BST (Binary Search Tree):</strong> Left child < Parent < Right child.</p>
-                </div>
-                <h4>Balanced Trees (Interview Gold)</h4>
+                <h4>Self-Balancing Trees (Interview Favorites)</h4>
                 <ul>
-                    <li><strong>AVL Trees:</strong> Height-balanced BST where diff in heights of left/right subtrees is ≤ 1.</li>
-                    <li><strong>Red-Black Trees:</strong> Uses color coding for self-balancing. Used in <code>std::map</code> in C++.</li>
+                    <li><strong>AVL Trees:</strong> Strictly balanced BST where the height difference (balance factor) between left and right subtrees is at most 1. Uses rotations (LL, RR, LR, RL) to rebalance.</li>
+                    <li><strong>Red-Black Trees:</strong> Loosely balanced BST using node coloring rules (red/black). Offers faster insertions/deletions than AVL. Used in C++ STL <code>std::map</code>.</li>
                 </ul>
-                <table class="tech-table">
-                    <thead><tr><th>Rotation</th><th>When to use?</th></tr></thead>
-                    <tbody>
-                        <tr><td>LL / RR</td><td>Single rotation for simple imbalance.</td></tr>
-                        <tr><td>LR / RL</td><td>Double rotation for zig-zag imbalance.</td></tr>
-                    </tbody>
-                </table>
-                <div class="glass-card" style="border-left: 5px solid var(--purple); background: rgba(var(--purple-rgb), 0.05); margin-top: 1rem;">
-                    <h5><i class="fas fa-search-plus"></i> Placement Case Study: Map vs BST</h5>
-                    <p><strong>Question:</strong> "When would you prefer a Treemap (BST) over a Hashmap?"</p>
-                    <p><strong>Answer:</strong> When order matters or you need to perform range queries (e.g., "Find all keys between 10 and 50"). Hashmaps have O(1) average lookup but no inherent order.</p>
+
+                <div class="info-box formula">
+                    <p><strong>BST vs AVL Search Complexity:</strong><br>
+                    - Normal BST Search: <strong>O(h)</strong>, where h is height. Can degrade to <strong>O(n)</strong> for skewed trees.<br>
+                    - AVL Search: Guaranteed <strong>O(log n)</strong> because height is strictly bounded.</p>
                 </div>
+
+                <div class="glass-card" style="border-left: 5px solid var(--purple);">
+                    <h5>Trie (Prefix Tree)</h5>
+                    <p>An advanced search tree used to store dynamic sets of strings. Nodes store characters rather than full keys. Ideal for prefix searches (e.g., auto-complete, dictionary lookups). Search/Insert complexity is <strong>O(L)</strong>, where L is the string length.</p>
+                </div>
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit5', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
-            <!-- 4. Graphs & Hashing -->
+            <!-- 5. Graphs & Hashing -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-project-diagram"></i> 4. Graphs & Hashing Collision</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <h3><i class="fas fa-project-diagram"></i> 5. Graphs & Hashing</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit5_sec5" onclick="toggleBookmark('unit5_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
                 <div class="info-box formula">
-                    <p><strong>Graph:</strong> G = (V, E) where V=Vertices, E=Edges.</p>
+                    <p><strong>Graph G = (V, E):</strong> A network of vertices (V) connected by edges (E). Can be directed/undirected and weighted/unweighted.</p>
                 </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="normalization-step"><strong>BFS:</strong> Queue based. Finds shortest path in unweighted graph.</div>
-                    <div class="normalization-step"><strong>DFS:</strong> Stack/Recursion based. Used for cycle detection.</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div class="glass-card" style="border-top: 3px solid var(--primary);">
+                        <h5>Breadth-First Search (BFS)</h5>
+                        <p>Queue-based level-order traversal. Finds the shortest path in unweighted graphs. Complexity: O(V + E).</p>
+                    </div>
+                    <div class="glass-card" style="border-top: 3px solid var(--secondary);">
+                        <h5>Depth-First Search (DFS)</h5>
+                        <p>Stack/Recursion-based deep traversal. Used for cycle detection, topological sorting. Complexity: O(V + E).</p>
+                    </div>
                 </div>
-                <h4>Hashed Conflict Resolution</h4>
+
+                <h4>Hashing Conflict Resolution</h4>
                 <table class="tech-table">
                     <thead><tr><th>Technique</th><th>Description</th></tr></thead>
                     <tbody>
-                        <tr><td>Chaining</td><td>Uses Linked List at each index. No overflow issue.</td></tr>
-                        <tr><td>Open Addressing</td><td>Finds next available slot (Linear Probing, Quadratic Probing).</td></tr>
+                        <tr><td>Chaining (Open Hashing)</td><td>Maintains a linked list at each bucket. Avoids table limits but uses extra pointer memory.</td></tr>
+                        <tr><td>Open Addressing (Closed Hashing)</td><td>Finds next available slot in-place using Linear Probing, Quadratic Probing, or Double Hashing.</td></tr>
                     </tbody>
                 </table>
-                <div class="glass-card" style="border-top: 4px solid var(--secondary);">
-                    <h5>Graph Algorithms: Shortest Paths</h5>
-                    <p><strong>Dijkstra:</strong> O(E log V). Greedy. Doesn't work for negative edges. <br>
-                    <strong>Bellman-Ford:</strong> O(V*E). DP. Works with negative edges and detects negative cycles.</p>
+
+                <div class="glass-card mt-4">
+                    <h5>Disjoint Set Union (DSU) / Union-Find</h5>
+                    <p>An algorithm to track elements partitioned into disjoint subsets. Optimized via two techniques:</p>
+                    <ul>
+                        <li><strong>Union by Rank:</strong> Always attaches the shorter tree under the root of the taller tree to minimize height.</li>
+                        <li><strong>Path Compression:</strong> Flattens the tree structure during <code>find</code> queries, pointing visited nodes directly to the root.</li>
+                    </ul>
+                    <p>Combined amortized complexity is nearly constant: <strong>O(&alpha;(n))</strong> per operation.</p>
                 </div>
+
                 <div class="info-box interview">
-                    <p><strong>Consistent Hashing:</strong> Used in distributed systems (like Load Balancers) so that when a node is added/removed, only <code>K/n</code> keys need to be remapped.</p>
+                    <p><strong>Consistent Hashing:</strong> Used in distributed databases and load balancers. Minimizes remapped keys when cache servers are added or removed (only <code>K/n</code> keys need to shift, compared to nearly all keys in standard modulo hashing).</p>
                 </div>
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit5', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
-             <!-- Interview Qs -->
-             <div class="glass-card benefit-card border-purple mt-4">
+            <!-- FAQ Section -->
+            <div class="glass-card benefit-card border-purple mt-4">
                 <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Data Structures</h2>
                 <div class="text-left mt-4">
                     <ol class="pl-4">
-                        <li class="mb-2"><strong>Compare Array vs Linked List.</strong> (Array: Fast access, fixed size. LL: Slow access, dynamic size).</li>
-                        <li class="mb-2"><strong>How to detect cycle in Linked List?</strong> (Floyd's Cycle-Finding Algorithm: Fast and Slow pointers).</li>
-                        <li class="mb-2"><strong>Worst case complexity of BST?</strong> (O(n) - when it becomes a skewed tree).</li>
-                        <li class="mb-2"><strong>Explain Heap and its usage.</strong> (Complete binary tree used for Priority Queues. <strong>Max-Heap:</strong> Parent ≥ Children. <strong>Min-Heap:</strong> Parent ≤ Children.).</li>
-                        <li>... more in Career Hub.</li>
+                        <li class="mb-2"><strong>Compare Array vs Linked List.</strong> Array has O(1) random access but fixed size. Linked List is dynamically sized but requires O(n) sequential traversal.</li>
+                        <li class="mb-2"><strong>How to detect a cycle in a Linked List?</strong> Use Floyd's cycle detection (Slow pointer moves 1 step, Fast pointer moves 2 steps; if they meet, there is a cycle).</li>
+                        <li class="mb-2"><strong>What is the worst-case complexity of a BST?</strong> O(n) when elements are inserted in sorted order, creating a skewed tree. AVL/Red-Black trees solve this by self-balancing.</li>
+                        <li class="mb-2"><strong>Explain Heap and its types.</strong> A complete binary tree that satisfies the heap property. In Max-Heaps, parents are &ge; children. In Min-Heaps, parents are &le; children. Used for Priority Queues.</li>
                     </ol>
                 </div>
             </div>
+
+            <!-- Quiz Section -->
+            <section id="quiz-unit5" class="mt-4"></section>
+            <div id="quiz-result-unit5" class="mt-4"></div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-4 p-4 text-muted border-top">
+                <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>
@@ -232,7 +300,9 @@
         function clearLL() { nodes = []; renderNodes(); }
         function renderNodes() {
             const cont = document.getElementById('ll-cont');
-            cont.innerHTML = nodes.map(v => `<div class="node">${v}</div>`).join('');
+            if (cont) {
+                cont.innerHTML = nodes.map(v => `<div class="node">${v}</div>`).join('');
+            }
         }
         document.addEventListener('DOMContentLoaded', () => {
              const quizData = [

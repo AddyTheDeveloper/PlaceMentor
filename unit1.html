@@ -35,16 +35,44 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card header-unit border-primary">
-                <h1 class="mb-0">Unit 1: Operating Systems</h1>
-                <p class="hero-subtitle mb-0 mt-2">The Core Bridge: Hardware Management, Process Control, and Memory Architecture.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card unit-page-header">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 1: OS</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Operating Systems</h1>
+                        <p class="text-muted">The Core Bridge: Hardware Management, Process Control, and Memory Architecture.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <!-- 1. Foundations -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-atom"></i> 1. Foundations & Types of OS</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec1" onclick="toggleBookmark('unit1_sec1')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
@@ -85,13 +113,13 @@
                 </table>
 
                 <h4>Architecture: Monolithic vs. Microkernel</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
-                    <div class="glass-card" style="border-top: 4px solid var(--primary);">
+                <div class="compare-grid">
+                    <div class="compare-card" style="border-top: 4px solid var(--primary);">
                         <h5>Monolithic Kernel</h5>
                         <p style="font-size: 0.85rem;">All OS services (VFS, IPC, File System, Scheduler) run in kernel space. Fast due to low overhead, but one failure can crash the whole system.</p>
                         <p style="font-size: 0.8rem;"><strong>Pros:</strong> Performance, Simple communication.<br><strong>Cons:</strong> Hard to debug, Low security.</p>
                     </div>
-                    <div class="glass-card" style="border-top: 4px solid var(--secondary);">
+                    <div class="compare-card" style="border-top: 4px solid var(--secondary);">
                         <h5>Microkernel</h5>
                         <p style="font-size: 0.85rem;">Only essential services (IPC, Address Space) stay in kernel. Others move to user-space as "Servers". Highly stable and secure.</p>
                         <p style="font-size: 0.8rem;"><strong>Pros:</strong> Modular, Secure, Flexible.<br><strong>Cons:</strong> Slower due to message passing overhead.</p>
@@ -122,12 +150,23 @@
                         <tr><td>Communication</td><td><code>pipe()</code>, <code>shmget()</code></td><td>IPC (Inter-Process Communication).</td></tr>
                     </tbody>
                 </table>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit1', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 2. Process Management -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-tasks"></i> 2. Process Management & Life Cycle</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec2" onclick="toggleBookmark('unit1_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box important">
@@ -185,8 +224,8 @@
                 </div>
 
                 <h4><i class="fas fa-stream"></i> Threads: Lightweight Processes</h4>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="glass-card">
+                <div class="compare-grid">
+                    <div class="compare-card">
                         <h5>User-Level Threads</h5>
                         <ul style="font-size: 0.85rem;">
                             <li>Managed by Thread Library.</li>
@@ -195,7 +234,7 @@
                             <li>If one thread blocks, all block.</li>
                         </ul>
                     </div>
-                    <div class="glass-card">
+                    <div class="compare-card">
                         <h5>Kernel-Level Threads</h5>
                         <ul style="font-size: 0.85rem;">
                             <li>Managed by OS Kernel.</li>
@@ -207,12 +246,23 @@
                 </div>
                 <h5>Multithreading Models:</h5>
                 <p><strong>Many-to-One:</strong> Many user threads mapped to one kernel thread. <br><strong>One-to-One:</strong> Each user thread mapped to its own kernel thread (e.g., Windows, Linux). <br><strong>Many-to-Many:</strong> Many user threads mapped to a smaller or equal number of kernel threads.</p>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit1', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 3. Scheduling Algorithms -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-stopwatch"></i> 3. Processor Scheduling Algorithms</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec3" onclick="toggleBookmark('unit1_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box formula">
@@ -272,12 +322,23 @@
                         <div id="stats-table"></div>
                     </div>
                 </section>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit1', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 4. Synchronization & IPC -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-handshake"></i> 4. Process Synchronization & IPC</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec4" onclick="toggleBookmark('unit1_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
@@ -318,12 +379,23 @@
                     <li><strong>Dining Philosophers:</strong> Dealing with resource allocation and deadlocks.</li>
                     <li><strong>Readers-Writers:</strong> Multiple readers allowed, but only one writer.</li>
                 </ul>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit1', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- Deadlock Section -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-skull-crossbones"></i> 4b. Deadlocks (The Infinite Wait)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec4b" onclick="toggleBookmark('unit1_sec4b')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
@@ -357,12 +429,23 @@
                 <div class="info-box interview">
                     <p><strong>Deadlock vs Starvation:</strong> Deadlock is a circular wait where no one progresses. Starvation is where one process waits indefinitely while others use resources (Priority-based).</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit1', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- IPC Section -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-comments"></i> 4c. IPC (Inter-Process Communication)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec4c" onclick="toggleBookmark('unit1_sec4c')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <p>Processes need to communicate to share data or synchronize.</p>
@@ -377,12 +460,23 @@
                     </div>
                 </div>
                 <p><strong>Examples:</strong> Pipes, Sockets, Signals, Message Queues.</p>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="5" onclick="markSectionRead('unit1', 5, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 5. Memory Management -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-memory"></i> 5. Memory Management</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec5" onclick="toggleBookmark('unit1_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
@@ -427,12 +521,23 @@
 
                 <h4>Virtual Memory</h4>
                 <p>Execution of processes that are larger than physical RAM. It uses <strong>Demand Paging</strong>—load pages only when needed.</p>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="6" onclick="markSectionRead('unit1', 6, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 6. File System -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-file-invoice"></i> 6. File System & Allocation</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec6" onclick="toggleBookmark('unit1_sec6')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <p>The File System provides a mechanism for online storage and access to data/programs on disk.</p>
@@ -453,12 +558,23 @@
                 <div class="info-box interview">
                     <p><strong>Inodes (Index Nodes):</strong> Data structures in Unix-like systems that store metadata about a file (Permissions, Owner, Size, Block Pointers) but <i>not</i> the filename.</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="7" onclick="markSectionRead('unit1', 7, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 7. Disk Scheduling & I/O -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-compact-disc"></i> 7. Disk Scheduling & I/O Management</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec7" onclick="toggleBookmark('unit1_sec7')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Goal: Minimize Seek Time</h4>
@@ -475,12 +591,23 @@
                     <li><strong>Spooling:</strong> Stacking I/O jobs for a slow device (like a printer) in a buffer/disk.</li>
                     <li><strong>Buffering:</strong> Storing data temporarily while it's being transferred between two devices/processes.</li>
                 </ul>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="8" onclick="markSectionRead('unit1', 8, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 8. Modern Concepts -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-cloud"></i> 8. Virtualization & Modern Concepts</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec8" onclick="toggleBookmark('unit1_sec8')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
@@ -493,11 +620,22 @@
                         <p style="font-size: 0.85rem;">OS-level virtualization. Share the host kernel. Lightweight and fast. Portable across environments.</p>
                     </div>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="9" onclick="markSectionRead('unit1', 9, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
             <!-- 9. Practical: Linux & Shell Programming -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-terminal"></i> 9. Practical: Linux & Shell Programming</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit1_sec9" onclick="toggleBookmark('unit1_sec9')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4><i class="fas fa-list-ul"></i> Essential Linux Commands for Developers</h4>
@@ -546,7 +684,11 @@ while true; do
 done</pre>
                     </div>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="10" onclick="markSectionRead('unit1', 10, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
                 <h4 class="mt-6"><i class="fas fa-code-branch"></i> Process & System Calls (C Snippets)</h4>
                 <div class="benefit-grid mt-4">
@@ -617,9 +759,15 @@ int main() {
                     </div>
                 </div>
             </div>
-                </div>
-            </div>
 
+            <!-- Quiz Section -->
+            <section id="quiz-unit1" class="mt-4"></section>
+            <div id="quiz-result-unit1" class="mt-4"></div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-4 p-4 text-muted border-top">
+                <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+            </footer>
     <script src="script.js?v=2.1.1"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

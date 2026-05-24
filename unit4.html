@@ -30,19 +30,46 @@
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card header-unit" style="border-left-color: var(--info);">
-                <h1 class="mb-0">Unit 4: Programming Fundamentals</h1>
-                <p class="hero-subtitle mb-0 mt-2">Logic Core: Pointers, Memory Control, and Object-Oriented Orchestration City.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card unit-page-header border-info">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 4: Programming</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Programming Fundamentals</h1>
+                        <p class="text-muted">Logic Core: Pointers, Memory Control, OOP Paradigms, and Generic Architecture.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <!-- 1. Storage Classes -->
-            <div class="collapsible-header">
+            <div class="collapsible-header active">
                 <h3><i class="fas fa-layer-group"></i> 1. Storage Classes & Scope</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec1" onclick="toggleBookmark('unit4_sec1')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
-            <div class="collapsible-content">
+            <div class="collapsible-content active">
                 <table class="tech-table">
                     <thead><tr><th>Class</th><th>Storage</th><th>Initial Value</th><th>Scope</th><th>Lifetime</th></tr></thead>
                     <tbody>
@@ -53,177 +80,230 @@
                     </tbody>
                 </table>
                 <div class="info-box important">
-                    <p><strong>Static Usage:</strong> In C, it retains variable value between function calls. In C++, it means the member is shared across all instances of a class.</p>
+                    <p><strong>Static Usage:</strong> In C, static retains a variable's value between function calls. In C++, static means a member variable or method is shared across all instances of a class rather than being tied to specific objects.</p>
                 </div>
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit4', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
             <!-- 2. Pointers Deep Dive -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-hand-pointer"></i> 2. Pointers: The Memory Masters</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <h3><i class="fas fa-hand-pointer"></i> 2. Pointers & Memory Management</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec2" onclick="toggleBookmark('unit4_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
-                    <p><strong>C++ Memory Layout:</strong> How a process is organized in RAM.</p>
+                    <p><strong>Pointer:</strong> A variable that stores the physical memory address of another variable.</p>
+                    <p><strong>Dereferencing (*):</strong> Accessing the data at the address held by the pointer.</p>
+                    <p><strong>Address-Of (&):</strong> Getting the memory address of a variable.</p>
                 </div>
+                
+                <h4>Pointer Types (Placement Interview Highlights)</h4>
+                <ul>
+                    <li><strong>NULL Pointer:</strong> Points to nothing (address 0). Safe placeholder. <code>int *p = nullptr;</code></li>
+                    <li><strong>Void Pointer:</strong> Generic pointer, can point to any data type. Needs typecasting to dereference.</li>
+                    <li><strong>Wild Pointer:</strong> Uninitialized pointer that points to a random memory address. Very dangerous.</li>
+                    <li><strong>Dangling Pointer:</strong> Points to a memory location that has already been freed/deleted.</li>
+                </ul>
 
                 <h4>Visual Learning: C++ Memory Segmentation</h4>
                 <div class="diagram-container">
-                    <div class="visual-node" style="background: var(--info);">Stack (Locals) ↑</div>
+                    <div class="visual-node" style="background: var(--info);">Stack (Local variables, function frames) ↑</div>
                     <div class="visual-arrow" style="height: 15px;"></div>
-                    <div class="visual-node" style="background: var(--success);">Heap (Dynamic) ↓</div>
+                    <div class="visual-node" style="background: var(--success);">Heap (Dynamically allocated space via new/malloc) ↓</div>
                     <div class="visual-arrow" style="height: 15px;"></div>
-                    <div class="visual-node" style="background: var(--warning);">Data/BSS (Globals)</div>
+                    <div class="visual-node" style="background: var(--warning);">Data Segment/BSS (Global & static variables)</div>
                     <div class="visual-arrow" style="height: 15px;"></div>
-                    <div class="visual-node" style="background: var(--danger);">Text (Code)</div>
+                    <div class="visual-node" style="background: var(--danger);">Text Segment (Compiled machine code instructions)</div>
                 </div>
 
                 <div class="glass-card" style="border-left: 5px solid var(--purple);">
-                    <h5>Advanced C++: Smart Pointers (Memory Safety)</h5>
+                    <h5>Advanced C++: Smart Pointers (Automatic Memory Management)</h5>
+                    <p>Smart pointers ensure automated deallocation to prevent **Memory Leaks**.</p>
                     <ul>
-                        <li><code>std::unique_ptr</code>: Exclusive ownership. Non-copyable.</li>
-                        <li><code>std::shared_ptr</code>: Reference counted. Shared ownership.</li>
-                        <li><code>std::weak_ptr</code>: Non-owning reference to avoid circular dependencies.</li>
+                        <li><code>std::unique_ptr</code>: Exclusive ownership. Cannot be copied, only moved.</li>
+                        <li><code>std::shared_ptr</code>: Shared ownership via reference counting. Deallocates when count reaches 0.</li>
+                        <li><code>std::weak_ptr</code>: Non-owning observer reference to prevent cyclic dependencies.</li>
                     </ul>
                 </div>
-                <div class="info-box important">
-                    <p><strong>SOLID Principles (Job Interview Favorite):</strong> <br>
-                    - <strong>S</strong>: Single Responsibility. <br>
-                    - <strong>O</strong>: Open/Closed (Open for extension, closed for modification). <br>
-                    - <strong>L</strong>: Liskov Substitution. <br>
-                    - <strong>I</strong>: Interface Segregation. <br>
-                    - <strong>D</strong>: Dependency Inversion.</p>
-                </div>
-                <div class="info-box definition">
-                    <p><strong>Pointer:</strong> A variable that stores the physical memory address of another variable.</p>
-                </div>
-                <h4>Crucial Pointer Types (Interview Favs)</h4>
-                <ul>
-                    <li><strong>NULL Pointer:</strong> Points to nothing. <code>int *p = NULL;</code></li>
-                    <li><strong>Void Pointer:</strong> Generic pointer, can point to any type. Needs typecasting to dereference.</li>
-                    <li><strong>Wild Pointer:</strong> Uninitialized pointer. DANGEROUS!</li>
-                    <li><strong>Dangling Pointer:</strong> Points to a memory location that has been freed/deleted.</li>
-                </ul>
-                <div class="info-box formula">
-                    <p><strong>Dereferencing (*):</strong> Accessing the data at the address held by the pointer.</p>
-                    <p><strong>Address-Of (&):</strong> Getting the memory address of a variable.</p>
-                    <pre>
-class Base { virtual void show() = 0; };
-class Derived : public Base { void show() { cout << "Derived"; } };
-                </pre>
-                </div>
-                
-                <h4>3. Exception Handling (try-catch)</h4>
-                <div class="info-box definition">
-                    <p><strong>Exception:</strong> An unexpected event during execution. <br><strong>throw:</strong> Signals an error. <br><strong>catch:</strong> Handles the error.</p>
-                </div>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                    <div class="info-box important" style="border-color: var(--primary);">
-                        <h5>C++ Exceptions</h5>
-                        <p>No <code>finally</code> block. Uses destructors (RAII) for cleanup.</p>
-                    </div>
-                    <div class="info-box important" style="border-color: var(--secondary);">
-                        <h5>Java Exceptions</h5>
-                        <p>Has <code>finally</code> block and <code>throws</code> keyword for checked exceptions.</p>
-                    </div>
-                </div>
-
-                <h4>4. Generic Programming: Templates & Generics</h4>
-                <pre>
-template &lt;typename T&gt;
-T myMax(T x, T y) { return (x > y) ? x : y; }
-                </pre>
-                
-                <h4>6. Runtime Polymorphism: "How it Works"</h4>
-                <div class="glass-card" style="font-size: 0.9rem;">
-                    <p><strong>Scenario:</strong> <code>Base* ptr = new Derived(); ptr->show();</code></p>
-                    <ol>
-                        <li><strong>V-Table:</strong> Every class with a virtual function has a Static V-Table containing function pointers.</li>
-                        <li><strong>V-Pointer (vptr):</strong> Every object of such a class has a hidden pointer to its class's V-Table.</li>
-                        <li><strong>Resolution:</strong> At runtime, the code follows <code>ptr -> vptr -> V-Table -> Derived::show()</code>.</li>
-                    </ol>
-                    <p><em>Interview Tip:</em> Mention that Virtual Functions increase the object size by the size of one pointer (vptr).</p>
-                </div>
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit4', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
             <!-- 3. Parameter Passing -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-exchange-alt"></i> 3. Parameter Passing Techniques</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec3" onclick="toggleBookmark('unit4_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
                 <div class="benefit-grid mt-2 text-left">
                     <div class="p-4 border-primary glass-card">
                         <h4>Call by Value</h4>
-                        <p>Copy made. Original unaffected.</p>
+                        <p>A copy is made. Original caller value is unaffected.</p>
                         <pre>void swap(int x, int y)</pre>
                     </div>
                     <div class="p-4 border-secondary glass-card">
                         <h4>Call by Reference (C++)</h4>
-                        <p>Alias created. Original changes.</p>
+                        <p>Creates an alias. Direct modifications affect the original caller.</p>
                         <pre>void swap(int &x, int &y)</pre>
                     </div>
                     <div class="p-4 border-success glass-card">
                         <h4>Call by Address</h4>
-                        <p>Address passed. Dereference to change.</p>
+                        <p>Memory address is passed. Needs pointer dereferencing inside the method.</p>
                         <pre>void swap(int *x, int *y)</pre>
                     </div>
                 </div>
                 <div class="diagram-box">
-                    <strong>Stack View:</strong><br>
-                    [ Main: a=5 ] ← [ Swap: ref to a ] (By Reference/Address)
+                    <strong>Stack Execution View:</strong><br>
+                    <code>[ Main Stack Frame: a=5, b=10 ] &larr; [ Swap Stack Frame: Alias reference parameters mapping directly to a and b ]</code>
                 </div>
-                <div class="glass-card" style="border-left: 5px solid var(--primary); background: rgba(var(--primary-rgb), 0.05);">
-                    <h5>Placement Case Study: The Diamond Problem</h5>
-                    <p><strong>Question:</strong> "How does C++ solve the diamond problem in multiple inheritance?"</p>
-                    <p><strong>Answer:</strong> By using <code>virtual</code> inheritance. This ensures that only one instance of the base class is inherited by the final subclass. <br><strong>Syntax:</strong> <code>class A : virtual public Base { ... };</code></p>
-                </div>
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit4', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
             <!-- 4. OOP Deep Dive -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-cubes"></i> 4. OOP Mastery (Real World Examples)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <h3><i class="fas fa-cubes"></i> 4. OOP Mastery & SOLID Principles</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec4" onclick="toggleBookmark('unit4_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
-                <div class="info-box important">
-                    <p><strong>Virtual Functions vs Abstract Classes (Pure Virtual):</strong><br>
-                    <strong>Virtual Function:</strong> Function in base class that can be overridden.<br>
-                    <strong>Pure Virtual:</strong> <code>virtual void func() = 0;</code> has no implementation. Makes class Abstract (cannot instantiate).</p>
-                </div>
-                <table class="tech-table">
-                    <thead><tr><th>Feature</th><th>Virtual Function</th><th>Pure Virtual / Abstract</th></tr></thead>
-                    <tbody>
-                        <tr><td>Implementation</td><td>Has a body in base class.</td><td>No body in base class.</td></tr>
-                        <tr><td>Instantiation</td><td>Base class can be instantiated.</td><td>Base class cannot be instantiated.</td></tr>
-                        <tr><td>Override</td><td>Optional to override.</td><td>Must be overridden by child.</td></tr>
-                    </tbody>
-                </table>
                 <table class="tech-table">
                     <thead><tr><th>Pillar</th><th>Real World Example</th><th>Technical Gist</th></tr></thead>
                     <tbody>
-                        <tr><td>Encapsulation</td><td>A Capsule medicine</td><td>Hiding data (private) and behavior (public methods) together.</td></tr>
-                        <tr><td>Abstraction</td><td>Driving a car</td><td>Hiding internal mechanics, showing only the steering/pedals (Interface).</td></tr>
-                        <tr><td>Inheritance</td><td>Father & Son</td><td>Reusing code from Base class in Derived class.</td></tr>
-                        <tr><td>Polymorphism</td><td>One person, many roles</td><td>Method Overloading (Same name, diff params) vs Overriding (Redefining in child).</td></tr>
+                        <tr><td>Encapsulation</td><td>A medical capsule enclosing ingredients.</td><td>Grouping variables (private) and operations (public) into a class structure.</td></tr>
+                        <tr><td>Abstraction</td><td>Driving a car without knowing its engine pistons.</td><td>Hiding implementation details, exposing clean APIs/Interfaces.</td></tr>
+                        <tr><td>Inheritance</td><td>Child inheriting traits from parent.</td><td>Reusing code properties from a Base Class inside a Subclass.</td></tr>
+                        <tr><td>Polymorphism</td><td>One word, different meanings based on context.</td><td>Static (Overloading) vs Dynamic (Overriding virtual functions at runtime).</td></tr>
                     </tbody>
                 </table>
-                <div class="info-box important">
-                    <p><strong>Virtual Keywork (C++):</strong> Used in base class to ensure that the correct function is called for an object, regardless of the type of reference used for function call.</p>
+
+                <div class="info-box important mt-4">
+                    <h5>SOLID Principles (Architectural Standards)</h5>
+                    <ul>
+                        <li><strong>S - Single Responsibility:</strong> A class should have one reason to change.</li>
+                        <li><strong>O - Open/Closed:</strong> Open for extension, closed for modification.</li>
+                        <li><strong>L - Liskov Substitution:</strong> Derived classes must be substitutable for base classes.</li>
+                        <li><strong>I - Interface Segregation:</strong> Client specific thin interfaces instead of fat generic ones.</li>
+                        <li><strong>D - Dependency Inversion:</strong> Depend on abstractions, not concrete implementations.</li>
+                    </ul>
                 </div>
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit4', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
-             <!-- Interview Qs -->
-             <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
+            <!-- 5. Runtime Polymorphism -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-exclamation-triangle"></i> 5. Runtime Polymorphism & V-Tables</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec5" onclick="toggleBookmark('unit4_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box definition">
+                    <p><strong>Virtual Function:</strong> Declared with keyword <code>virtual</code> in base class, overridden by derived class.</p>
+                    <p><strong>Pure Virtual Function (Abstract Class):</strong> <code>virtual void draw() = 0;</code>. Class cannot be instantiated.</p>
+                </div>
+
+                <div class="glass-card">
+                    <h5>How Runtime Polymorphism Works Under the Hood:</h5>
+                    <ol>
+                        <li><strong>V-Table (Virtual Table):</strong> Static array of function pointers generated for classes containing virtual functions.</li>
+                        <li><strong>vptr (Virtual Table Pointer):</strong> A hidden pointer added to objects pointing to the class's V-Table.</li>
+                        <li><strong>Resolution:</strong> The compiler resolves calls dynamically at runtime: <code>obj -> vptr -> V-Table -> Function Address</code>.</li>
+                    </ol>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);"><em>Note:</em> The presence of virtual functions increases the object size by the size of the <code>vptr</code> (usually 8 bytes on 64-bit systems).</p>
+                </div>
+
+                <div class="glass-card border-primary">
+                    <h5>Virtual Inheritance & The Diamond Problem</h5>
+                    <p><strong>The Problem:</strong> Subclass inherits from two parents who share a common ancestor, causing duplication of the ancestor's data members.</p>
+                    <p><strong>The Solution:</strong> Inherit using the <code>virtual</code> keyword. This tells the compiler to allocate only a single shared copy of the base ancestor class.</p>
+                    <pre>class ParentA : virtual public Base { ... };
+class ParentB : virtual public Base { ... };
+class Child : public ParentA, public ParentB { ... };</pre>
+                </div>
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit4', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 6. Exceptions & Generic Programming -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-code"></i> 6. Exception Handling & Generic programming</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit4_sec6" onclick="toggleBookmark('unit4_sec6')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <h4>Exception Handling comparison</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem;">
+                    <div class="glass-card" style="border-top: 3px solid var(--primary);">
+                        <h5>C++ Exception Handling</h5>
+                        <p>Uses <code>try</code>, <code>catch</code>, and <code>throw</code>. Does not have a <code>finally</code> block; relies on RAII (Resource Acquisition Is Initialization) and destructors for automated cleanup.</p>
+                    </div>
+                    <div class="glass-card" style="border-top: 3px solid var(--secondary);">
+                        <h5>Java Exception Handling</h5>
+                        <p>Uses <code>try</code>, <code>catch</code>, <code>finally</code>, and <code>throw/throws</code>. Supports checked exceptions enforced at compile time.</p>
+                    </div>
+                </div>
+
+                <h4>Templates (Generic Programming)</h4>
+                <p>Templates allow writing generic code where data types are parameterized.</p>
+                <pre>template &lt;typename T&gt;
+T findMax(T a, T b) {
+    return (a > b) ? a : b;
+}</pre>
+                <button class="mark-read-btn" data-section-idx="5" onclick="markSectionRead('unit4', 5, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="glass-card" style="margin-top: 3rem; background: rgba(168, 85, 247, 0.05); border: 2px solid var(--purple);">
                 <h2 style="color: var(--purple);"><i class="fas fa-user-tie"></i> Placement FAQ: Programming</h2>
                 <ol style="padding-left: 1.5rem;">
-                    <li style="margin-bottom: 0.75rem;"><strong>What is a Memory Leak?</strong> (Occurs when programmers create memory in heap and forget to delete it).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Difference between Structure and Class?</strong> (In C++, default access in struct is public, in class it is private).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>Explain Static keyword in Java/C++.</strong> (Static members belong to class, not instance).</li>
-                    <li style="margin-bottom: 0.75rem;"><strong>What is a Friend Function (C++)?</strong> (A function that is NOT a member but can access private data of class).</li>
-                    <li>... more in Career Hub.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>What is a Memory Leak?</strong> Occurs when program allocates memory in heap and fails to delete it before losing reference.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Difference between Structure and Class?</strong> In C++, default access in structs is public, whereas in classes it is private.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>Explain the virtual destructor.</strong> A base class destructor must be virtual to ensure derived destructors are called when deleting derived objects via base pointers.</li>
+                    <li style="margin-bottom: 0.75rem;"><strong>What is a Friend Function?</strong> A non-member function granted access to a class's private/protected members.</li>
                 </ol>
             </div>
+
+            <!-- Quiz Section -->
+            <section id="quiz-unit4" class="mt-4"></section>
+            <div id="quiz-result-unit4" class="mt-4"></div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-4 p-4 text-muted border-top">
+                <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>

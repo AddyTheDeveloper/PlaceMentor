@@ -31,10 +31,31 @@
         </aside>
 
         <main class="main-content">
-            <header class="glass-card header-unit" style="border-left-color: var(--warning);">
-                <h1 class="mb-0">Unit 3: DBMS</h1>
-                <p class="hero-subtitle mb-0 mt-2">Data Sovereignty: SQL Mastery, Normalization, and Scalable Architecture.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card unit-page-header border-warning">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 3: DBMS</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Database Management Systems</h1>
+                        <p class="text-muted">Data Sovereignty: SQL Mastery, Normalization, and Scalable Architecture.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </header>
 
 
@@ -82,7 +103,14 @@
             <!-- 2. ER MODEL -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-project-diagram"></i> 2. ER Model (Design & Cardinality)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec2" onclick="toggleBookmark('unit3_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <p>Entity-Relationship Model is a high-level conceptual data model used for database design.</p>
@@ -94,15 +122,17 @@
                 </div>
                 
                 <h4>Key Components</h4>
-                <table class="tech-table">
-                    <thead><tr><th>Component</th><th>Visual Shape</th><th>Description</th></tr></thead>
-                    <tbody>
-                        <tr><td>Entity</td><td>Rectangle</td><td>Real-world object (e.g., Student, Teacher).</td></tr>
-                        <tr><td>Attribute</td><td>Ellipse</td><td>Properties of an entity (e.g., Name, ID).</td></tr>
-                        <tr><td>Relationship</td><td>Diamond</td><td>Link between entities.</td></tr>
-                        <tr><td>Weak Entity</td><td>Double Rectangle</td><td>Depends on a strong entity for existence.</td></tr>
-                    </tbody>
-                </table>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Component</th><th>Visual Shape</th><th>Description</th></tr></thead>
+                        <tbody>
+                            <tr><td>Entity</td><td>Rectangle</td><td>Real-world object (e.g., Student, Teacher).</td></tr>
+                            <tr><td>Attribute</td><td>Ellipse</td><td>Properties of an entity (e.g., Name, ID).</td></tr>
+                            <tr><td>Relationship</td><td>Diamond</td><td>Link between entities.</td></tr>
+                            <tr><td>Weak Entity</td><td>Double Rectangle</td><td>Depends on a strong entity for existence.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="glass-card" style="border-left: 5px solid var(--secondary);">
                     <h5>Cardinality Ratios</h5>
@@ -112,12 +142,23 @@
                         <li><strong>M:N (Many-to-Many):</strong> Many students enroll in many courses.</li>
                     </ul>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit3', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 3. RELATIONAL MODEL & KEYS -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-key"></i> 3. Relational Model & Database Keys</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec3" onclick="toggleBookmark('unit3_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box important">
@@ -141,12 +182,23 @@
                     <p><strong>Interview Gold:</strong> Can a table have multiple Primary Keys? <br>
                     <strong>Answer:</strong> No, only one. But it can have multiple Candidate Keys and one Composite Key (PK made of 2+ cols).</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit3', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 4. FUNCTIONAL DEPENDENCY -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-link"></i> 4. Functional Dependency (The Core)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec4" onclick="toggleBookmark('unit3_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box definition">
@@ -167,12 +219,23 @@
                         <p>Step 1: A+ = {A} <br> Step 2: A → B, so A+ = {A, B} <br> Step 3: B → C, so A+ = {A, B, C} <br> Step 4: C → D, so A+ = {A, B, C, D}</p>
                     </div>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit3', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 5. NORMALIZATION -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-broom"></i> 5. Normalization (Data Hygiene)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec5" onclick="toggleBookmark('unit3_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <p>Process of organizing data to reduce redundancy and improve data integrity.</p>
@@ -200,12 +263,23 @@
                 <div class="placement-tip">
                     <p><strong>Placement Trick:</strong> If a table has a single-attribute candidate key, it is automatically in <strong>2NF</strong>.</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit3', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 6. SQL MASTERY -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-database"></i> 6. SQL Deep Dive (Placement Focus)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec6" onclick="toggleBookmark('unit3_sec6')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>SQL Joins Visualizer</h4>
@@ -235,12 +309,23 @@
                     <code>COUNT(), SUM(), AVG(), MIN(), MAX()</code>
                     <p class="mt-2 small text-muted">Note: Aggregate functions ignore NULL values (except COUNT(*)).</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit3', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 7. TRANSACTIONS & ACID -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-bolt"></i> 7. Transactions & ACID Properties</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec7" onclick="toggleBookmark('unit3_sec7')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="acid-animation-container">
@@ -277,12 +362,23 @@
                         <li><strong>Serializable:</strong> Highest level, strict.</li>
                     </ol>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="5" onclick="markSectionRead('unit3', 5, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 8. LOCKS & DEADLOCKS -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-lock"></i> 8. Locks & Deadlock Prevention</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec8" onclick="toggleBookmark('unit3_sec8')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Concurrency Problems</h4>
@@ -310,12 +406,23 @@
                         <li><strong>Wound-Wait:</strong> Older wounds younger, younger waits.</li>
                     </ul>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="6" onclick="markSectionRead('unit3', 6, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 9. INDEXING & FILE ORG -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-search"></i> 9. Indexing & B+ Trees</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec9" onclick="toggleBookmark('unit3_sec9')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="info-box important">
@@ -337,12 +444,23 @@
                     <h5>B-Trees vs B+ Trees</h5>
                     <p>DBMS uses <strong>B+ Trees</strong> because data is stored only in leaf nodes, which are linked together for faster range queries.</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="7" onclick="markSectionRead('unit3', 7, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 10. TRANSACTION STATES & SCHEDULES -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-stream"></i> 10. Transaction States & Schedules</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit3_sec10" onclick="toggleBookmark('unit3_sec10')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Transaction States</h4>
@@ -362,7 +480,11 @@
                         <li><strong>Conflict Serializable:</strong> A non-serial schedule that is equivalent to a serial schedule by swapping non-conflicting actions.</li>
                     </ul>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="8" onclick="markSectionRead('unit3', 8, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
 
 

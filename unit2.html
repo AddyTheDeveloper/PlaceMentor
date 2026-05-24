@@ -32,11 +32,30 @@
         </aside>
 
         <main class="main-content">
-            <header class="glass-card header-unit text-center" style="border-top: 4px solid var(--primary); border-left: none;">
-                <h1 class="mb-2">Unit 2: Computer Networks</h1>
-                <p class="hero-subtitle mb-0">Placement Preparation: From Physical Bits to Application Logic.</p>
-                <div class="progress-container mt-4" style="max-width: 600px; margin-left: auto; margin-right: auto;">
-                    <div class="progress-bar" style="width: 100%;"></div>
+            <header class="glass-card unit-page-header border-success">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 2: CN</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Computer Networks</h1>
+                        <p class="text-muted">Placement Preparation: From Physical Bits to Application Logic.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
                 </div>
             </header>
 
@@ -89,15 +108,17 @@
                 </div>
 
                 <h4>Network Topologies</h4>
-                <table class="tech-table">
-                    <thead><tr><th>Topology</th><th>Working Principle</th><th>Best For</th></tr></thead>
-                    <tbody>
-                        <tr><td><strong>Mesh</strong></td><td>Every node connected to every other node. (n(n-1)/2 cables).</td><td>High reliability (Military).</td></tr>
-                        <tr><td><strong>Star</strong></td><td>All nodes connected to a central Hub/Switch.</td><td>Home/Office networks.</td></tr>
-                        <tr><td><strong>Bus</strong></td><td>Single backbone cable (bus). Terminators at ends.</td><td>Simple, old setups.</td></tr>
-                        <tr><td><strong>Ring</strong></td><td>Each node has two neighbors. Data flows in one direction.</td><td>Token passing networks.</td></tr>
-                    </tbody>
-                </table>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Topology</th><th>Working Principle</th><th>Best For</th></tr></thead>
+                        <tbody>
+                            <tr><td><strong>Mesh</strong></td><td>Every node connected to every other node. (n(n-1)/2 cables).</td><td>High reliability (Military).</td></tr>
+                            <tr><td><strong>Star</strong></td><td>All nodes connected to a central Hub/Switch.</td><td>Home/Office networks.</td></tr>
+                            <tr><td><strong>Bus</strong></td><td>Single backbone cable (bus). Terminators at ends.</td><td>Simple, old setups.</td></tr>
+                            <tr><td><strong>Ring</strong></td><td>Each node has two neighbors. Data flows in one direction.</td><td>Token passing networks.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <div class="placement-tip">
                     <h5><i class="fas fa-stopwatch"></i> Bandwidth, Throughput & Latency</h5>
@@ -143,7 +164,14 @@
             <!-- 2. OSI MODEL -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-layer-group"></i> 2. OSI Model (Very Important)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec2" onclick="toggleBookmark('unit2_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <p>The Open Systems Interconnection (OSI) model is a conceptual framework with 7 layers.</p>
@@ -172,14 +200,16 @@
                 </div>
 
                 <h4>Devices at Each Layer</h4>
-                <table class="tech-table">
-                    <thead><tr><th>Layer</th><th>Device</th><th>Function</th></tr></thead>
-                    <tbody>
-                        <tr><td>Physical</td><td>Hub, Repeater</td><td>Bits broadcasting, signal regeneration.</td></tr>
-                        <tr><td>Data Link</td><td>Switch, Bridge</td><td>MAC based forwarding, collision domain separation.</td></tr>
-                        <tr><td>Network</td><td>Router, L3 Switch</td><td>IP based routing, broadcast domain separation.</td></tr>
-                    </tbody>
-                </table>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Layer</th><th>Device</th><th>Function</th></tr></thead>
+                        <tbody>
+                            <tr><td>Physical</td><td>Hub, Repeater</td><td>Bits broadcasting, signal regeneration.</td></tr>
+                            <tr><td>Data Link</td><td>Switch, Bridge</td><td>MAC based forwarding, collision domain separation.</td></tr>
+                            <tr><td>Network</td><td>Router, L3 Switch</td><td>IP based routing, broadcast domain separation.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h4>OSI vs TCP/IP Model</h4>
                 <div class="tech-table-wrapper">
@@ -193,12 +223,23 @@
                         </tbody>
                     </table>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit2', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 3. TCP/IP MODEL -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-project-diagram"></i> 3. TCP/IP Model</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec3" onclick="toggleBookmark('unit2_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="compare-grid">
@@ -254,12 +295,23 @@
                 <div class="placement-tip">
                     <p><strong>Why 3-way?</strong> To ensure both sides can send and receive. It prevents "Delayed Duplicate" packets from creating ghost connections.</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit2', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 4. DATA LINK LAYER -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-link"></i> 4. Data Link Layer</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec4" onclick="toggleBookmark('unit2_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Framing & MAC Addressing</h4>
@@ -321,23 +373,36 @@
                     <li><strong>Stop-and-Wait:</strong> Efficiency = 1 / (1 + 2a). Safe but slow.</li>
                     <li><strong>Sliding Window:</strong> Allows multiple frames in flight. (Go-Back-N, Selective Repeat).</li>
                 </ul>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit2', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 5. NETWORK LAYER -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-route"></i> 5. Network Layer (High Priority)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec5" onclick="toggleBookmark('unit2_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>IP Addressing (IPv4)</h4>
-                <table class="tech-table">
-                    <thead><tr><th>Class</th><th>Range</th><th>Net/Host Bits</th><th>Format</th></tr></thead>
-                    <tbody>
-                        <tr><td>A</td><td>1 - 126</td><td>8 / 24</td><td>N.H.H.H</td></tr>
-                        <tr><td>B</td><td>128 - 191</td><td>16 / 16</td><td>N.N.H.H</td></tr>
-                        <tr><td>C</td><td>192 - 223</td><td>24 / 8</td><td>N.N.N.H</td></tr>
-                    </tbody>
-                </table>
+                <div class="tech-table-wrapper">
+                    <table class="tech-table">
+                        <thead><tr><th>Class</th><th>Range</th><th>Net/Host Bits</th><th>Format</th></tr></thead>
+                        <tbody>
+                            <tr><td>A</td><td>1 - 126</td><td>8 / 24</td><td>N.H.H.H</td></tr>
+                            <tr><td>B</td><td>128 - 191</td><td>16 / 16</td><td>N.N.H.H</td></tr>
+                            <tr><td>C</td><td>192 - 223</td><td>24 / 8</td><td>N.N.N.H</td></tr>
+                        </tbody>
+                    </table>
+                </div>
                 
                 <div class="placement-tip">
                     <h5><i class="fas fa-file-invoice"></i> IPv4 Header Fields</h5>
@@ -366,12 +431,23 @@
                 <div class="info-box important">
                     <p><strong>ARP (L2.5):</strong> IP → MAC. <br> <strong>ICMP:</strong> Reporting errors (Ping/Traceroute).</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit2', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 6. TRANSPORT LAYER -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-shipping-fast"></i> 6. Transport Layer</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec6" onclick="toggleBookmark('unit2_sec6')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Congestion Control</h4>
@@ -385,12 +461,23 @@
                 <div class="info-box interview">
                     <p><strong>Port Numbers:</strong> Well-known ports are 0-1023. Example: 80 (HTTP), 443 (HTTPS), 53 (DNS).</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit2', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 7. APPLICATION LAYER -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-desktop"></i> 7. Application Layer</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec7" onclick="toggleBookmark('unit2_sec7')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>What happens when you type a URL? (Master Question)</h4>
@@ -417,12 +504,23 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="5" onclick="markSectionRead('unit2', 5, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 8. NETWORK SECURITY BASICS -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-shield-alt"></i> 8. Network Security Basics</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec8" onclick="toggleBookmark('unit2_sec8')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <h4>Encryption Types</h4>
@@ -435,12 +533,23 @@
                     - <strong>MiTM:</strong> Attacker sits between sender and receiver. <br>
                     - <strong>DDoS:</strong> Overwhelming a server with traffic from multiple sources.</p>
                 </div>
-            </div>
+           
+                <button class="mark-read-btn" data-section-idx="6" onclick="markSectionRead('unit2', 6, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+             </div>
 
             <!-- 9. IMPORTANT NUMERICALS -->
             <div class="collapsible-header">
                 <h3><i class="fas fa-calculator"></i> 9. Important Numericals</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit2_sec9" onclick="toggleBookmark('unit2_sec9')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+                </i>
             </div>
             <div class="collapsible-content">
                 <div class="numerical-box">
@@ -453,6 +562,18 @@
                     <h6>2. Subnetting Problem</h6>
                     <p><strong>Q:</strong> Given 192.168.1.0/26, find number of hosts and mask.</p>
                     <p><strong>A:</strong> /26 means 26 net bits, 6 host bits. <br> Hosts = 2<sup>6</sup> - 2 = 62 usable hosts. <br> Mask = 255.255.255.192</p>
+                </div>
+                <div class="numerical-box" style="border-top: 3px solid var(--primary);">
+                    <h6><i class="fas fa-calculator"></i> Interactive Subnet Calculator</h6>
+                    <div class="subnet-calculator">
+                        <div class="subnet-input-group">
+                            <label for="cidr-in">CIDR Value (e.g. 24):</label>
+                            <input type="number" id="cidr-in" class="subnet-input" value="24" min="0" max="32" oninput="calcSubnet()">
+                        </div>
+                        <div id="subnet-out">
+                            <!-- Dynamic output from calcSubnet() -->
+                        </div>
+                    </div>
                 </div>
                 <div class="numerical-box">
                     <h6>3. Hamming Code (7, 4)</h6>
@@ -515,12 +636,21 @@
                     </div>
                 </div>
 
-                <!-- Footer Copyright (Optional) -->
-                <footer class="text-center mt-4 p-4 text-muted border-top">
-                    <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
-                </footer>
-            </main>
-        </div>
+                <button class="mark-read-btn" data-section-idx="8" onclick="markSectionRead('unit2', 8, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- Quiz Section -->
+            <section id="quiz-unit2" class="mt-4"></section>
+            <div id="quiz-result-unit2" class="mt-4"></div>
+
+            <!-- Footer Copyright (Optional) -->
+            <footer class="text-center mt-4 p-4 text-muted border-top">
+                <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>
@@ -583,6 +713,7 @@
                 </div>`;
         }
         document.addEventListener('DOMContentLoaded', () => {
+             if (window.calcSubnet) calcSubnet();
              const quizData = [
                 { question: "Which layer handles MAC addresses?", options: ["Network", "Data Link", "Physical", "Transport"], answer: 1 },
                 { question: "Port number for DNS?", options: ["80", "53", "443", "21"], answer: 1 },

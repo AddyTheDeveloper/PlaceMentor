@@ -30,138 +30,93 @@
             </div>
         </aside>
 
+        <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card header-unit" style="border-left-color: var(--secondary);">
-                <h1 class="mb-0">Unit 6: Algorithms</h1>
-                <p class="hero-subtitle mb-0 mt-2">Strategic Logic: Efficiency Analysis and Advanced Problem-Solving Paradigms.</p>
-                <div class="progress-container mt-4"><div class="progress-bar"></div></div>
+            <header class="glass-card unit-page-header border-purple">
+                <div class="header-nav">
+                    <a href="index.html">Dashboard</a>
+                    <i class="fas fa-chevron-right"></i>
+                    <span>Unit 6: Algorithms</span>
+                </div>
+                <div class="unit-header-content">
+                    <div class="unit-header-left">
+                        <h1 class="mb-0">Algorithms</h1>
+                        <p class="text-muted">Strategic Logic: Asymptotic Complexity, Sorting, Paradigm Execution, and Complexity Classes.</p>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, terms, or snippets..." autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="unit-header-right">
+                        <div class="flex-between mb-2">
+                            <span class="progress-label">Unit Progress</span>
+                            <span class="progress-text">0% Complete</span>
+                        </div>
+                        <div class="progress-container">
+                            <div class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
             </header>
 
             <!-- 1. Asymptotic Notation -->
-            <div class="collapsible-header">
+            <div class="collapsible-header active">
                 <h3><i class="fas fa-chart-line"></i> 1. Asymptotic Analysis (The Math of Code)</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec1" onclick="toggleBookmark('unit6_sec1')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
-            <div class="collapsible-content">
+            <div class="collapsible-content active">
                 <div class="info-box formula">
                     <p><strong>Master Theorem:</strong> T(n) = aT(n/b) + f(n)</p>
                     <ul style="font-size: 0.9rem;">
-                        <li><strong>Case 1:</strong> If f(n) < n^(log_b a), then T(n) = Θ(n^(log_b a)).</li>
-                        <li><strong>Case 2:</strong> If f(n) = n^(log_b a), then T(n) = Θ(n^(log_b a) * log n).</li>
-                        <li><strong>Case 3:</strong> If f(n) > n^(log_b a), then T(n) = Θ(f(n)).</li>
+                        <li><strong>Case 1:</strong> If f(n) &lt; n<sup>log<sub>b</sub>a</sup>, then T(n) = &Theta;(n<sup>log<sub>b</sub>a</sup>).</li>
+                        <li><strong>Case 2:</strong> If f(n) = n<sup>log<sub>b</sub>a</sup>, then T(n) = &Theta;(n<sup>log<sub>b</sub>a</sup> * log n).</li>
+                        <li><strong>Case 3:</strong> If f(n) &gt; n<sup>log<sub>b</sub>a</sup>, then T(n) = &Theta;(f(n)).</li>
                     </ul>
                 </div>
                 <table class="tech-table">
-                    <thead><tr><th>Notation</th><th>Meaning</th><th>Rate of Growth</th></tr></thead>
+                    <thead><tr><th>Notation</th><th>Meaning</th><th>Rate of Growth Description</th></tr></thead>
                     <tbody>
-                        <tr><td>O(1)</td><td>Constant</td><td>Fastest. Doesn't depend on input.</td></tr>
-                        <tr><td>O(log n)</td><td>Logarithmic</td><td>Very fast. (e.g., Binary Search).</td></tr>
-                        <tr><td>O(n)</td><td>Linear</td><td>Proportional to input size.</td></tr>
-                        <tr><td>O(n log n)</td><td>Log-linear</td><td>Efficient sorting (e.g., Merge Sort).</td></tr>
-                        <tr><td>O(n²)</td><td>Quadratic</td><td>Slower. (e.g., Bubble Sort).</td></tr>
+                        <tr><td>O(1)</td><td>Constant</td><td>Fastest. Independent of input size.</td></tr>
+                        <tr><td>O(log n)</td><td>Logarithmic</td><td>Highly efficient (e.g., Binary Search).</td></tr>
+                        <tr><td>O(n)</td><td>Linear</td><td>Directly proportional to input size.</td></tr>
+                        <tr><td>O(n log n)</td><td>Log-linear</td><td>Efficient comparison sorts (e.g., Merge Sort).</td></tr>
+                        <tr><td>O(n²)</td><td>Quadratic</td><td>Slower. Typical of nested loops (e.g., Bubble Sort).</td></tr>
                     </tbody>
                 </table>
+                <button class="mark-read-btn" data-section-idx="0" onclick="markSectionRead('unit6', 0, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
-            <!-- 2. Sorting Comparison -->
+            <!-- 2. Sorting & Divide-and-Conquer -->
             <div class="collapsible-header">
-                <h3><i class="fas fa-sort-amount-down"></i> 2. Sorting Deep Dive: Comparison</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
+                <h3><i class="fas fa-sort-amount-down"></i> 2. Sorting & Divide-and-Conquer</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec2" onclick="toggleBookmark('unit6_sec2')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
             </div>
             <div class="collapsible-content">
                 <table class="tech-table">
-                    <thead><tr><th>Algorithm</th><th>Best Case</th><th>Average/Worst</th><th>Space</th><th>Stable?</th></tr></thead>
+                    <thead><tr><th>Algorithm</th><th>Best Case</th><th>Average / Worst</th><th>Space Complexity</th><th>Stable?</th></tr></thead>
                     <tbody>
-                        <tr><td>Bubble Sort</td><td>O(n)</td><td>O(n²)</td><td>O(1)</td><td>Yes</td></tr>
+                        <tr><td>Bubble Sort</td><td>O(n) (optimized)</td><td>O(n²)</td><td>O(1)</td><td>Yes</td></tr>
                         <tr><td>Merge Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(n)</td><td>Yes</td></tr>
-                        <tr><td>Quick Sort</td><td>O(n log n)</td><td>O(n²)</td><td>O(log n)</td><td>No</td></tr>
+                        <tr><td>Quick Sort</td><td>O(n log n)</td><td>O(n²) (skewed partitions)</td><td>O(log n) stack</td><td>No</td></tr>
                         <tr><td>Heap Sort</td><td>O(n log n)</td><td>O(n log n)</td><td>O(1)</td><td>No</td></tr>
                     </tbody>
                 </table>
-                <section class="glass-card">
-                    <h4>Interactive Sorting Visualizer</h4>
-                    <div id="sort-cont" class="sort-visualizer"></div>
-                    <button class="btn btn-primary" onclick="startSort()">Visualize Bubble Sort</button>
-                    <button class="btn" onclick="resetSort()">Shuffle</button>
-                </section>
-            </div>
-
-            <!-- 3. DP & Greedy -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-puzzle-piece"></i> 3. Advanced Paradigms: DP vs Greedy</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <div class="benefit-grid mt-2 text-left">
-                    <div class="normalization-step mb-0" style="border-color: var(--secondary);">
-                        <h4>Dynamic Programming</h4>
-                        <ul>
-                            <li>Solves sub-problems once.</li>
-                            <li><strong>Memoization:</strong> Top-down (Recursion).</li>
-                            <li><strong>Tabulation:</strong> Bottom-up (Iteration).</li>
-                            <li>Example: Knapsack, LCS.</li>
-                        </ul>
-                    </div>
-                    <div class="normalization-step mb-0" style="border-color: var(--success);">
-                        <h4>Greedy Strategy</h4>
-                        <ul>
-                            <li>Makes the local optimal choice.</li>
-                            <li>Doesn't re-examine choices.</li>
-                            <li>Fast but not always optimal.</li>
-                            <li>Example: Huffman, Dijkstra.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <h4>4. Shortest Paths: Dijkstra Trace</h4>
-                <div class="glass-card" style="font-size: 0.9rem;">
-                    <p><strong>Goal:</strong> Find shortest path from Source S to all nodes.</p>
-                    <ol>
-                        <li><strong>Init:</strong> Dist[S]=0, Dist[Others]=∞. Min-Priority Queue <code>PQ</code> holds (0, S).</li>
-                        <li><strong>Step:</strong> Pop (d, u) from PQ.</li>
-                        <li><strong>Relax:</strong> For each neighbor v of u: <code>if Dist[u] + weight(u,v) < Dist[v]</code>, then update <code>Dist[v]</code> and push to PQ.</li>
-                        <li>Repeat until PQ is empty.</li>
-                    </ol>
-                    <p><em>Complexity:</em> O((V+E) log V).</p>
-                </div>
-                
-                <h4>5. KMP String Matching</h4>
-                <div class="info-box definition">
-                    <p><strong>P:</strong> Solvable in Polynomial time (e.g., Sorting).</p>
-                    <p><strong>NP:</strong> Verifiable in Polynomial time (e.g., Sudoku).</p>
-                    <p><strong>NP-Hard:</strong> At least as hard as the hardest problems in NP.</p>
-                    <p><strong>NP-Complete:</strong> Problems that are both in NP and NP-Hard (e.g., TSP, Knapsack).</p>
-                </div>
-                <div class="glass-card" style="border-left: 5px solid var(--primary); background: rgba(var(--primary-rgb), 0.05); margin-top: 1rem;">
-                    <h5><i class="fas fa-search-plus"></i> Placement Case Study: DP vs Greedy</h5>
-                    <p><strong>Question:</strong> "Can the 0/1 Knapsack problem be solved optimally with a Greedy approach?"</p>
-                    <p><strong>Answer:</strong> No. Greedy only works for the <em>Fractional</em> Knapsack problem. For 0/1, you must use Dynamic Programming to ensure you find the global maximum value.</p>
-                </div>
-                <div class="glass-card" style="border-left: 5px solid var(--purple); background: rgba(168, 85, 247, 0.05); margin-top: 1rem;">
-                    <h5>Longest Common Subsequence (LCS) Trace</h5>
-                    <p>To find LCS of "ABCDE" and "ACE": <br>
-                    1. If chars match: <code>1 + LCS(rest)</code> <br>
-                    2. If chars mismatch: <code>Max(LCS(s1, rest2), LCS(rest1, s2))</code> <br>
-                    <strong>Time:</strong> O(m*n) with DP. <strong>Space:</strong> O(m*n).</p>
-                </div>
-                <div class="info-box formula">
-                    <p><strong>Rabin-Karp Algorithm:</strong> String matching using <em>Hashing</em>. Rolling hash allows O(n+m) average complexity.</p>
-                </div>
-            </div>
-
-            <!-- 4. Backtracking -->
-            <div class="collapsible-header">
-                <h3><i class="fas fa-undo"></i> 4. Backtracking: Recursive Search</h3>
-                <i class="fas fa-chevron-down chevron-icon"></i>
-            </div>
-            <div class="collapsible-content">
-                <div class="info-box definition">
-                    <p><strong>Divide and Conquer:</strong> An algorithmic paradigm that solves a problem by breaking it into smaller sub-problems, solving them, and merging the results.</p>
-                </div>
 
                 <h4>Visual Learning: Merge Sort Flow (Divide & Conquer)</h4>
                 <div class="diagram-container">
-                    <div class="visual-node" style="background: var(--primary);">[38, 27, 43, 3]</div>
+                    <div class="visual-node" style="background: var(--primary);">Unsorted: [38, 27, 43, 3]</div>
                     <div class="visual-arrow"></div>
                     <div style="display: flex; gap: 2rem;">
                         <div class="visual-node" style="background: var(--info);">[38, 27]</div>
@@ -173,27 +128,185 @@
                         <div class="visual-node" style="background: var(--success);">[3, 43]</div>
                     </div>
                     <div class="visual-arrow"></div>
-                    <div class="visual-node" style="background: var(--warning);">Merged: [3, 27, 38, 43]</div>
+                    <div class="visual-node" style="background: var(--warning);">Merged Sorted: [3, 27, 38, 43]</div>
                 </div>
 
-                <div class="info-box formula">
-                    <p><strong>Standard Problems:</strong> N-Queens, Sudoku Solver, Rat in a Maze, Subset Sum.</p>
-                </div>
+                <section class="glass-card">
+                    <h4>Interactive Sorting Visualizer (Bubble Sort)</h4>
+                    <div id="sort-cont" class="sort-visualizer"></div>
+                    <button class="btn btn-primary" onclick="startSort()">Visualize Bubble Sort</button>
+                    <button class="btn" onclick="resetSort()">Shuffle</button>
+                </section>
+                <button class="mark-read-btn" data-section-idx="1" onclick="markSectionRead('unit6', 1, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
             </div>
 
-             <!-- Interview Qs -->
-             <div class="glass-card benefit-card border-purple mt-4">
+            <!-- 3. DP & Greedy -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-puzzle-piece"></i> 3. Advanced Paradigms: DP vs Greedy</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec3" onclick="toggleBookmark('unit6_sec3')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="benefit-grid mt-2 text-left">
+                    <div class="normalization-step mb-0" style="border-color: var(--secondary);">
+                        <h4>Dynamic Programming (DP)</h4>
+                        <p>Solves sub-problems once and stores their solutions to avoid redundant calculations. Requires overlapping sub-problems and optimal substructure.</p>
+                        <ul>
+                            <li><strong>Memoization:</strong> Top-down approach (Recursion + Cache).</li>
+                            <li><strong>Tabulation:</strong> Bottom-up approach (Iteration table).</li>
+                            <li>Examples: Longest Common Subsequence (LCS), 0/1 Knapsack, Matrix Chain Multiplication.</li>
+                        </ul>
+                    </div>
+                    <div class="normalization-step mb-0" style="border-color: var(--success);">
+                        <h4>Greedy Strategy</h4>
+                        <p>Makes the local optimal choice at each stage in hopes of finding the global optimum. Fast but doesn't guarantee global optimality for all problems.</p>
+                        <ul>
+                            <li>Does not backtrack or re-evaluate past decisions.</li>
+                            <li>Examples: Huffman Coding, Fractional Knapsack, Dijkstra's Shortest Path, Prim's/Kruskal's MST.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="glass-card" style="border-left: 5px solid var(--primary); background: rgba(var(--primary-rgb), 0.05); margin-top: 1.5rem;">
+                    <h5>Placement Case Study: 0/1 Knapsack vs Fractional Knapsack</h5>
+                    <p><strong>0/1 Knapsack:</strong> Items cannot be split. Greedy fails because taking the highest value-to-weight ratio item might leave unused capacity that could be filled better. Must use **DP**.</p>
+                    <p><strong>Fractional Knapsack:</strong> Items can be divided. **Greedy** works optimally by sorting items by value/weight ratio and taking as much as possible.</p>
+                </div>
+
+                <div class="glass-card" style="border-left: 5px solid var(--purple); background: rgba(168, 85, 247, 0.05); margin-top: 1rem;">
+                    <h5>Longest Common Subsequence (LCS) Trace</h5>
+                    <p>Matches character sequences between strings (e.g., "ABCDE" and "ACE").</p>
+                    <ul>
+                        <li>If characters match: <code>LCS[i][j] = 1 + LCS[i-1][j-1]</code></li>
+                        <li>If mismatch: <code>LCS[i][j] = Max(LCS[i-1][j], LCS[i][j-1])</code></li>
+                    </ul>
+                    <p><strong>Complexity:</strong> O(m*n) time and space using a 2D DP matrix.</p>
+                </div>
+
+                <div class="glass-card">
+                    <h5>Dijkstra's Algorithm Trace</h5>
+                    <p>Finds the shortest path from a single source vertex to all other vertices in a weighted graph with non-negative edge weights.</p>
+                    <ol>
+                        <li>Initialize distances: <code>Dist[Source] = 0</code>, <code>Dist[others] = &infin;</code>. Push source to Min-Heap PQ.</li>
+                        <li>Extract minimum distance node <code>u</code> from PQ.</li>
+                        <li>Relax all edges: For each neighbor <code>v</code> of <code>u</code>, <code>if Dist[u] + weight(u,v) &lt; Dist[v]</code>, then update <code>Dist[v] = Dist[u] + weight(u,v)</code> and push to PQ.</li>
+                        <li>Repeat until PQ is empty. Complexity: O((V+E) log V).</li>
+                    </ol>
+                </div>
+                <button class="mark-read-btn" data-section-idx="2" onclick="markSectionRead('unit6', 2, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 4. Backtracking -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-undo"></i> 4. Backtracking (Recursive Search)</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec4" onclick="toggleBookmark('unit6_sec4')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box definition">
+                    <p><strong>Backtracking:</strong> A refinement of brute-force search. It builds candidates recursively and abandons a candidate ("backtracks") as soon as it determines the candidate cannot possibly lead to a valid solution.</p>
+                </div>
+                <div class="info-box formula">
+                    <p><strong>Standard Problems:</strong> N-Queens (placing queens on chessboard without conflicts), Sudoku Solver, Rat in a Maze, Subset Sum.</p>
+                </div>
+                <button class="mark-read-btn" data-section-idx="3" onclick="markSectionRead('unit6', 3, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 5. String Matching -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-font"></i> 5. String Matching Algorithms</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec5" onclick="toggleBookmark('unit6_sec5')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="info-box definition">
+                    <p><strong>Knuth-Morris-Pratt (KMP) Algorithm:</strong> String matching in O(n + m) time. Uses a prefix function (LPS array) to bypass redundant comparisons on mismatch, eliminating back-tracking on the text pointer.</p>
+                </div>
+                <div class="info-box formula">
+                    <p><strong>Rabin-Karp Algorithm:</strong> Uses a rolling hash function to search for pattern matches in O(n + m) average time. Sped up by modulo arithmetic to prevent integer overflow.</p>
+                </div>
+                <button class="mark-read-btn" data-section-idx="4" onclick="markSectionRead('unit6', 4, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- 6. Complexity Theory -->
+            <div class="collapsible-header">
+                <h3><i class="fas fa-brain"></i> 6. Complexity Theory (P vs NP)</h3>
+                <div class="header-actions">
+                    <button class="bookmark-btn" data-bookmark-id="unit6_sec6" onclick="toggleBookmark('unit6_sec6')">
+                        <i class="far fa-bookmark"></i>
+                    </button>
+                    <i class="fas fa-chevron-down chevron-icon"></i>
+                </div>
+            </div>
+            <div class="collapsible-content">
+                <div class="compare-grid">
+                    <div class="compare-card">
+                        <h5>P (Polynomial Time)</h5>
+                        <p>Problems that can be solved by a deterministic Turing machine in polynomial time O(n<sup>k</sup>). (e.g., Searching, Sorting).</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5>NP (Nondeterministic Polynomial Time)</h5>
+                        <p>Problems whose solutions can be verified in polynomial time. (e.g., Sudoku, Integer Factorization).</p>
+                    </div>
+                </div>
+                <div class="compare-grid mt-4">
+                    <div class="compare-card">
+                        <h5>NP-Hard</h5>
+                        <p>Problems that are at least as hard as the hardest problems in NP. They do not have to be in NP themselves. (e.g., Halting Problem).</p>
+                    </div>
+                    <div class="compare-card">
+                        <h5>NP-Complete</h5>
+                        <p>The intersection of NP and NP-Hard. These are the hardest problems in NP. If one is solved in polynomial time, all can be solved. (e.g., Traveling Salesperson (TSP), 0/1 Knapsack).</p>
+                    </div>
+                </div>
+                <button class="mark-read-btn" data-section-idx="5" onclick="markSectionRead('unit6', 5, this)">
+                    <i class="far fa-check-circle"></i> Mark as Read
+                </button>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="glass-card benefit-card border-purple mt-4">
                 <h2 class="color-purple text-center"><i class="fas fa-user-tie"></i> Placement FAQ: Algorithms</h2>
                 <div class="text-left mt-4">
                     <ol class="pl-4">
-                        <li class="mb-2"><strong>When to use DP vs Recursion?</strong> (Use DP when sub-problems overlap).</li>
-                        <li class="mb-2"><strong>Compare QuickSort and MergeSort.</strong> (Merge is stable and consistent; Quick is faster in-place but has O(n²) worst case).</li>
-                        <li class="mb-2"><strong>What is the Master Theorem?</strong> (A formulaic way to find time complexity of divide-and-conquer recurrences).</li>
-                        <li class="mb-2"><strong>Explain Dijkstra's Algorithm.</strong> (Greedy algorithm to find shortest path from a single source in weighted graph).</li>
-                        <li>... more in Career Hub.</li>
+                        <li class="mb-2"><strong>When should I use DP vs Recursion/Memoization?</strong> Use DP when sub-problems overlap and you need optimal substructure. Bottom-up tabulation is often preferred over recursion due to call stack overhead.</li>
+                        <li class="mb-2"><strong>Compare QuickSort and MergeSort.</strong> MergeSort is stable and operates in guaranteed O(n log n) time but requires O(n) helper space. QuickSort is unstable, runs faster in-place with O(log n) stack, but degrades to O(n²) in the worst case (unless randomized pivot is used).</li>
+                        <li class="mb-2"><strong>What is the Master Theorem?</strong> A shortcut formula for solving recurrence relations of the form: <code>T(n) = aT(n/b) + f(n)</code>.</li>
+                        <li class="mb-2"><strong>Explain Dijkstra's Algorithm limits.</strong> It cannot handle negative edge weights because it assumes greedily visited nodes are finalized, which is false if negative weights decrease path costs later (use Bellman-Ford instead).</li>
                     </ol>
                 </div>
             </div>
+
+            <!-- Quiz Section -->
+            <section id="quiz-unit6" class="mt-4"></section>
+            <div id="quiz-result-unit6" class="mt-4"></div>
+
+            <!-- Footer -->
+            <footer class="text-center mt-4 p-4 text-muted border-top">
+                <p>&copy; 2026 PlaceMentor. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
 
     <script src="script.js?v=2.1.1"></script>
     <script>
@@ -204,7 +317,9 @@
         }
         function renderBars(activeIdx = -1) {
             const cont = document.getElementById('sort-cont');
-            cont.innerHTML = arr.map((h, i) => `<div class="bar" style="height: ${h}px; background: ${i === activeIdx ? '#f59e0b' : ''}"></div>`).join('');
+            if (cont) {
+                cont.innerHTML = arr.map((h, i) => `<div class="bar" style="height: ${h}px; background: ${i === activeIdx ? '#f59e0b' : ''}"></div>`).join('');
+            }
         }
         async function startSort() {
             for(let i=0; i<arr.length; i++) {

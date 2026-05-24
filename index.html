@@ -75,24 +75,34 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <header class="glass-card flex-between">
-                <div class="header-left">
-                    <h1 class="mb-0">Dashboard</h1>
-                    <div class="search-wrapper mt-4">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="search-input" placeholder="Search topics..." class="btn w-full">
+            <header class="glass-card dashboard-header">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div class="dashboard-title-area">
+                            <h1 class="mb-0">Dashboard</h1>
+                            <p class="text-muted" style="font-size: 0.9rem;">Welcome back, Aditya! Keep up the prep.</p>
+                        </div>
+                        <div class="search-wrapper mt-4">
+                            <i class="fas fa-search"></i>
+                            <input type="text" id="search-input" placeholder="Search topics, units, or terms..." autocomplete="off">
+                        </div>
                     </div>
-                </div>
-                <div class="header-right text-right">
-                    <button class="btn btn-primary w-full" onclick="downloadNotes()">
-                        <i class="fas fa-file-download"></i> Download All Notes
-                    </button>
-                    <div class="flex-between mt-2">
-                        <span class="progress-label">Overall Progress</span>
-                        <span class="progress-text">0% Complete</span>
-                    </div>
-                    <div class="progress-container">
-                        <div class="progress-bar"></div>
+                    <div class="header-right">
+                        <div class="dashboard-actions">
+                            <button class="btn btn-primary" onclick="downloadNotes()">
+                                <i class="fas fa-file-download"></i> Download All Notes
+                            </button>
+                        </div>
+                        <div class="progress-section mt-4">
+                            <div class="flex-between mb-2">
+                                <span class="progress-label">Overall Progress</span>
+                                <span class="progress-text">0% Complete</span>
+                            </div>
+                            <div class="progress-container">
+                                <div class="progress-bar"></div>
+                            </div>
+                            <p class="text-muted" style="font-size: 0.75rem; text-align: right;">Complete quizzes to increase progress.</p>
+                        </div>
                     </div>
                 </div>
             </header>
@@ -180,6 +190,14 @@
                     </a>
                 </div>
             </div>
+            <!-- Bookmarked Topics Section -->
+            <div class="glass-card" id="bookmarks-section" style="display: none; border-left: 5px solid var(--primary);">
+                <h3><i class="fas fa-bookmark color-primary"></i> Bookmarked Topics</h3>
+                <div id="bookmarks-list" class="glossary-grid">
+                    <!-- Dynamic list of bookmarked links -->
+                </div>
+            </div>
+
             <h2 class="mt-4">Glossary of Terms</h2>
             <div class="glass-card glossary-grid">
                 <div class="glossary-item"><strong>Kernel:</strong> Core of the OS that manages hardware.</div>
